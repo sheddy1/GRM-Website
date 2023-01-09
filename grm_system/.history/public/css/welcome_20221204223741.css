@@ -1,0 +1,1751 @@
+.header{
+    background-color: #627C33;
+    max-width: 100%;
+    max-height: 80px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.header_wblogo{
+    max-width: 60px;
+    max-height: 60px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+}
+
+.header_naslogo{
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 15px;
+    left: 110px;
+}
+
+.header_logo_name{
+    position: absolute;
+    left: 180px;
+    top: 34px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(9px, 1px + 7vw,25px);
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ul{
+    position: absolute;
+    right: 70px;
+    top: 7px;
+
+
+}
+
+ul li{
+    display: inline-block;
+    margin: 0 15px;
+    line-height: 40px;
+}
+
+ul li a{
+    position: relative;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: (9px, 1px + 7vw,17px);
+    color: #FFFFFF;
+}
+
+*{
+    padding: 0;
+    list-style: none;
+}
+
+ul li a:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s linear;
+}
+
+ul li a:hover:before{
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+label #btn,
+label #cancel{
+    color: white;
+    font-size: 30px;
+    max-width: 40px;
+    max-height: 40px;
+    float: right;
+    line-height: 80px;
+    margin-right: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+/* end of header code */
+
+
+/* scroller code */
+
+.scroller{
+    background: #d5faab;
+    width: 100%;
+    height: 380px;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+}
+
+.scroller_wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .content_slide1{
+    width: 100%;
+    height: 100%;
+    background: url("img/slider_image1.png");
+  }
+
+  .content_slide1_image{
+        width: 100%;
+        height: 100%;
+  }
+
+  .content_slide1_intro{
+    width: 200px;
+    height: 30px;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 50px;
+    left: 120px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    color: #FFFFFF;
+    text-align: left;
+  }
+
+  .content_slide1_desc{
+    width: 600px;
+    height: 160px;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 100px;
+    left: 120px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    color: #FFFFFF;
+    text-align: left;
+  }
+
+  .content_slide1_btn{
+    width: 120px;
+    height: 30px;
+    background-color: #627C33;
+    position: absolute;
+    top: 250px;
+    left: 120px;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+
+    /* end of scroller code */
+
+    /* record code */
+
+    .record{
+        width: 100%;
+        height: 100px;
+        /* background-color: aquamarine; */
+        position: absolute;
+        top:500px;
+        left: 0px;
+    }
+
+    .record_recorded{
+        height: 100%;
+        width: 200px;
+    /* background-color: #f5f7f2; */
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    }
+
+    .record_resolved{
+        height: 100%;
+        width: 200px;
+    /* background-color: #f5f7f2; */
+    position: absolute;
+    top: 0px;
+    left: 600px;
+    }
+
+    .record_review{
+        height: 100%;
+        width: 200px;
+    /* background-color: #f5f7f2; */
+    position: absolute;
+    top: 0px;
+    left: 900px;
+    }
+
+    .record_recorded_img{
+        width: 65px;
+        height: 65px;
+        position: absolute;
+        top: 20px;
+    }
+
+    .record_recorded_no{
+        position: absolute;
+        width: 78px;
+        height: 50px;
+        left: 85px;
+        top: 4px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 40px;
+        text-align: center;
+        color: #627C33;
+    }
+
+    .record_recorded_des{
+        /* background-color: #93cef0; */
+        width: 120px;
+        height: 30px;
+        position: absolute;
+        left: 70px;
+        bottom: 15px;
+        text-align: center;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+        color: #627C33;
+    }
+
+    /* record code end */
+
+    /* about component code */
+    .about{
+                width: 100%;
+                height: 250px;
+                /* background-color: #d5faab; */
+                position: absolute;
+                top: 650px;
+                left: 0px;
+            }
+
+    .about_main{
+                /* background: rgb(134, 172, 216); */
+                height: 100%;
+                width: 400px;
+                position: absolute;
+                top: 0px;
+                left: 200px;
+            }
+
+    .about_nassp{
+                /* background: rgb(134, 172, 216); */
+                height: 100%;
+                width: 400px;
+                position: absolute;
+                top: 0px;
+                right: 200px;
+            }
+
+    .about_main_intro{
+        /* ABOUT */
+
+    position: absolute;
+    left: 20px;
+    top: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    }
+
+    .about_main_desc{
+    position: absolute;
+    width: 80%;
+    height: 115px;
+    left: 20px;
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 17px;
+    color: #000000;
+    }
+
+    .about_main_btn{
+        width: 100px;
+        height: 36px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #627C33;
+        border: none;
+        cursor: pointer;;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        color: #FFFFFF;
+    }
+    /* ennd of about component code */
+
+    /* begining pf steps css code */
+
+    .steps{
+        width: 100%;
+        height: 150px;
+        /* background-color: #d5faab; */
+        position: absolute;
+        top: 950px;
+        left: 0px;
+    }
+
+    .step1{
+        background: rgb(134, 172, 216);
+        height: 100%;
+        width: 400px;
+        position: absolute;
+        top: 0px;
+        left: 200px;
+    }
+
+    .step2{
+        background: rgb(134, 172, 216);
+        height: 100%;
+        width: 400px;
+        position: absolute;
+        top: 0px;
+        right: 200px;
+    }
+
+    .step1_intro{
+        position: absolute;
+        /* width: 404px;
+        height: 37px; */
+        left: 0px;
+        top: -20px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+    }
+
+    .step1_no{
+        background-color: #627C33;
+        width: 50px;
+        height: 60px;
+        position: absolute;
+        left: 0px;
+        top: 40px;
+        text-align: center;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        color: #FFFFFF;
+    }
+
+    .step1_desc{
+        position: absolute;
+        width: 369px;
+        height: 60px;
+        left: 60px;
+        top: 24px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+    }
+
+    .step1_img{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        bottom: -10px;
+        left: 150px;
+    }
+
+    .step1_img2{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: 0px;
+        left: 150px;
+    }
+    /* end of steps css code */
+
+    /* start of steps 2 code */
+
+    .steps2{
+        width: 100%;
+        height: 150px;
+        /* background-color: #d5faab; */
+        position: absolute;
+        top: 1180px;
+        left: 0px;
+    }
+
+
+    /* end of steps 2 code */
+
+    /* help section code */
+
+    .help{
+        width: 100%;
+        height: 120px;
+        background-color: #d5faab;
+        position: absolute;
+        top: 1400px;
+        left: 0px;
+    }
+
+    .help_step2{
+        background: rgb(134, 172, 216);
+        height: 100%;
+        width: 400px;
+        position: absolute;
+        top: 170px;
+        right: 260px;
+    }
+
+    .help_desc{
+        position: absolute;
+        width: 369px;
+        height: 60px;
+        left: 0px;
+        top: 24px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+    }
+
+    /* end of help section code */
+
+    /* media queries */
+
+@media(max-width: 1320px){
+    .record_recorded{
+        left: 240px;
+    }
+
+    .record_resolved{
+        left: 540px;
+    }
+
+    .record_review{
+        left: 840px;
+    }
+}
+
+@media(max-width: 1260px){
+    .about_main{
+        left: 120px;
+    }
+
+    .about_nassp{
+        right: 120px;
+    }
+
+    .step1{
+        left: 120px;
+    }
+
+    .step2{
+        right: 120px;
+    }
+}
+
+@media(max-width: 1220px){
+    .record_recorded{
+        left: 200px;
+    }
+
+    .record_resolved{
+        left: 500px;
+    }
+
+    .record_review{
+        left: 800px;
+    }
+}
+
+@media(max-width: 1120px){
+    .record_recorded{
+        left: 120px;
+    }
+
+    .record_resolved{
+        left: 380px;
+    }
+
+    .record_review{
+        left: 640px;
+    }
+}
+
+@media(max-width: 1100px){
+
+
+
+    .step1{
+        left: 50px;
+    }
+
+    .step2{
+        right: 50px;
+    }
+
+    .about_main{
+        left: 50px;
+    }
+
+    .about_nassp{
+        right: 50px;
+    }
+
+
+}
+
+
+@media(max-width: 1130px){
+    label #btn{
+        display: block;
+    }
+
+
+
+    ul li a{
+        padding: 0 15px;
+    }
+
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 330px;
+        background-color: rgb(33, 41, 17);
+        top: 60px;
+        line-height: 0px;
+        right: -1400px;
+        text-align: center;
+
+        transition: all .9s;
+        /* display: none; */
+    }
+
+    ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 8px;
+    }
+
+    ul li a{
+        font-size: 17px;
+    }
+
+    /* .sign_in_div{
+        text-align: center;
+    } */
+
+    #check:checked ~ ul{
+        right: 0;
+    }
+
+    #check:checked ~ #btn{
+        display: none;
+    }
+
+    #check:checked ~ #cancel{
+        display: block;
+    }
+}
+
+
+@media(max-width: 930px){
+
+    .help{
+        top: 2080px;
+    }
+
+    .steps2{
+        top: 1680px;
+    }
+
+    .steps{
+        top: 1250px;
+    }
+
+    .help_step2{
+        left:260px;
+        top: 280px;
+        margin-left: 0px;
+        top: 170px;
+    }
+
+
+    .about_main{
+        position: absolute;
+        left: 260px;
+    }
+
+    .step2{
+        left:260px;
+        top: 280px;
+        margin-left: 0px;
+        top: 200px;
+    }
+
+    .step1{
+        position: absolute;
+        left: 260px;
+    }
+
+    .about_nassp{
+        left:260px;
+        top: 280px;
+        margin-left: 0px;
+    }
+
+    .record_recorded{
+        left: 90px;
+    }
+
+    .record_resolved{
+        left: 320px;
+    }
+
+    .record_review{
+        left: 550px;
+    }
+}
+
+@media(max-width: 800px){
+
+    .help_step2{
+        left:200px;
+    }
+
+    .step1{
+        left: 200px;
+    }
+
+    .step2{
+        left:200px;
+    }
+
+    .about_main{
+        left: 200px;
+    }
+
+    .about_nassp{
+        left:200px;
+    }
+
+    .record_recorded{
+        left: 130px;
+        width: 150px;
+    }
+
+    .record_recorded_img{
+        width: 50px;
+        height: 50px;
+        top: 25px;
+    }
+
+    .record_recorded_no{
+        left: 60px;
+
+    }
+
+    .record_recorded_des{
+        left: 60px;
+        width: 80px;
+        font-size: 11px;
+    }
+
+    .record_resolved{
+        left: 320px;
+        width: 150px;
+    }
+
+    .record_review{
+        left: 510px;
+        width: 150px;
+    }
+}
+
+@media(max-width: 760px){
+
+    .help_step2{
+        left:130px;
+    }
+
+
+    .step1{
+        left: 130px;
+    }
+
+    .step2{
+        left:130px;
+    }
+
+    .about_main{
+        left: 130px;
+    }
+
+    .about_nassp{
+        left:130px;
+    }
+
+    .record_recorded{
+        left: 90px;
+        width: 150px;
+    }
+
+
+    .record_resolved{
+        left: 280px;
+        width: 150px;
+    }
+
+    .record_review{
+        left: 470px;
+        width: 150px;
+    }
+
+    .content_slide1_desc{
+        width: 400px;
+        font-size: 18px;
+    }
+}
+
+
+
+@media(max-width: 670px){
+    .record_recorded{
+        left: 90px;
+        width: 120px;
+    }
+
+    .record_recorded_img{
+        width: 40px;
+        height: 40px;
+        top: 35px;
+    }
+
+    .record_recorded_no{
+        left: 40px;
+        font-size: 35px;
+    }
+
+    .record_recorded_des{
+        left: 50px;
+        width: 65px;
+        font-size: 9.5px;
+    }
+
+    .record_resolved{
+        left: 240px;
+        width: 120px;
+    }
+
+    .record_review{
+        left: 390px;
+        width: 120px;
+    }
+}
+
+@media(max-width: 620px){
+
+    .help_step2{
+        left:100px;
+    }
+
+    .about_main{
+        left: 100px;
+    }
+
+    .about_nassp{
+        left: 100px;
+    }
+
+    .step1{
+        left: 100px;
+    }
+
+    .step2{
+        left: 100px;
+    }
+}
+
+@media(max-width: 600px){
+    .header_wblogo{
+        max-width: 50px;
+        max-height: 50px;
+        top: 15px;
+        left: 20px;
+    }
+
+    .header_naslogo{
+        max-width: 40px;
+        max-height: 40px;
+        top: 20px;
+        left: 80px;
+    }
+
+    .header_logo_name{
+        font-size: clamp(9px, 1px + 7vw,22px);
+        left: 140px;
+    }
+}
+
+@media(max-width: 580px){
+
+    .help_step2{
+        left:60px;
+    }
+
+
+    .step1{
+        left: 60px;
+    }
+
+    .step2{
+        left: 60px;
+    }
+
+    .about_main{
+        left: 60px;
+    }
+
+    .about_nassp{
+        left: 60px;
+    }
+
+    .content_slide1_intro{
+        left: 60px;
+    }
+
+    .content_slide1_desc{
+        left: 60px;
+    }
+
+    .content_slide1_btn{
+        left: 60px;
+    }
+}
+
+@media(max-width: 560px){
+    .record_recorded{
+        left: 50px;
+        width: 120px;
+    }
+
+    .record_resolved{
+        left: 200px;
+        width: 120px;
+    }
+
+    .record_review{
+        left: 350px;
+        width: 120px;
+    }
+}
+
+@media(max-width: 500px){
+
+    .help{
+        top: 2180px;
+    }
+
+    .help_desc{
+        font-size: 16px;
+        width: 280px;
+    }
+
+    .help_step2{
+        height: 100px;
+        width: 300px;
+        left: 100px;
+        top: 200px;
+    }
+
+    .steps2{
+        top: 1780px;
+    }
+
+    .steps{
+        top: 1350px;
+    }
+
+    .step1{
+        height: 150px;
+        width: 300px;
+        left: 100px;
+    }
+
+    .step2{
+        height: 150px;
+        width: 300px;
+        left: 100px;
+        top: 200px;
+    }
+
+    .step1_intro{
+        font-size: 18px;
+    }
+
+    .step1_no{
+        width: 40px;
+        height: 50px;
+        font-size: 30px;
+    }
+
+    .step1_desc{
+        font-size: 11px;
+        width: 250px;
+        left: 50px;
+    }
+
+    .about{
+        top: 850px;
+    }
+
+    .about_main{
+        height: 200px;
+        width: 300px;
+        left: 100px;
+    }
+
+    .about_nassp{
+        height: 200px;
+        width: 300px;
+        left: 100px;
+        top: 230px;
+    }
+
+    .about_main_intro{
+        font-size: 18px;
+        left: 10px;
+        top: 5px;
+    }
+
+    .about_main_desc{
+        left: 10px;
+        top: 20px;
+        font-size: 11px;
+        line-height: 14px;
+        width: 75%;
+    }
+
+    .about_main_btn{
+        width: 80px;
+        height: 28px;
+        font-size: 12px;
+    }
+
+    .record{
+        height: 340px;
+        top:480px;
+    }
+
+    .record_recorded{
+        height: 100px;
+        width: 250px;
+        top: 0px;
+        left: 130px;
+    }
+
+    .record_resolved{
+        height: 100px;
+        width: 250px;
+        top: 120px;
+        left: 130px;
+    }
+
+    .record_review{
+        height: 100px;
+        width: 250px;
+        top: 240px;
+        left: 130px;
+    }
+
+    .record_recorded_img{
+        width: 65px;
+        height: 65px;
+        top: 20px;
+    }
+
+    .record_recorded_no{
+        font-size: 40px;
+        left: 100px;
+    }
+
+    .record_recorded_des{
+        width: 130px;
+        height: 40px;
+        left: 80px;
+        bottom: 15px;
+        font-size: 17px;
+    }
+
+
+    .content_slide1_intro{
+        left: 60px;
+    }
+
+    .content_slide1_desc{
+        left: 60px;
+        width: 300px;
+        font-size: 14px;
+    }
+
+    .content_slide1_btn{
+        left: 60px;
+    }
+}
+
+@media(max-width: 480px){
+
+
+    .record_recorded{
+        top: 0px;
+        left: 80px;
+    }
+
+    .record_resolved{
+        height: 100px;
+        width: 250px;
+        top: 120px;
+        left: 80px;
+    }
+
+    .record_review{
+        height: 100px;
+        width: 250px;
+        top: 240px;
+        left: 80px;
+    }
+
+    .header_wblogo{
+        max-width: 40px;
+        max-height: 40px;
+        top: 20px;
+        left: 15px;
+    }
+
+    .header_naslogo{
+        max-width: 30px;
+        max-height: 30px;
+        top: 25px;
+        left: 60px;
+    }
+
+    .header_logo_name{
+        font-size: clamp(9px, 1px + 7vw,20px);
+        left: 100px;
+        top: 29px;
+    }
+}
+
+@media(max-width: 460px){
+
+    .help_step2{
+        left: 60px;
+    }
+
+    .step1{
+        left: 60px;
+    }
+
+    .step2{
+        left: 60px;
+    }
+
+    .about_main{
+        height: 200px;
+        width: 300px;
+        left: 60px;
+    }
+
+    .about_nassp{
+        height: 200px;
+        width: 300px;
+        left: 60px;
+    }
+}
+
+@media(max-width: 400px){
+
+    .help_step2{
+        left: 30px;
+    }
+
+    .step1{
+        left: 30px;
+    }
+
+    .step2{
+        left: 30px;
+    }
+
+    .about_main{
+        height: 200px;
+        width: 300px;
+        left: 30px;
+    }
+
+    .about_nassp{
+        height: 200px;
+        width: 300px;
+        left: 30px;
+    }
+
+
+    /* scroler code */
+
+    .content_slide1_intro{
+        width: 150px;
+        font-size: 25px;
+    }
+
+    .content_slide1_desc{
+        left: 60px;
+        width: 250px;
+        font-size: 12px;
+    }
+
+    .content_slide1_btn{
+        top: 280px;
+    }
+
+    /* en dof scroller code */
+
+    .header_wblogo{
+        max-width: 30px;
+        max-height: 30px;
+        top: 25px;
+        left: 15px;
+    }
+
+    .header_naslogo{
+        max-width: 20px;
+        max-height: 20px;
+        top: 30px;
+        left: 50px;
+    }
+
+    .header_logo_name{
+        font-size: clamp(9px, 1px + 7vw,15px);
+        left: 80px;
+        top: 29px;
+    }
+
+    label #btn,
+    label #cancel{
+        width: 30px;
+        height: 30px;
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 380px){
+    .record{
+        height: 340px;
+    }
+
+    .record_recorded{
+        height: 100px;
+        width: 180px;
+        top: 0px;
+        left: 90px;
+    }
+
+    .record_resolved{
+        height: 100px;
+        width: 180px;
+        top: 120px;
+        left: 90px;
+    }
+
+    .record_review{
+        height: 100px;
+        width: 180px;
+        top: 240px;
+        left: 90px;
+    }
+
+    .record_recorded_img{
+        width: 50px;
+        height: 50px;
+        top: 30px;
+    }
+
+    .record_recorded_no{
+        font-size: 40px;
+        left: 70px;
+    }
+
+    .record_recorded_des{
+        width: 110px;
+        height: 40px;
+        left: 60px;
+        bottom: 15px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 360px){
+
+    .help_step2{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+        top: 150px;
+        height:70%;
+    }
+
+    .help{
+        top: 1880px;
+    }
+
+    .help_step2{
+        top: 130px;
+    }
+
+
+    .help_desc{
+        width: 240px;
+        top: 7px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    .steps2{
+        top: 1580px;
+    }
+
+
+    .steps{
+        top: 1250px;
+    }
+
+    .step1{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+        height:70%;
+    }
+
+
+    .step2{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+        top: 150px;
+        height:70%;
+    }
+
+    .step1_intro{
+        font-size: 14px;
+    }
+
+    .step1_no{
+        top: 25px;
+        width: 30px;
+        height: 35px;
+        font-size: 25px;
+    }
+
+    .step1_desc{
+        left: 35px;
+        top: 11px;
+        width: 240px;
+        font-size: 9px;
+    }
+
+    .step1_img{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        bottom: -10px;
+        left: 70px;
+    }
+
+    .step1_img2{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        bottom: -10px;
+        left: 90px;
+    }
+
+    .about_main{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+    }
+
+    .about_nassp{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+        top: 190px;
+    }
+
+
+    .about_main_intro{
+        font-size: 15px;
+        left: 10px;
+        top: 5px;
+    }
+
+    .about_main_desc{
+        left: 10px;
+        top: 20px;
+        font-size: 9px;
+        line-height: 11px;
+        width: 75%;
+    }
+
+    .about_main_btn{
+        width: 80px;
+        height: 28px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 320px){
+
+    .help_step2{
+        height: 160px;
+        width: 230px;
+        left: 50px;
+        top: 150px;
+        height:70%;
+    }
+
+    .help{
+        top: 1740px;
+    }
+
+    .help_step2{
+        height: 90px;
+        width: 180px;
+        left: 50px;
+        top: 130px;
+    }
+
+
+    .help_desc{
+        width: 180px;
+        top: 7px;
+        font-size: 9px;
+        line-height: 15px;
+    }
+
+    .steps2{
+        top: 1480px;
+    }
+
+
+    .steps{
+        top: 1200px;
+    }
+
+    .step1{
+        height: 90px;
+        width: 180px;
+        left: 50px;
+    }
+
+    .step2{
+        height: 90px;
+        width: 180px;
+        left: 50px;
+        top: 130px;
+    }
+
+    .step1_intro{
+        font-size: 10px;
+    }
+
+    .step1_no{
+        top: 15px;
+        width: 25px;
+        height: 35px;
+        font-size: 25px;
+    }
+
+    .step1_desc{
+        left: 30px;
+        top: 9px;
+        width: 160px;
+        font-size: 9px;
+        line-height: 9px;
+    }
+
+    .step1_img{
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        bottom: -10px;
+        left: 60px;
+    }
+
+    .step1_img2{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 2px;
+        left: 80px;
+    }
+
+    .about_main{
+        height: 140px;
+        width: 180px;
+        left: 50px;
+    }
+
+    .about_nassp{
+        height: 140px;
+        width: 180px;
+        left: 50px;
+        top: 170px;
+    }
+
+
+    .about_main_intro{
+        font-size: 13px;
+        left: 10px;
+        top: -2px;
+    }
+
+    .about_main_desc{
+        left: 10px;
+        top: 12px;
+        font-size: 9.5px;
+        line-height: 8px;
+        width: 75%;
+    }
+
+    .about_main_btn{
+        width: 70px;
+        height: 20px;
+        font-size: 12px;
+        bottom: 3px;
+    }
+
+    .record_recorded{
+        height: 100px;
+        width: 180px;
+        top: 0px;
+        left: 60px;
+    }
+
+    .record_resolved{
+        height: 100px;
+        width: 180px;
+        top: 120px;
+        left: 60px;
+    }
+
+    .record_review{
+        height: 100px;
+        width: 180px;
+        top: 240px;
+        left: 60px;
+    }
+
+
+    /* scroler code */
+
+.content_slide1_intro{
+    left: 40px;
+    width: 120px;
+    font-size: 20px;
+}
+
+.content_slide1_desc{
+    left: 40px;
+    top: 80px;
+    width: 200px;
+    font-size: 12px;
+}
+
+.content_slide1_btn{
+    top: 260px;
+    left: 40px;
+}
+
+    	/* en dof scroller code */
+
+    .header_wblogo{
+        max-width: 20px;
+        max-height: 20px;
+        top: 30px;
+        left: 15px;
+    }
+
+    .header_naslogo{
+        max-width: 15px;
+        max-height: 15px;
+        top: 32px;
+        left: 40px;
+    }
+
+    .header_logo_name{
+        font-size: clamp(9px, 1px + 7vw,12px);
+        left: 70px;
+        top: 31px;
+    }
+
+    label #btn,
+    label #cancel{
+        width: 20px;
+        height: 20px;
+        margin-top: 32px;
+    }
+}
+
+@media(max-width: 270px){
+
+    .steps{
+        top: 1150px;
+    }
+
+    .steps{
+        top: 1100px;
+    }
+
+    .step1{
+        height: 90px;
+        width: 180px;
+        left: 30px;
+    }
+
+    .step2{
+        height: 90px;
+        width: 180px;
+        left: 30px;
+    }
+
+    .step1_intro{
+        font-size: 10px;
+    }
+
+    .step1_no{
+        top: 15px;
+        width: 25px;
+        height: 35px;
+        font-size: 25px;
+    }
+
+    .step1_desc{
+        left: 30px;
+        top: 9px;
+        width: 160px;
+        font-size: 9px;
+        line-height: 9px;
+    }
+
+    .step1_img{
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        bottom: -10px;
+        left: 60px;
+    }
+
+    .step1_img2{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        bottom: 2px;
+        left: 80px;
+    }
+
+    .about_main{
+        height: 140px;
+        width: 180px;
+        left: 30px;
+    }
+
+    .about_nassp{
+        height: 140px;
+        width: 180px;
+        left: 30px;
+    }
+
+    .about{
+        top: 800px;
+    }
+
+    .record{
+        height: 340px;
+        top:480px;
+    }
+
+    .record_recorded{
+        height: 80px;
+        width: 130px;
+        top: 0px;
+        left: 50px;
+    }
+
+    .record_resolved{
+        height: 100px;
+        width: 130px;
+        top: 100px;
+        left: 50px;
+    }
+
+    .record_review{
+        height: 100px;
+        width: 130px;
+        top: 220px;
+        left: 50px;
+    }
+
+    .record_recorded_img{
+        width: 40px;
+        height: 40px;
+        top: 20px;
+    }
+
+    .record_recorded_no{
+        font-size: 30px;
+        left: 40px;
+    }
+
+    .record_recorded_des{
+        width: 70px;
+        height: 40px;
+        top: 40px;
+        left: 45px;
+        bottom: 15px;
+        font-size: 10.3px;
+    }
+}
+
+@media(max-width: 260px){
+    .header_wblogo{
+        max-width: 15px;
+        max-height: 15px;
+        top: 30px;
+        left: 15px;
+    }
+
+    .header_naslogo{
+        max-width: 10px;
+        max-height: 10px;
+        top: 32px;
+        left: 35px;
+    }
+
+    .header_logo_name{
+        font-size: clamp(9px, 1px + 7vw,9px);
+        left: 50px;
+        top: 28px;
+    }
+
+    label #btn,
+    label #cancel{
+        width: 15px;
+        height: 15px;
+        margin-top: 30px;
+    }
+}
+
+/* }end of media queries */
+

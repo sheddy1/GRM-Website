@@ -1,0 +1,9 @@
+.section1{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(11, 40, 66);
+    background-image: url("img/login_img.png");
+}

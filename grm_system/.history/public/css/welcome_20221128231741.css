@@ -1,0 +1,96 @@
+.header{
+    background-color: #627C33;
+    max-width: 100%;
+    max-height: 80px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+.header_wblogo{
+    max-width: 60px;
+    max-height: 60px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+}
+
+.header_naslogo{
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 15px;
+    left: 110px;
+}
+
+.header_logo_name{
+    position: absolute;
+    left: 180px;
+    top: 34px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(9px, 1px + 7vw,25px);
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ul{
+    position: absolute;
+    right: 70px;
+    top: 7px;
+
+}
+
+ul li{
+    display: inline-block;
+    margin: 0 15px;
+    line-height: 40px;
+}
+
+ul li a{
+    position: relative;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: (9px, 1px + 7vw,17px);
+    color: #FFFFFF;
+}
+
+*{
+    padding: 0;
+    list-style: none;
+}
+
+ul li a:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: -700;
+    height: 3px;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s linear;
+}
+
+ul li a:hover:before{
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+
+/* media queries */
+@media(max-width: 1120px){
+
+}

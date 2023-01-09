@@ -1,0 +1,31 @@
+
+/* form code */
+.form{
+    width: 1000px;
+    height: 500px;
+    background-color:#DFDFDF;
+    position: absolute;
+    left: 180px;
+    top: 0px;
+}
+
+@media(max-width: 1300px){
+    .form{
+        left: 120px;
+    }
+}
+
+@media(max-width: 1200px){
+    .form{
+        left: 70px;
+    }
+}
+
+@media(max-width: 1130px){
+    .form{
+        left: 70px;
+        width: 900px;
+    }
+}
+
+/* end of form code */

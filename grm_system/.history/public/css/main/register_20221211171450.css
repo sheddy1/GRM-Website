@@ -1,0 +1,10 @@
+.body{
+    display: grid;
+    place-items: center;
+}
+
+.form{
+    width: 800px;
+    height: 500px;
+    background-color:#DFDFDF;
+}

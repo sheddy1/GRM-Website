@@ -1,0 +1,33 @@
+#sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  #sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  #sidebar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  This will create a fixed, vertical navigation bar on the left side of the page with a dark background color. The links in the navigation bar will be displayed in white and will turn to a light grey color when the user hovers over them.
+
+  You can customize the appearance of the side navigation bar by modifying the CSS styles to your liking. For example, you can change the width of the navigation bar, the colors of the links, or the font size of the text.
+
+  You can also use JavaScript to add additional functionality to the side navigation bar, such as the ability to toggle the navigation bar open and closed or to animate the opening and closing of the navigation bar.
+  Shadrach Godwin
+  thank you very much am grateful
+
+  You're welcome! I'm glad I could help. If you have any other questions, feel free to ask.
+
