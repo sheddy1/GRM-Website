@@ -658,37 +658,7 @@ left: 15px;
     /* main sumary recorded code */
 
 
-    .main_summary_recorded_name5{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        color: #000000;
-        position: relative;
-        top: -20px;
-    }
-
-    .main_summary_recorded_name6{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        color: #000000;
-        position: relative;
-        top: -20px;
-    }
-
-    .main_summary_recorded_name7{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        color: #000000;
-        position: relative;
-        top: -20px;
-    }
-
-    .main_summary_recorded_name8{
+    .main_summary_recorded_name{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 600;

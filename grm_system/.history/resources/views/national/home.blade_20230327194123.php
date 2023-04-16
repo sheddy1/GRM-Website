@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 <body>
-    <input type="checkbox" id="check_nav" style="display: none" checked>
+    <input type="checkbox" id="check_nav" style="display: " checked>
     <nav>
 
         <label class="dashboard_nassp" for="check_nav">
@@ -86,44 +86,44 @@
         </div>
 
         <div class="main_summary">
-            <span class="main_summary_recorded main_summary1">
-                <label class="main_summary_recorded_name5">Total Grievances Recorded</label>
+            <span class="main_summary_recorded">
+                <label class="main_summary_recorded_name">Total Grievances Recorded</label>
 
                 <label class="main_summary_recorded_num">86</label>
 
                 <label class="main_summary_recorded_name1">Total Grievances</label>
 
-                <img src="{{ URL('img/record.png') }}" alt="Record Image" class="main_summary_recorded_image1">
+                <img src="{{ URL('img/record.png') }}" alt="Record Image" class="main_summary_recorded_image">
             </span>
 
-            <span class="main_summary_resolved main_summary1">
-                <label class="main_summary_recorded_name6">Total Grievances Resolved</label>
+            <span class="main_summary_resolved">
+                <label class="main_summary_recorded_name">Total Grievances Resolved</label>
 
-                <label class="main_summary_recorded_num1">60</label>
+                <label class="main_summary_recorded_num">60</label>
 
-                <label class="main_summary_recorded_name2">Resolved Cases</label>
+                <label class="main_summary_recorded_name1">Resolved Cases</label>
 
-                <img src="{{ URL('img/resolved1.png') }}" alt="Record Image" class="main_summary_recorded_image2">
+                <img src="{{ URL('img/resolved1.png') }}" alt="Record Image" class="main_summary_recorded_image">
             </span>
 
-            <span class="main_summary_review main_summary1">
-                <label class="main_summary_recorded_name7">Total Grievances Under Review</label>
+            <span class="main_summary_review">
+                <label class="main_summary_recorded_name">Total Grievances Under Review</label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                <label class="main_summary_recorded_num">26</label>
 
-                <label class="main_summary_recorded_name3">Review Grievances</label>
+                <label class="main_summary_recorded_name1">Review Grievances</label>
 
-                <img src="{{ URL('img/review1.png') }}" alt="Record Image" class="main_summary_recorded_image3">
+                <img src="{{ URL('img/review1.png') }}" alt="Record Image" class="main_summary_recorded_image">
             </span>
 
-            <span class="main_summary_new main_summary1">
-                <label class="main_summary_recorded_name8">Total Grievances Under Review</label>
+            <span class="main_summary_new">
+                <label class="main_summary_recorded_name">New Grievances</label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                <label class="main_summary_recorded_num">03</label>
 
-                <label class="main_summary_recorded_name4">Review Grievances</label>
+                <label class="main_summary_recorded_name1">New Cases</label>
 
-                <img src="{{ URL('img/new.png') }}" alt="Record Image" class="main_summary_recorded_image4">
+                <img src="{{ URL('img/new.png') }}" alt="Record Image" class="main_summary_recorded_image">
             </span>
         </div>
 

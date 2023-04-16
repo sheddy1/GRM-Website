@@ -87,7 +87,7 @@
 
         <div class="main_summary">
             <span class="main_summary_recorded main_summary1">
-                <label class="main_summary_recorded_name5">Total Grievances Recorded</label>
+                <label class="main_summary_recorded_name">Total Grievances Recorded</label>
 
                 <label class="main_summary_recorded_num">86</label>
 
@@ -97,7 +97,7 @@
             </span>
 
             <span class="main_summary_resolved main_summary1">
-                <label class="main_summary_recorded_name6">Total Grievances Resolved</label>
+                <label class="main_summary_recorded_name">Total Grievances Resolved</label>
 
                 <label class="main_summary_recorded_num1">60</label>
 
@@ -107,7 +107,7 @@
             </span>
 
             <span class="main_summary_review main_summary1">
-                <label class="main_summary_recorded_name7">Total Grievances Under Review</label>
+                <label class="main_summary_recorded_name">Total Grievances Under Review</label>
 
                 <label class="main_summary_recorded_num2">26</label>
 
@@ -117,7 +117,7 @@
             </span>
 
             <span class="main_summary_new main_summary1">
-                <label class="main_summary_recorded_name8">Total Grievances Under Review</label>
+                <label class="main_summary_recorded_name">Total Grievances Under Review</label>
 
                 <label class="main_summary_recorded_num2">26</label>
 
