@@ -14,7 +14,7 @@
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+</head>
 <body>
     <input type="checkbox" id="check_nav" style="display: none" checked>
     <nav>
@@ -25,7 +25,7 @@
         </label>
         <ul class="ul_whole">
             <li>
-                <a href="#">
+                <a href="{{ route('national_homepage') }}">
                     <img src="{{ URL('img/dashboard_icon.png') }}" alt="Dashboard Icon" class="dashboard_icon">
                     <span class="nav_item">Dashboard</span>
                 </a>
@@ -37,18 +37,18 @@
                     {{--  <input type="checkbox" class="dashboard_grieve_checkbox" id="dashboard_grieve_checkbox">  --}}
                 </a>
                 <ul class="ul_whole1">
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Grieviance List</a></li>
+                    <li><a href="{{ route('national_reg') }}">Register</a></li>
+                    <li><a href="{{ route('national_list') }}">Grieviance List</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('national_reports') }}">
                     <img src="{{ URL('img/gro_icon.png') }}" alt="Dashboard Icon" class="dashboard_icon">
                     <span class="nav_item">GRO Reports</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('national_gro') }}">
                     <img src="{{ URL('img/lgagro_icon.png') }}" alt="Dashboard Icon" class="dashboard_icon">
                     <span class="nav_item">LGA GROs</span>
                 </a>

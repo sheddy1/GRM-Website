@@ -21,8 +21,6 @@ Route::get('login', 'WelcomeController@login')->name('login');
 
 Route::post('check', 'WelcomeController@check')->name('check');
 
-Route::get('national_homepage', 'NationalController@home')->name('national_homepage');
-
 Route::get('getLgas', 'WelcomeController@getLgas')->name('getLgas');
 
 Route::get('getzones', 'WelcomeController@getzones')->name('getzones');
@@ -36,6 +34,18 @@ Route::post('homeRegister', 'WelcomeController@homeRegister')->name('homeRegiste
 Route::get('mail', 'WelcomeController@mail')->name('mail');
 
 Route::get('register_successful', 'WelcomeController@register_successful')->name('register_successful');
+
+Route::get('national_homepage', 'NationalController@home')->name('national_homepage');
+
+Route::get('national_registration', 'NationalController@register')->name('national_reg');
+
+Route::get('national_list', 'NationalController@list')->name('national_list');
+
+Route::get('national_reports', 'NationalController@national_reports')->name('national_reports');
+
+Route::get('national_gro', 'NationalController@gro')->name('national_gro');
+
+Route::get('nationalRegister', 'NationalController@nationalRegister')->name('nationalRegister');
 
 Route::get('test', function () {
     return view('main.test');

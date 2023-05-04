@@ -16,5 +16,34 @@ class NationalController extends Controller
         return view('national.home');
     }
 
+    function register(){
+        return view('national.register');
+    }
+
+    function list(){
+        return view('national.list');
+    }
+
+    function reports(){
+        return view('national.reports');
+    }
+
+    function gro(){
+        return view('national.gro');
+    }
+
+    public function nationalRegister(Request $request){
+        $request->validate([
+            'zone'=>'required',
+            'state_select'=>'required',
+            'lga_select'=>'required',
+            'ward'=>'required'
+            
+        ]);
+
+        return("God is good");
+        
+
+    }
 
 }
