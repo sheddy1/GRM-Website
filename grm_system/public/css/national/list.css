@@ -1213,7 +1213,7 @@ left: 15px;
 
 .info{
     width: 1220px;
-    height: 400px;
+    height: 380px;
     background-color: #EFEDED;
     position: absolute;
     top: 230px;
@@ -1317,13 +1317,44 @@ left: 15px;
 /* end of main_info code */
 
 .info_table{
-    height: 350px;
-    width: 1150px;
+    height: 330px;
+    width: 1180px;
     /* background-color: aqua; */
     position: absolute;
     top: 50px;
     left: 30px;
+    overflow-y: scroll;
+    display: block;
 }
+
+th {
+    padding: 10px;
+    width: 20px;
+    border: 0px 0px 0px 1px solid black;
+  }
+
+  td {
+    padding: 10px;
+    width: 20px;
+    border: 0px 0px 0px 1px solid black;
+  }
+
+.thead {
+    /* background-color: #627C33; */
+    height: 40px;
+    width: 100%;
+    /* text-align: center; */
+    font-size: 0px;
+  }
+
+.tbody {
+    /* background-color: #d5e9af; */
+    height: 40px;
+    width: 100%;
+    /* text-align: center; */
+    border: 1px solid black;
+    overflow: auto;
+  }
 
 .info_table_header{
     /* background-color: #627C33; */
@@ -1346,7 +1377,7 @@ left: 15px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 8px;
     /* identical to box height */
     text-align: center;
 

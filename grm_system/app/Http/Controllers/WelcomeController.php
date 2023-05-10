@@ -180,6 +180,11 @@ class WelcomeController extends Controller
         $grieviance->phone = $request->phone;
         $grieviance->email = $request->email;
         $grieviance->desc = $request->description;
+        $grieviance->category = "N/A";
+        $grieviance->sub_category = "N/A";
+        $grieviance->cmode = "online";
+        $grieviance->resolved = "N/A";
+        $grieviance->rescomment = "N/A";
         $grieviance->track = $str;
         $save = $grieviance->save();
 
@@ -204,7 +209,12 @@ class WelcomeController extends Controller
             'age'=> $request->age,
             'phone'=> $request->phone,
             'email'=> $request->email,
-            'desc'=> $request->description
+            'desc'=> $request->description,
+            'category'=> "N/A",
+            'subcat'=> "N/A",
+            'cmode'=> "ONLINE",
+            'resolved'=> "N/A",
+            'rescomment'=> "N/A",
         ];
 
         Mail::to($request->email)->send(new grieve($details));

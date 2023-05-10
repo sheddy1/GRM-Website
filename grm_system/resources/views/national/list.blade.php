@@ -154,77 +154,87 @@
             </span>
 
             <table class="info_table">
-                <tr class="info_table_header">
-                    <span class="info_header_bottom_line1"></span>
-                    <th class="info_table_header_text">
-                        <input type="checkbox">
-                    </th>
-                    <th class="info_table_header_text">
-                        GRM RefNo
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        State
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        LGA 
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Ward 
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Community
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>  
-                    <th class="info_table_header_text">
-                        NSR RefNo
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Name 
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Phone
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                       Category 
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Sub Category 
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        Complain Mode
-                        <img src="{{ url('img/attach1.png') }}" alt="filter_image">
-                    </th>
-                    <th class="info_table_header_text">
-                        <img src="{{ url('img/left.png') }}" alt="filter_image" class="info_table_left">
-                    </th>
 
-                </tr> 
+
+                    <tr class="thead">
+                        
+                        <th >
+                            <input type="checkbox">
+                        </th>
+                        <th class="info_table_header_text">
+                            GRM RefNo
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            State
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            LGA 
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Ward 
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Community
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>  
+                        <th class="info_table_header_text">
+                            Name
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Phone
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Category
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Sub Category 
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Complain Mode
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            Resolved
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
+                            <img src="{{ url('img/left.png') }}" alt="filter_image" class="info_table_left">
+                        </th>
+
+                    </tr> 
+
+                    
+                    @foreach ($grieviance as $key => $data)
+
+                    <tr class="tbody">
+                        <td class="info_table_header_text"> 
+                            <input type="checkbox">
+                        </td>
+                        <td class="info_table_header_text1">{{ $data->track }}</td>
+                        <td class="info_table_header_text1">{{ $data->state }}</td> 
+                        <td class="info_table_header_text1">{{ $data->lga }}</td> 
+                        <td class="info_table_header_text1">{{ $data->ward }}</td> 
+                        <td class="info_table_header_text1">{{ $data->community }}</td> 
+                        <td class="info_table_header_text1">{{ $data->name }}</td> 
+                        <td class="info_table_header_text1">{{ $data->phone }}</td> 
+                        <td class="info_table_header_text1">{{ $data->category }}</td> 
+                        <td class="info_table_header_text1">{{ $data->sub_category }}</td> 
+                        <td class="info_table_header_text1">{{ $data->cmode }}</td> 
+                        <td class="info_table_header_text1">{{ $data->resolved }}</td> 
+                        <td class="info_table_header_text1"></td> 
+                    </tr>
+
+                    @endforeach
+
                 
-                <tr>
-                     <th class="info_table_header_text"> 
-                        <input type="checkbox">
-                     </th>
-                    <th class="info_table_header_text">Contact</th>
-                    <th class="info_table_header_text">Country</th>
-                    <th class="info_table_header_text">Company</th>
-                    <th class="info_table_header_text">Contact</th>
-                    <th class="info_table_header_text">Country</th>  
-                    <th class="info_table_header_text">Company</th>
-                    <th class="info_table_header_text">Contact</th>
-                    <th class="info_table_header_text">Country</th>
-                    <th class="info_table_header_text">Contact</th>
-                    <th class="info_table_header_text">Country</th>
-                    <th class="info_table_header_text">Country</th>
-                </tr> 
             </table>
         </div>
     </div>

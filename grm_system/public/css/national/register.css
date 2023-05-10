@@ -848,4 +848,16 @@ left: 15px;
         color: #FFFFFF;
     }
 
+    .national_error{
+        position: absolute;
+        top: 30px;
+        left: 210px;
+    }
+
+    .national_error1{
+        position: absolute;
+        top: 100px;
+        left: 210px;
+    }
+
 /* info code ends */

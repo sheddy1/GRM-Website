@@ -1,3 +1,8 @@
+@php
+    use App\Models\lga;
+    use Illuminate\Support\Facades\Session;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +52,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('national_gro') }}">
+                <a href="{{ route('national_reports') }}">
                     <img src="{{ URL('img/lgagro_icon.png') }}" alt="Dashboard Icon" class="dashboard_icon">
                     <span class="nav_item">LGA GROs</span>
                 </a>
@@ -91,190 +96,248 @@
 
         
         <div class="info">
-        <form class="form" method= "POST" action="{{ route('nationalRegister') }}">
-            
-            <span class="info_header">
-                GRIEVANCE REGISTRATION FORM
-            </span>
+            <form class="form" method="POST" action="{{ route('nationalRegister') }}">
 
-            <span class="info_header_desc">
-                Kindly provide all necessary details before submitting
-            </span>
+            {{--
+            @if(Session::get('success'))
+                <script>
+                    alert("{{ Session::get('success') }}");
+                </script>
+            @endif  --}}
 
-            <span class="info_zone">
-                <label class="info_zone_desc">ZONE</label>
+            @if(Session::get('fail'))
+                <script>
+                    alert("{{ Session::get('fail') }}");
+                </script>
+            @endif
+                
+                @csrf
+                <span class="info_header">
+                    GRIEVANCE REGISTRATION FORM
+                </span>
 
-                <input type="text" class="info_zone_input" name="info_zone" id="info_zone" placeholder="ZONE">
-            </span>
+                <span class="info_header_desc">
+                    Kindly provide all necessary details before submitting
+                </span>
 
-            <span class="info_state">
-                <label class="info_zone_desc">STATE</label>
+                <span class="info_zone">
+                    <label class="info_zone_desc">ZONE</label>
 
-                <select name="info_state" id="info_state" class="info_state_input">
-                    <option selected disabled>State</option>
-                    <option value="fct">ABUJA</option>
-                    <option value="abia">ABIA</option>
-                    <option value="adamawa">ADAMAWA</option>
-                    <option value="akwa-ibom">AKWA IBOM</option>
-                    <option value="anambra">ANAMBRA</option>
-                    <option value="bauchi">BAUCHI</option>
-                    <option value="bayelsa">BAYELSA</option>
-                    <option value="benue">BENUE</option>
-                    <option value="borno">BORNO</option>
-                    <option value="cross-river">CROSS RIVER</option>
-                    <option value="delta">DELTA</option>
-                    <option value="ebonyi">EBONYI</option>
-                    <option value="edo">EDO</option>
-                    <option value="ekiti ">EKITI </option>
-                    <option value="enugu ">ENUGU </option>
-                    <option value="gombe ">GOMBE </option>
-                    <option value="imo ">IMO </option>
-                    <option value="jigawa ">JIGAWA </option>
-                    <option value="kaduna ">KADUNA </option>
-                    <option value="kano ">KANO </option>
-                    <option value="katsina ">KATSINA </option>
-                    <option value="kebbi ">KEBBI </option>
-                    <option value="kogi ">KOGI </option>
-                    <option value="kwara ">KWARA </option>
-                    <option value="lagos ">LAGOS </option>
-                    <option value="nasarawa ">NASARAWA </option>
-                    <option value="niger ">NIGER </option>
-                    <option value="ogun ">OGUN </option>
-                    <option value="ondo ">ONDO </option>
-                    <option value="osun ">OSUN </option>
-                    <option value="oyo ">OYO </option>
-                    <option value="plateau ">PLATEAU </option>
-                    <option value="rivers ">RIVERS </option>
-                    <option value="sokoto ">SOKOTO </option>
-                    <option value="taraba ">TARABA </option>
-                    <option value="yobe ">YOBE </option>
-                    <option value="zamfara ">ZAMFARA </option>
-                </select>
-            </span>
+                    <input type="text" class="info_zone_input" name="info_zone" id="info_zone" placeholder="ZONE" >
+                </span>
 
-            <span class="info_lga">
-                <label class="info_zone_desc">LGA</label>
+                <span class="info_state">
+                    <label class="info_zone_desc">STATE</label>
 
-                <select name="info_lga" id="info_lga" class="info_state_input">
-                    <option value="">LGA</option>
-                </select>
-            </span>
+                    <select name="info_state" id="info_state" class="info_state_input">
+                        <option selected disabled>State</option>
+                        <option value="fct">ABUJA</option>
+                        <option value="abia">ABIA</option>
+                        <option value="adamawa">ADAMAWA</option>
+                        <option value="akwa-ibom">AKWA IBOM</option>
+                        <option value="anambra">ANAMBRA</option>
+                        <option value="bauchi">BAUCHI</option>
+                        <option value="bayelsa">BAYELSA</option>
+                        <option value="benue">BENUE</option>
+                        <option value="borno">BORNO</option>
+                        <option value="cross-river">CROSS RIVER</option>
+                        <option value="delta">DELTA</option>
+                        <option value="ebonyi">EBONYI</option>
+                        <option value="edo">EDO</option>
+                        <option value="ekiti ">EKITI </option>
+                        <option value="enugu ">ENUGU </option>
+                        <option value="gombe ">GOMBE </option>
+                        <option value="imo ">IMO </option>
+                        <option value="jigawa ">JIGAWA </option>
+                        <option value="kaduna ">KADUNA </option>
+                        <option value="kano ">KANO </option>
+                        <option value="katsina ">KATSINA </option>
+                        <option value="kebbi ">KEBBI </option>
+                        <option value="kogi ">KOGI </option>
+                        <option value="kwara ">KWARA </option>
+                        <option value="lagos ">LAGOS </option>
+                        <option value="nasarawa ">NASARAWA </option>
+                        <option value="niger ">NIGER </option>
+                        <option value="ogun ">OGUN </option>
+                        <option value="ondo ">ONDO </option>
+                        <option value="osun ">OSUN </option>
+                        <option value="oyo ">OYO </option>
+                        <option value="plateau ">PLATEAU </option>
+                        <option value="rivers ">RIVERS </option>
+                        <option value="sokoto ">SOKOTO </option>
+                        <option value="taraba ">TARABA </option>
+                        <option value="yobe ">YOBE </option>
+                        <option value="zamfara ">ZAMFARA </option>
+                    </select>
 
-            <span class="info_ward">
-                <label class="info_zone_desc">WARD</label>
+                    <span class="text-danger national_error">@error('info_state'){{ $message }} @enderror</span>
+                </span>
 
-                <select name="info_ward" id="info_ward" class="info_state_input">
-                    <option value="">WARD</option>
-                </select>
-            </span>
+                <span class="info_lga">
+                    <label class="info_zone_desc">LGA</label>
 
-            <span class="info_community">
-                <label class="info_zone_desc">COMMINITY</label>
+                    <select name="info_lga" id="info_lga" class="info_state_input">
+                        <option value="">LGA</option>
+                    </select>
 
-                <select name="info_community" id="info_community" class="info_state_input">
-                    <option value="">COMMUNITY</option>
-                </select>
-            </span>
+                    <span class="text-danger national_error">@error('info_lga'){{ $message }} @enderror</span>
+                </span>
 
-            <span class="info_beneficiary">
-                <label class="info_zone_desc">IS BENEFICIARY</label>
+                <span class="info_ward">
+                    <label class="info_zone_desc">WARD</label>
 
-                <select name="info_beneficiary" id="" class="info_state_input">
-                    <option value="">YES</option>
-                    <option value="">NO</option>
-                </select>
-            </span>
+                    <select name="info_ward" id="info_ward" class="info_state_input">
+                        <option value="">WARD</option>
+                    </select>
 
-            <span class="info_cname">
-                <label class="info_zone_desc">NAME</label>
+                    <span class="text-danger national_error">@error('info_ward'){{ $message }} @enderror</span>
+                </span>
 
-                <input type="text" class="info_zone_input" name="info_cname" placeholder="NAME">
-            </span>
+                <span class="info_community">
+                    <label class="info_zone_desc">COMMINITY</label>
 
-            <span class="info_cphone">
-                <label class="info_zone_desc">COMPLAINT PHONE</label>
+                    <select name="info_community" id="info_community" class="info_state_input">
+                        <option value="">COMMUNITY</option>
+                    </select>
 
-                <input type="text" class="info_zone_input" name="info_cphone" placeholder="PHONE NUMBER">
-            </span>
+                    <span class="text-danger national_error">@error('info_community'){{ $message }} @enderror</span>
+                </span>
 
-            <span class="info_gender">
-                <label class="info_zone_desc">GENDER</label>
+                <span class="info_beneficiary">
+                    <label class="info_zone_desc">IS BENEFICIARY</label>
 
-                <select name="info_gender" id="" class="info_state_input">
-                    <option value="">MALE</option>
-                    <option value="">FEMALE</option>
-                </select>
-            </span>
+                    <select name="info_beneficiary" id="info_beneficiary" class="info_state_input" value="{{ old('info_beneficiary') }}">
+                        <option selected disabled>ARE YOU A BENEFICIARY?</option>
+                        <option value="yes">YES</option>
+                        <option value="no">NO</option>
+                    </select>
 
-            <span class="info_category">
-                <label class="info_zone_desc">CATEGORY</label>
+                    <span class="text-danger national_error">@error('info_beneficairy'){{ $message }} @enderror</span>
+                </span>
 
-                <select name="info_category" id="" class="info_state_input">
-                    <option value="">PERSONAL</option>
-                    <option value="">MONETARY</option>
-                </select>
-            </span>
+                <span class="info_cname">
+                    <label class="info_zone_desc">NAME</label>
 
-            <span class="info_age">
-                <label class="info_zone_desc">AGE</label>
+                    <input type="text" class="info_zone_input" name="info_cname" placeholder="NAME" value="{{ old('info_cname') }}">
 
-                <input type="text" class="info_zone_input" name="info_age" placeholder="AGE">
-            </span>
+                    <span class="text-danger national_error">@error('info_cname'){{ $message }} @enderror</span>
+                </span>
 
-            <span class="info_cmode">
-                <label class="info_zone_desc">COMPLAINT MODE</label>
+                <span class="info_cphone">
+                    <label class="info_zone_desc">COMPLAINT PHONE</label>
 
-                <select name="info_cmode" id="" class="info_state_input">
-                    <option value="">IN PERSON</option>
-                    <option value="">EMAIL</option>
-                </select>
-            </span>
+                    <input type="text" class="info_zone_input" name="info_cphone" placeholder="PHONE NUMBER" value="{{ old('info_cphone') }}">
 
-            <span class="info_cemail">
-                <label class="info_zone_desc">COMPLAINT EMAIL</label>
+                    <span class="text-danger national_error">@error('info_cphone'){{ $message }} @enderror</span>
+                </span>
 
-                <input type="text" class="info_zone_input" name="info_cemail" placeholder="EMAIL ADDRESS">
-            </span>
+                <span class="info_gender">
+                    <label class="info_zone_desc">GENDER</label>
 
-            <span class="info_resolved">
-                <label class="info_zone_desc">RESOLVED</label>
+                    <select name="info_gender" id="" class="info_state_input">
+                        <option selected disabled>GENDER</option>
+                        <option value="male">MALE</option>
+                        <option value="female">FEMALE</option>
+                    </select>
 
-                <select name="info_resolved" id="" class="info_state_input">
-                    <option value="">YES</option>
-                    <option value="">NO</option>
-                </select>
-            </span>
+                    <span class="text-danger national_error">@error('info_gender'){{ $message }} @enderror</span>
+                </span>
 
-            <span class="info_subcat">
-                <label class="info_zone_desc">SUB CATEGORY</label>
+                <span class="info_category">
+                    <label class="info_zone_desc">CATEGORY</label>
 
-                <select name="info_subcat" id="" class="info_state_input">
-                    <option value="">SUB CATEGORY</option>
-                </select>
-            </span>
+                    <select name="info_category" id="info_category" class="info_state_input">
+                        <option selected disabled>CATEGORY</option>
+                        <option value="wrongful_inclusion/exclusion">WRONGFUL INCLUSION/EXCLUSION</option>
+                        <option value="_payments_and_payment_service_delivery">PAYMENTS AND PAYMENT SERVICE DELIVERY</option>
+                        <option value="nassp_service_delivery_issues">NASSP SERVICE DELIVERY ISSUES</option>
+                        <option value="fraud_and_corruption_issues">FRAUD AND CORRUPTION ISSUES</option>
+                        <option value="data_errors_and_updates">DATA ERRORS AND UPDATES</option>
+                        <option value="inquiries_and_information_requests">INQUIRIES AND INFORMATION REQUESTS</option>
+                        <option value="other">OTHER</option>
+                        <option value="abuse_and_social_issues">ABUSE AND SOCIAL ISSUES</option>
+                    </select>
 
-            <span class="info_rescomment">
-                <label class="info_zone_desc">RESOLVED COMMENT</label>
-   
-                <textarea name="info_cemail" id="" cols="30" rows="10" class="info_rescomment_input" placeholder="HOW WAS THE GRIEVIANCE RESOLVED"></textarea>
-            </span>
+                    <span class="text-danger national_error">@error('info_category'){{ $message }} @enderror</span>
+                </span>
 
-            <span class="info_desc">
-                <label class="info_zone_desc">DESCRIPTION</label>
-   
-                <textarea name="info_cemail" id="" cols="30" rows="10" class="info_rescomment_input" placeholder="Complaint's grieviance in a concise form"></textarea>
-            </span>
+                <span class="info_subcat">
+                    <label class="info_zone_desc">AGE</label>
 
-            <span class="button">
-                <button class="button_submit" typr="submit">
-                    SUBMIT
-                </button>
+                    <input type="text" class="info_zone_input" name="info_age" placeholder="AGE">
 
-                <button class="button_clear">
-                    CLEAR
-                </button>
-            </span>
-        </form>
+                    <span class="text-danger national_error">@error('info_age'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_cmode">
+                    <label class="info_zone_desc">COMPLAINT MODE</label>
+
+                    <select name="info_cmode" id="" class="info_state_input">
+                        <option selected disabled>COMPLAINT MODE</option>
+                        <option value="in person">IN PERSON</option>
+                        <option value="email">EMAIL</option>
+                        <option value="phone">PHONE</option>
+                        <option value="ONLINE">ONLINE</option>
+                    </select>
+
+                    <span class="text-danger national_error">@error('info_cmode'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_cemail">
+                    <label class="info_zone_desc">COMPLAINT EMAIL</label>
+
+                    <input type="text" class="info_zone_input" name="info_cemail" placeholder="EMAIL ADDRESS" value="{{ old('info_cemail') }}">
+
+                    <span class="text-danger national_error">@error('info_cemail'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_resolved">
+                    <label class="info_zone_desc">RESOLVED</label>
+
+                    <select name="info_resolved" id="" class="info_state_input">
+                        <option value="yes">YES</option>
+                        <option value="no">NO</option>
+                    </select>
+
+                    <span class="text-danger national_error">@error('info_resolved'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_age">
+                    <label class="info_zone_desc">SUB CATEGORY</label>
+
+                    <select name="info_subcat" id="info_subcat" class="info_state_input">
+                        <option selected disabled>SUB CATEGORY</option>
+                    </select>
+
+                    <span class="text-danger national_error">@error('info_subcat'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_rescomment">
+                    <label class="info_zone_desc">RESOLVED COMMENT</label>
+    
+                    <textarea name="info_rescomment" id="" cols="30" rows="10" class="info_rescomment_input" value="{{ old('info_rescomment') }}" placeholder="HOW WAS THE GRIEVIANCE RESOLVED"></textarea>
+
+                    <span class="text-danger national_error1">@error('info_rescomment'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_desc">
+                    <label class="info_zone_desc">DESCRIPTION</label>
+    
+                    <textarea name="info_desc" id="" cols="30" rows="10" class="info_rescomment_input" value="{{ old('info_desc') }}" placeholder="Complaint's grieviance in a concise form"></textarea>
+
+                    <span class="text-danger national_error1">@error('info_desc'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="button">
+                    <button class="button_submit" type="submit">
+                        SUBMIT
+                    </button>
+
+                    <button class="button_clear" type="none">
+                        CLEAR
+                    </button>
+                </span>
+            </form>
         </div>
         
         
@@ -359,7 +422,7 @@
                     url: '{{ route('getcomms') }}?ward='+ward,
                     type: 'get',
                     success: function (res) {
-                        alert("workingf");
+                        //alert("workingf");
                         if(res){
                             $('#info_community').html('<option selected disabled>COMMUNITY</option>');
                             $.each(res, function (key, value){
@@ -374,6 +437,30 @@
                 });
              });
             //end of community code
+
+            //grieviance category switch code
+            $('#info_category').on('change', function() {
+                var category = this.value;
+                //alert("i am a good developer")
+                $('#info_subcat').html('');
+                $.ajax({
+                    url: '{{ route('getCategory') }}?category='+category,
+                    type: 'get',
+                    success: function(res) {
+                        if(res)
+                        {
+                            $('#info_subcat').html('<option selected disabled>SUB CATEGORY</option>');
+                            $.each(res,function (key, value) {
+                                $('#info_subcat').append('<option value="' + value.sub_category + '">' + value.sub_categoryn +'</option>'); 
+                            });
+                        }
+                        else{
+                            alert("not working");
+                        }
+                    }
+                });
+            });
+            //end of grieviance category switch mode
         });
 
     </script>

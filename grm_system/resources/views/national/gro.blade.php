@@ -87,7 +87,56 @@
         </div>
 
         <div class="info">
-            <div class="info_category"></div>
+            <div class="info_category">
+                <span class="main_chart1_bar">
+                    <span class="main_chart1_bar_header">
+                        <label class="main_chart1_bar_header_lab">All Wards</label>
+
+                        <select class="main_chart1_bar_header_lab_drop">
+                            <option value="wards">Wards</option>
+                        </select>
+                    </span>
+
+                    <span class="main_chart1_bar_chart">
+                        <span id="container1"></span>
+
+                        <table id="datatable">
+                            <thead>
+                            <tr >
+                                <th>asasas</th>
+                                <th>Boys</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Atrikyase</th>
+                                    <td>32</td>
+                                </tr>
+                                <tr>
+                                    <th>Begal</th>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <th>Mnbaka</th>
+                                    <td>85</td>
+                                </tr>
+                                <tr>
+                                    <th>mnbaguza</th>
+                                    <td>28</td>
+                                </tr>
+                                <tr>
+                                    <th>wisha</th>
+                                    <td>38</td>
+                                </tr>
+                                <tr>
+                                    <th>Okokolo</th>
+                                    <td>54</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </span>
+                </span>
+            </div>
 
             <div class="info_status"></div>
 
@@ -95,6 +144,8 @@
         </div>
     </div>
 </body>
+
+<script src="{{ URL('js/swiper-bundle.min.js') }}"></script>
 
 <script src="{{ URL('js/national/home.js') }}"></script>
 

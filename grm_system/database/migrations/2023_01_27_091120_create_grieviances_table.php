@@ -24,9 +24,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('gender');
             $table->integer('age');
-            $table->integer('phone');
+            $table->bigInteger('phone');
             $table->string('email');
             $table->string('desc');
+            $table->string('category');
+            $table->string('sub_category');
+            $table->string('cmode');
+            $table->string('resolved');
+            $table->string('res_comment');
+            $table->string('track');
             $table->timestamps();
         });
     }

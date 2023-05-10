@@ -24,6 +24,11 @@
     <h4>Phone : {{ $details['phone'] }}</h4>
     <h4>Email : {{ $details['email'] }}</h4>
     <h4>Grieviance Description : {{ $details['desc'] }}</h4>
+    <h4>Grieviance Category : {{ $details['category'] }}</h4>
+    <h4>Grieviance Sub Category : {{ $details['subcat'] }}</h4>
+    <h4>Grieviance Complaint Mode : {{ $details['cmode'] }}</h4>
+    <h4>Has this grieviance been resolved : {{ $details['resolved'] }}</h4>
+    <h4>Comment on the Resolved grieviance : {{ $details['rescomment'] }}</h4>
 
     <h3>PLease feel free to register your grieviances with nassco at any time</h3>
 </body>

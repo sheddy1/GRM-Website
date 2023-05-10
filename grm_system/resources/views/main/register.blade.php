@@ -51,7 +51,7 @@
 
 
     <form class="form" method= "POST" action="{{ route('homeRegister') }}">
-{{--
+        {{--
         @if(Session::get('success'))
             <script>
                 alert("{{ Session::get('success') }}");

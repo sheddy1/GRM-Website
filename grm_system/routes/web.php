@@ -39,14 +39,23 @@ Route::get('national_homepage', 'NationalController@home')->name('national_homep
 
 Route::get('national_registration', 'NationalController@register')->name('national_reg');
 
-Route::get('national_list', 'NationalController@list')->name('national_list');
+//Route::get('national_list', 'NationalController@list')->name('national_list');
 
 Route::get('national_reports', 'NationalController@national_reports')->name('national_reports');
 
 Route::get('national_gro', 'NationalController@gro')->name('national_gro');
 
-Route::get('nationalRegister', 'NationalController@nationalRegister')->name('nationalRegister');
+Route::post('nationalRegister', 'NationalController@nationalRegister')->name('nationalRegister');
+
+Route::get('national_list', function () {
+
+    $grieviance = DB::table('grieviances')->get();
+
+    return view('national.list', ['grieviance' => $grieviance]);
+})->name('national_list');
 
 Route::get('test', function () {
     return view('main.test');
 });
+
+Route::get('getCategory', 'NationalController@getCategory')->name('getCategory');
