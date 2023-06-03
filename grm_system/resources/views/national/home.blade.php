@@ -11,8 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -66,14 +66,14 @@
     <div class="main" id="main">
         <div class="main_header">
             <span class="main_header_name">
-                <label class="main_header_name_name">Welcome, Amba Daniel</label>
-                <label class="main_header_name_desc">Here’s an update on GRM today</label>
+                <label class="main_header_name_name">Welcome {{ $name }} {{ $lname }}</label>
+                <label class="main_header_name_desc">Here is an update on GRM today</label>
             </span>
 
             <span class="main_header_desc">
                 <span class="main_header_desc1">
                     <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon">
-                    <label class="main_header_desc1_name">Amba Daniel</label>
+                    <label class="main_header_desc1_name">{{ $name }} {{ $lname_first }}.</label>
                     <label class="main_header_desc1_desc">GRM Manager</label>
                 </span>
 

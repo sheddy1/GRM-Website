@@ -602,7 +602,7 @@ left: 15px;
 .main_chart1_bar{
     width: 100%;
     height: 100%;
-    background-color: #814444;
+    /* background-color: #814444; */
     position: absolute;
     top: 0px;
     left: 0px;
@@ -618,7 +618,7 @@ left: 15px;
 }
 
 .main_chart1_bar_chart{
-    background: rgb(179, 155, 224);
+    /* background: rgb(179, 155, 224); */
     width: 100%;
     height: 215px;
     position: absolute;
@@ -626,7 +626,7 @@ left: 15px;
 }
 
 #datatable{
-    display: none;
+    /* display: none; */
 }
 
 #container1{
@@ -634,7 +634,7 @@ left: 15px;
     height: 215px;
     position: absolute;
     left: 0px;
-    background-color: #eb7aa9;
+    /* background-color: #eb7aa9; */
 }
 
 .main_chart1_bar_header_lab{

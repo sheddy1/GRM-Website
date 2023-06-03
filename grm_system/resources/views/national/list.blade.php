@@ -166,6 +166,10 @@
                             <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
+                            Zone
+                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                        </th>
+                        <th class="info_table_header_text">
                             State
                             <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
@@ -219,6 +223,7 @@
                             <input type="checkbox">
                         </td>
                         <td class="info_table_header_text1">{{ $data->track }}</td>
+                        <td class="info_table_header_text1">{{ $data->zone }}</td> 
                         <td class="info_table_header_text1">{{ $data->state }}</td> 
                         <td class="info_table_header_text1">{{ $data->lga }}</td> 
                         <td class="info_table_header_text1">{{ $data->ward }}</td> 

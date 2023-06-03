@@ -1329,13 +1329,13 @@ left: 15px;
 
 th {
     padding: 10px;
-    width: 20px;
+    width: 100px;
     border: 0px 0px 0px 1px solid black;
   }
 
   td {
     padding: 10px;
-    width: 20px;
+    width: 100px;
     border: 0px 0px 0px 1px solid black;
   }
 
@@ -1377,7 +1377,7 @@ th {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 8px;
+    font-size: 9px;
     /* identical to box height */
     text-align: center;
 

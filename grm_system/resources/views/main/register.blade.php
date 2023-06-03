@@ -14,6 +14,7 @@
     <link rel="icon" href="{{ URL('img/nassco_logo.png') }}">
     <link rel="stylesheet" href="{{ URL('css/main/welcome.css') }}">
     <link rel="stylesheet" href="{{ URL('css/main/register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css?v=').time()}}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -50,7 +51,7 @@
     <div class="header2"></div>
 
 
-    <form class="form" method= "POST" action="{{ route('homeRegister') }}">
+    <form class="form" id="form" method= "POST" action="{{ route('homeRegister') }}">
         {{--
         @if(Session::get('success'))
             <script>
@@ -178,15 +179,29 @@
                 IS BENEFICIARY
             </span>
 
-            <select name="beneficiary" class="form_name_select">
-                <option selected disabled>Is Beneficiary</option>
+            
+            <select name="beneficiary" id="ben" class="form_name_select">
+                
+                <option selected disabled>Are you a Beneficiary?</option>
                 <option value="yes">YES</option>
                 <option value="no">NO</option>
             </select>
+           
 
             <span class="text-danger age">@error('beneficiary'){{ $message }} @enderror</span>
         </div>
 
+        <div  id="form_nsr"  class="form_nsr" >
+            <span class="form_name_desc">
+                NSR NUMBER
+            </span>
+
+            <input type="text" class="form_name_select1" name="nsr_no" id="nsr_no" placeholder="NSR NUMBER" value="{{ old('nsr_no') }}">
+
+            <span class="text-danger age">@error('nsr_no'){{ $message }} @enderror</span>
+        </div>
+        
+        <span class="nsr_drop" id="nsr_drop">
         {{--  complaint name code --}}
         <div class="form_cname">
             <span class="form_name_desc">
@@ -237,7 +252,7 @@
                 COMPLAINT EMAIL
             </span>
 
-            <input type="text" name="email" class="form_name_select1" placeholder="COMPLAINT EMAIL" value="{{ old('email') }}">
+            <input type="text" name="email" class="form_name_select1" placeholder="COMPLAINT EMAIL (NOT COMPULSORY)" value="{{ old('email') }}">
 
             <span class="text-danger age">@error('email'){{ $message }} @enderror</span>
         </div>
@@ -247,9 +262,7 @@
                 DESCRIPTION
             </span>
 
-            <textarea name="description" class="form_name_select2" placeholder="DESCRIPTION" value="{{ old('description') }}">
-
-            </textarea>
+            <textarea name="description" class="form_name_select2" placeholder="DESCRIPTION" value="{{ old('description') }}"></textarea>
 
             <span class="text-danger age1">@error('description'){{ $message }} @enderror</span>
         </div>
@@ -263,9 +276,11 @@
                 CLEAR
             </button>
         </div>
+
+        </span>
     </form>
 
-    <footer>
+    <footer id="footer">
         <div class="footer_nassp">
             {{--  <img src="{{ URL('img/nassco_logo.png') }}" alt="NAssp Logo" class="footer_nassp_logo">  --}}
 
@@ -318,8 +333,7 @@
             </p>
         </div>
     </footer>
-
-    <div class="container copyright">
+    <div class="container copyright" id="copyright">
         <img src="{{ URL('img/copyright.png') }}" alt="copyright Logo" class="copyright_logo">
 
         <label class="copyright_desc">
@@ -449,6 +463,25 @@
                 });
             });
             //end of community code
+
+            //show nsr number code
+            $('#ben').on('change', function() {
+                var ben = this.value;
+                // alert("hsdsd" + ben);
+                
+                if(ben == "yes")
+                {
+                   document.getElementById("nsr_drop").style.top="50px";
+                   document.getElementById("footer").style.top="1080px";
+                   document.getElementById("copyright").style.top="1280px";
+                }
+                else{
+                    document.getElementById("nsr_drop").style.top="0px";
+                    document.getElementById("footer").style.top="1030px";
+                    document.getElementById("copyright").style.top="1230px";
+                }
+            })
+            //end of show nsr code
         });
 
     </script>

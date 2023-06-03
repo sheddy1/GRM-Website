@@ -198,6 +198,7 @@
 
                     <select name="info_community" id="info_community" class="info_state_input">
                         <option value="">COMMUNITY</option>
+                        <option value="N/A">N/A</option>
                     </select>
 
                     <span class="text-danger national_error">@error('info_community'){{ $message }} @enderror</span>

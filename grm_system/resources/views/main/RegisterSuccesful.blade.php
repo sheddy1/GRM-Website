@@ -18,6 +18,7 @@
     <h4>Ward : {{ $details['ward'] }}</h4>
     <h4>Community : {{ $details['community'] }}</h4>
     <h4>Are you a beneficiary : {{ $details['ben'] }}</h4>
+    <h4>NSR Number : {{ $details['nsr'] }}</h4>
     <h4>Name : {{ $details['name'] }}</h4>
     <h4>Gender : {{ $details['gender'] }}</h4>
     <h4>Age : {{ $details['age'] }}</h4>

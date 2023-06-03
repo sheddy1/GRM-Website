@@ -110,7 +110,7 @@
             <img src="{{ URL('img/greive.png') }}" alt="recorded grieviances" class="record_recorded_img">
 
             <label class="record_recorded_no">
-                86
+                {{ $total_grieviance }}
             </label>
 
             <div class="record_recorded_des">
@@ -122,7 +122,7 @@
             <img src="{{ URL('img/resolved.png') }}" alt="recorded grieviances" class="record_recorded_img">
 
             <label class="record_recorded_no">
-                60
+                {{ $resolved }}
             </label>
 
             <div class="record_recorded_des">
@@ -134,7 +134,7 @@
             <img src="{{ URL('img/review.png') }}" alt="recorded grieviances" class="record_recorded_img">
 
             <label class="record_recorded_no">
-                26
+                {{ $review }}
             </label>
 
             <div class="record_recorded_des">

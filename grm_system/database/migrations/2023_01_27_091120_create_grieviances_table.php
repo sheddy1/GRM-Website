@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ward');
             $table->string('community');
             $table->string('beneficiary');
+            $table->string('nsr_no');
             $table->string('name');
             $table->string('gender');
             $table->integer('age');

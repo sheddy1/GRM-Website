@@ -7,9 +7,13 @@
     <title>GRM Reports</title>
     <link rel="icon" href="{{ URL('img/nassco_logo.png') }}">
     <link rel="stylesheet" href="{{ URL('css/national/gro.css') }}">
-    <link rel="stylesheet" href="{{ URL('css/swiper-bundle.min.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
     
 </head>
 <body>
@@ -144,8 +148,6 @@
         </div>
     </div>
 </body>
-
-<script src="{{ URL('js/swiper-bundle.min.js') }}"></script>
 
 <script src="{{ URL('js/national/home.js') }}"></script>
 

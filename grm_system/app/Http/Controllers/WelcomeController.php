@@ -18,11 +18,21 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\Mail;
 
+use DB;
+
 
 class WelcomeController extends Controller
 {
     function home(){
-        return view('main.welcome');
+        //return view('main.welcome');
+        $total_grieviance = DB::table('grieviances')->count();
+        $resolved = grieviance::where('resolved', '=', 'yes')->count();
+        $review = grieviance::where('resolved', '=', 'no')->count();
+        return view('main.welcome', [
+        'total_grieviance' => $total_grieviance, 
+        'resolved' => $resolved,
+        'review' => $review
+        ]);
     }
 
     function register_main(){
@@ -150,14 +160,15 @@ class WelcomeController extends Controller
             'state_select'=>'required',
             'lga_select'=>'required',
             'ward'=>'required',
-            // 'community'=>'required',
+            'community'=>'required',
             'beneficiary'=>'required',
             'name'=>'required|string',
             'gender'=>'required',
             'age'=>'required|integer|min:18|max:65',
-            'phone'=>'required|numeric',
-            'email'=>'required|email',
-            'description'=>'required'
+            'phone'=>'required|numeric|digits:11',
+            'email'=>'',
+            'description'=>'required',
+            'nsr_no'=>'in:nsr'
         ]);
 
         //getting the tracking number
@@ -165,6 +176,22 @@ class WelcomeController extends Controller
         $unique = uniqid();
 
         $str = substr($unique, 0, $desired_length);
+
+        //adjusting community code
+        $comm1 = $request->nsr_no;
+        $comm2 = "";
+        if($comm1 == "")
+        {
+            $comm2 = "N/A";
+        }
+
+        
+        else{
+            $comm2 = $comm1;
+        }
+
+        //adjusting nsr code
+        
 
         //inserting the data
         $grieviance = new grieviance;
@@ -174,6 +201,7 @@ class WelcomeController extends Controller
         $grieviance->ward = $request->ward;
         $grieviance->community = $request->community;
         $grieviance->beneficiary = $request->beneficiary;
+        $grieviance->nsr_no = $comm2;
         $grieviance->name = $request->name;
         $grieviance->gender = $request->gender;
         $grieviance->age = $request->age;
@@ -183,7 +211,7 @@ class WelcomeController extends Controller
         $grieviance->category = "N/A";
         $grieviance->sub_category = "N/A";
         $grieviance->cmode = "online";
-        $grieviance->resolved = "N/A";
+        $grieviance->resolved = "no";
         $grieviance->rescomment = "N/A";
         $grieviance->track = $str;
         $save = $grieviance->save();
@@ -204,6 +232,7 @@ class WelcomeController extends Controller
             'ward'=> $request->ward,
             'community'=> $request->community,
             'ben'=> $request->beneficiary,
+            'nsr'=> $request->nsr_no,
             'name'=> $request->name,
             'gender'=> $request->gender,
             'age'=> $request->age,
@@ -253,5 +282,7 @@ class WelcomeController extends Controller
 
         return view('main.RegisterSuccesful');
     }
+
+    
 
 }

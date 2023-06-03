@@ -22,8 +22,26 @@ use Illuminate\Support\Facades\Session;
 
 class NationalController extends Controller
 {
-    function home(){
-        return view('national.home');
+    function home(Request $request){
+        //return view('national.home');
+
+        $id =  $request->session()->get('loggeduser');
+
+        //echo  $id;
+
+        $name = user::where('id', $id)->value('name');
+
+        $lname = user::where('id', $id)->value('lname');
+
+        $lname_first = $lname[0];
+
+        //echo $name;
+
+        return view('national.home', [
+            'name'=>$name, 
+            'lname'=>$lname,
+            'lname_first'=>$lname_first
+            ]);
     }
 
     function register(){
@@ -61,7 +79,7 @@ class NationalController extends Controller
             'info_state'=>'required',
             'info_lga'=>'required',
             'info_ward'=>'required',
-            'info_community'=>'required',
+            //'info_community'=>'required',
             'info_beneficiary'=>'required',
             'info_cname'=>'required',
             'info_cphone'=>'required',
@@ -82,13 +100,27 @@ class NationalController extends Controller
 
         $str = substr($unique, 0, $desired_length);
 
+        //validating community
+        $comm1 = $request->info_community;
+        $comm2 = "";
+        if($comm1 == "")
+        {
+            $comm2 = "N/A";
+        }
+
+        
+        else{
+            $comm2 = $comm1;
+        }
+        
+
         //inserting the data
         $grieviance = new grieviance;
         $grieviance->zone = $request->info_zone;
         $grieviance->state = $request->info_state;
         $grieviance->lga = $request->info_lga;
         $grieviance->ward = $request->info_ward;
-        $grieviance->community = $request->info_community;
+        $grieviance->community = $comm2;
         $grieviance->beneficiary = $request->info_beneficiary;
         $grieviance->name = $request->info_cname;
         $grieviance->gender = $request->info_gender;

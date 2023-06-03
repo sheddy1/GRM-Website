@@ -322,6 +322,36 @@
     }
     /* END OF beneficiary CODE */
 
+    /* nsr drop down code */
+    .nsr_drop{
+        width: 100%;
+        background-color: aqua;
+        position:absolute;
+        top: 0px;
+    }
+
+    .form_nsr{
+        width: 100%;
+        background-color: #e0e0e0;
+        height: 30px;
+        position: absolute;
+        top: 430px;
+        left: 0px;
+    }
+
+    /* .form_nsr1{
+        width: 100%;
+        background-color: #e0e0e0;
+        height: 30px;
+        position: absolute;
+        top: 430px;
+        left: 0px;
+        
+    } */
+
+    
+/* end of nsr drop down code */
+
     /* complaint name code */
     .form_cname{
         width: 100%;
@@ -951,3 +981,5 @@ footer{
 }
 
 /* end of  register successful code */
+
+
