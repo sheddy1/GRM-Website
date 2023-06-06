@@ -3,7 +3,7 @@ $(document).ready(function(){
       $(".ul_whole1").toggleClass("ul_whole2");
     });
   });
-
+  
   //grieviiance summary chart
   var pieColors = (function () {
     var colors = [],
@@ -20,10 +20,10 @@ $(document).ready(function(){
 
 Highcharts.chart('container', {
     chart: {
-        plotBackgroundColor: "#EFEDED",
+        plotBackgroundColor: "#efeded",
         plotBorderWidth: 20,
         height: 205,
-        plotBorderColor: "#EFEDED",
+        plotBorderColor: "#efeded",
         plotShadow: false,
         type: 'pie'
 
@@ -72,7 +72,7 @@ const chart = Highcharts.chart('container1', {
     },
     chart: {
         type: 'column',
-        color: '#627C33',
+        color: '#efeded',
         // plotBackgroundColor: "#EFEDED",
         // BorderColor: "#EFEDED",
     },

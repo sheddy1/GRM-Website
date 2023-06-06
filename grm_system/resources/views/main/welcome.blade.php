@@ -37,7 +37,7 @@
         </ul>
     </div>
 
-    //code for scrolling images
+    {{--  code for scrolling images  --}}
     <div class="scroller mySwiper" id="scroller">
             <div class="swiper-wrapper scroller_wrapper">
                 <div class="content_slide1 swiper-slide">
@@ -102,7 +102,7 @@
 
         {{--  <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>  --}}
-      <div class="swiper-pagination"></div>
+      {{--  <div class="swiper-pagination swiper5"></div>  --}}
     </div>
 
     <div class="record" id="record">
@@ -212,7 +212,7 @@
     </div>
 
 
-    //code for steps 3 and 4
+    {{--  //code for steps 3 and 4  --}}
     <div class="steps2" id="steps2">
         <div class="step1">
             <p class="step1_intro">STEPS...</p>

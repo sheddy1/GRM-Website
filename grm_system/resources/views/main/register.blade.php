@@ -201,7 +201,7 @@
             <span class="text-danger age">@error('nsr_no'){{ $message }} @enderror</span>
         </div>
         
-        <span class="nsr_drop" id="nsr_drop">
+        <span class="{{ Session::get('nsr_drop') }}" id="nsr_drop">
         {{--  complaint name code --}}
         <div class="form_cname">
             <span class="form_name_desc">
@@ -280,7 +280,7 @@
         </span>
     </form>
 
-    <footer id="footer">
+    <footer id="footer" class="{{ Session::get('footer') }}">
         <div class="footer_nassp">
             {{--  <img src="{{ URL('img/nassco_logo.png') }}" alt="NAssp Logo" class="footer_nassp_logo">  --}}
 
@@ -333,7 +333,7 @@
             </p>
         </div>
     </footer>
-    <div class="container copyright" id="copyright">
+    <div class="container {{ Session::get('copyright') }}" id="copyright">
         <img src="{{ URL('img/copyright.png') }}" alt="copyright Logo" class="copyright_logo">
 
         <label class="copyright_desc">
@@ -474,6 +474,9 @@
                    document.getElementById("nsr_drop").style.top="50px";
                    document.getElementById("footer").style.top="1080px";
                    document.getElementById("copyright").style.top="1280px";
+                   {{ Session::put('nsr_drop','nsr_drop1') }}
+                   {{ Session::put('footer','footer1') }}
+                   {{ Session::put('copyright','copyright1') }}
                 }
                 else{
                     document.getElementById("nsr_drop").style.top="0px";

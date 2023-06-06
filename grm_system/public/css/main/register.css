@@ -330,6 +330,13 @@
         top: 0px;
     }
 
+    .nsr_drop1{
+        width: 100%;
+        background-color: aqua;
+        position:absolute;
+        top: 50px;
+    }
+
     .form_nsr{
         width: 100%;
         background-color: #e0e0e0;
@@ -707,7 +714,7 @@
 
 /* foorer code */
 
-footer{
+.footer{
     width: 100%;
     height:200px;
     background-color:#BBBBBB;
@@ -715,6 +722,16 @@ footer{
     top: 1030px;
     left: 0px;
 }
+
+.footer1{
+    width: 100%;
+    height:200px;
+    background-color:#BBBBBB;
+    position: absolute;
+    top: 1080px;
+    left: 0px;
+}
+
 
 @media(max-width: 700px){
     footer{
@@ -740,6 +757,16 @@ footer{
     position: absolute;
     left: 0px;
     top: 1230px;
+    text-align: center;
+}
+
+.copyright1{
+    width: 100%;
+    min-height: 50px;
+    background-color: #627C33;
+    position: absolute;
+    left: 0px;
+    top: 1280px;
     text-align: center;
 }
 

@@ -130,6 +130,10 @@ label #cancel{
     left: 0px;
 }
 
+/* .swiper5{
+    z-index: -5 !important;
+} */
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;

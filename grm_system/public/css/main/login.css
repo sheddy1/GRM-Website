@@ -255,18 +255,19 @@
 
 /* email text code */
 .section2_div1_email_text{
-    background-color: #D9D9D9;
+    background: #D9D9D9;
     width: 80%;
     height: 23px;
     position: absolute;
     top: 7px;
     right: 10px;
-    border: none;
+    border: #8D8D8D;
+    outline: 0px ridge #d9d9d9;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: clamp(9px, 1px + 2vw,25px);;
+    font-size: clamp(9px, 1px + 2vw,20px);;
     color: #8D8D8D;
 }
 

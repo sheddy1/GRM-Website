@@ -72,9 +72,9 @@
 
             <span class="main_header_desc">
                 <span class="main_header_desc1">
-                    <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon">
+                    {{--  <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon">  --}}
                     <label class="main_header_desc1_name">{{ $name }} {{ $lname_first }}.</label>
-                    <label class="main_header_desc1_desc">GRM Manager</label>
+                    <label class="main_header_desc1_desc">{{ $title }}</label>
                 </span>
 
                 <img src="{{ URL('img/male.png') }}" alt="MAle Icon" class="main_header_desc1_desc_male_icon">
@@ -86,44 +86,68 @@
         </div>
 
         <div class="main_summary">
-            <span class="main_summary_recorded main_summary1">
-                <label class="main_summary_recorded_name5">Total Grievances Recorded</label>
+            <span class="main_summary_recorded">
+                <label class="main_summary_recorded_header">
+                    Total Grievances Recorded
+                </label>
 
-                <label class="main_summary_recorded_num">86</label>
+                <label class="main_summary_recorded_number">
+                    {{ $total_grieviance }}
+                </label>
 
-                <label class="main_summary_recorded_name1">Total Grievances</label>
+                <label class="main_summary_recorded_desc">
+                    Total Grievances
+                </label>
 
-                <img src="{{ URL('img/record.png') }}" alt="Record Image" class="main_summary_recorded_image1">
+                <img src="{{ URL('img/record.png') }}" alt="recorded icon" class="main_summary_recorded_img">
             </span>
 
-            <span class="main_summary_resolved main_summary1">
-                <label class="main_summary_recorded_name6">Total Grievances Resolved</label>
+            <span class="main_summary_resolved">
+                <label class="main_summary_recorded_header">
+                    Total Grievances Resolved
+                </label>
 
-                <label class="main_summary_recorded_num1">60</label>
+                <label class="main_summary_recorded_number">
+                    {{ $resolved }}
+                </label>
 
-                <label class="main_summary_recorded_name2">Resolved Cases</label>
+                <label class="main_summary_recorded_desc">
+                    Resolved Cases
+                </label>
 
-                <img src="{{ URL('img/resolved1.png') }}" alt="Record Image" class="main_summary_recorded_image2">
+                <img src="{{ URL('img/resolved.png') }}" alt="recorded icon" class="main_summary_recorded_img">
             </span>
 
-            <span class="main_summary_review main_summary1">
-                <label class="main_summary_recorded_name7">Total Grievances Under Review</label>
+            <span class="main_summary_review">
+                <label class="main_summary_recorded_header">
+                    Total Grievances Under Review
+                </label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                <label class="main_summary_recorded_number">
+                    {{ $review }}
+                </label>
 
-                <label class="main_summary_recorded_name3">Review Grievances</label>
+                <label class="main_summary_recorded_desc">
+                    Review Grieviances
+                </label>
 
-                <img src="{{ URL('img/review1.png') }}" alt="Record Image" class="main_summary_recorded_image3">
+                <img src="{{ URL('img/review.png') }}" alt="recorded icon" class="main_summary_recorded_img">
             </span>
 
-            <span class="main_summary_new main_summary1">
-                <label class="main_summary_recorded_name8">Total Grievances Under Review</label>
+            <span class="main_summary_new">
+                <label class="main_summary_recorded_header">
+                    New Grieviances
+                </label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                <label class="main_summary_recorded_number">
+                    3
+                </label>
 
-                <label class="main_summary_recorded_name4">Review Grievances</label>
+                <label class="main_summary_recorded_desc">
+                    New Cases
+                </label>
 
-                <img src="{{ URL('img/new.png') }}" alt="Record Image" class="main_summary_recorded_image4">
+                <img src="{{ URL('img/new.png') }}" alt="recorded icon" class="main_summary_recorded_img">
             </span>
         </div>
 
@@ -169,14 +193,12 @@
 
             </span>
 
-
-
             <span class="main_chart1_bar">
                 <span class="main_chart1_bar_header">
                     <label class="main_chart1_bar_header_lab">All Wards</label>
 
                     <select class="main_chart1_bar_header_lab_drop">
-                        <option value="wards">Wards</option>
+                        <option value="wards">States</option>
                     </select>
                 </span>
 
@@ -192,7 +214,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>Atrikyase</th>
+                                <th>Abuja</th>
                                 <td>32</td>
                             </tr>
                             <tr>
@@ -228,9 +250,9 @@
                         Grieviance Category
                     </label>
 
-                    <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn">
+                    {{--  <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn">
 
-                    <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn">
+                    <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn">  --}}
                 </span>
 
                 <span class="main_chart2_grieve_category_chart">
@@ -248,9 +270,9 @@
                         Total Grieviances By States
                     </label>
 
-                    <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn2">
+                    {{--  <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn2">
 
-                    <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn2">
+                    <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn2">  --}}
                 </span>
 
                 {{--  nigeria map code  --}}
@@ -527,9 +549,9 @@
 
 
 
-                        <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn1">
+                        {{--  <img src="{{ URL('img/up.png') }}" alt="up button" class="main_chart2_grieve_category_header_up_btn1">
 
-                        <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn1">
+                        <img src="{{ URL('img/down.png') }}" alt="down button" class="main_chart2_grieve_category_header_down_btn1">  --}}
                     </span>
 
                     <span class="main_chart2_grieve_category_chart">
@@ -547,5 +569,134 @@
 <script src="{{ URL('js/swiper-bundle.min.js') }}"></script>
 
 <script src="{{ URL('js/national/home.js') }}"></script>
+
+<script>
+    //grieviiance summary chart
+  var pieColors = (function () {
+    var colors = [],
+        base = Highcharts.getOptions().colors[2],
+        i;
+
+    for (i = 0; i < 10; i += 1) {
+        // Start out with a darkened base color (negative brighten), and end
+        // up with a much brighter color
+        colors.push(Highcharts.color(base).brighten((i - 4) / 7).get());
+    }
+    return colors;
+}());
+
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: "#efeded",
+        plotBorderWidth: 20,
+        height: 205,
+        plotBorderColor: "#efeded",
+        plotShadow: false,
+        type: 'pie'
+
+    },
+    title: {
+        text: ''
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    plotOptions: {
+        pie: {
+            type: 'doughnut',
+            allowPointSelect: true,
+            cursor: 'pointer',
+            colors: pieColors,
+            dataLabels: {
+                enabled: false,
+                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                distance: -90,
+
+            }
+        }
+    },
+    series: [{
+        name: 'Percentage',
+        innerSize: '70%',
+        data: [
+            { name: 'Resolved', y: {{ $resolved }}},
+            { name: 'Under Review', y: 40},
+            { name: 'New cases', y: 30}
+            // { name: 'Firefox', y: 4.96 },
+            // { name: 'Safari', y: 2.49 },
+            // { name: 'Internet Explorer', y: 2.31 },
+            // { name: 'Other', y: 3.398 }
+        ]
+    }]
+});
+// end of oval chart
+
+const chart = Highcharts.chart('container1', {
+    data: {
+        table: 'datatable'
+    },
+    chart: {
+        type: 'column',
+        color: '#efeded',
+        // plotBackgroundColor: "#EFEDED",
+        // BorderColor: "#EFEDED",
+    },
+    title: {
+        text: ''
+    },
+    credits: {
+        enabled: false
+    },
+    subtitle: {
+        text:
+            ''
+    },
+    xAxis: {
+        type: '',
+        title: {
+            text:''
+        },
+
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: ''
+        }
+    },
+    xAxis: {
+        allowDecimals: false,
+    },
+    tooltip: {
+
+    },
+    plotOptions: {
+        column: {
+            borderRadius: 0,
+            borderRadiusTopLeft: '20',
+        	borderRadiusTopRight: '20',
+            color: '#627C33',
+        },
+
+        series: {
+            label: {
+                connectorAllowed: false,
+                show: false,
+                display: false
+            },
+            showInLegend: false,
+        }
+    },
+
+});
+
+
+
+//END OF
+
+//grieviance catergory code
+</script>
 
 </html>

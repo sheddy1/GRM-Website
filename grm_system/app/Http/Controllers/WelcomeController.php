@@ -24,6 +24,9 @@ use DB;
 class WelcomeController extends Controller
 {
     function home(){
+        session::put('nsr_drop','nsr_drop');
+        session::put('footer', 'footer');
+        session::put('copyright', 'copyright');
         //return view('main.welcome');
         $total_grieviance = DB::table('grieviances')->count();
         $resolved = grieviance::where('resolved', '=', 'yes')->count();

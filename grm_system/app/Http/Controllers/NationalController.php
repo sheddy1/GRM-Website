@@ -33,15 +33,27 @@ class NationalController extends Controller
 
         $lname = user::where('id', $id)->value('lname');
 
+        $title = user::where('id', $id)->value('title');
+
         $lname_first = $lname[0];
+
+        $resolved = grieviance::where('resolved', '=', 'yes')->count();
+
+        $review = grieviance::where('resolved', '=', 'no')->count();
+
+        $total_grieviance = DB::table('grieviances')->count();
 
         //echo $name;
 
         return view('national.home', [
             'name'=>$name, 
             'lname'=>$lname,
-            'lname_first'=>$lname_first
-            ]);
+            'lname_first'=>$lname_first,
+            'title'=>$title,
+            'resolved' => $resolved,
+            'review' => $review,
+            'total_grieviance' => $total_grieviance
+        ]);
     }
 
     function register(){
