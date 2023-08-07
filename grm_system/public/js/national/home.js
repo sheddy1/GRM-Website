@@ -3,7 +3,7 @@ $(document).ready(function(){
       $(".ul_whole1").toggleClass("ul_whole2");
     });
   });
-  
+
   //grieviiance summary chart
   var pieColors = (function () {
     var colors = [],
@@ -18,211 +18,101 @@ $(document).ready(function(){
     return colors;
 }());
 
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: "#efeded",
-        plotBorderWidth: 20,
-        height: 205,
-        plotBorderColor: "#efeded",
-        plotShadow: false,
-        type: 'pie'
+// Highcharts.chart('container', {
+//     chart: {
+//         plotBackgroundColor: "#EFEDED",
+//         plotBorderWidth: 20,
+//         height: 205,
+//         plotBorderColor: "#EFEDED",
+//         plotShadow: false,
+//         type: 'pie'
 
-    },
-    title: {
-        text: ''
-    },
+//     },
+//     title: {
+//         text: ''
+//     },
 
-    credits: {
-        enabled: false
-    },
+//     credits: {
+//         enabled: false
+//     },
 
-    plotOptions: {
-        pie: {
-            type: 'doughnut',
-            allowPointSelect: true,
-            cursor: 'pointer',
-            colors: pieColors,
-            dataLabels: {
-                enabled: false,
-                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                distance: -90,
+//     plotOptions: {
+//         pie: {
+//             type: 'doughnut',
+//             allowPointSelect: true,
+//             cursor: 'pointer',
+//             colors: pieColors,
+//             dataLabels: {
+//                 enabled: false,
+//                 format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+//                 distance: -90,
 
-            }
-        }
-    },
-    series: [{
-        name: 'Percentage',
-        innerSize: '70%',
-        data: [
-            { name: 'Resolved', y: 30},
-            { name: 'Under Review', y: 40},
-            { name: 'New cases', y: 30}
-            // { name: 'Firefox', y: 4.96 },
-            // { name: 'Safari', y: 2.49 },
-            // { name: 'Internet Explorer', y: 2.31 },
-            // { name: 'Other', y: 3.398 }
-        ]
-    }]
-});
+//             }
+//         }
+//     },
+//     series: [{
+//         name: 'Percentage',
+//         innerSize: '70%',
+//         data: [
+//             { name: 'Resolved', y: 30},
+//             { name: 'Under Review', y: 40},
+//             { name: 'New cases', y: 30}
+//             // { name: 'Firefox', y: 4.96 },
+//             // { name: 'Safari', y: 2.49 },
+//             // { name: 'Internet Explorer', y: 2.31 },
+//             // { name: 'Other', y: 3.398 }
+//         ]
+//     }]
+// });
 // end of oval chart
 
-const chart = Highcharts.chart('container1', {
-    data: {
-        table: 'datatable'
-    },
-    chart: {
-        type: 'column',
-        color: '#efeded',
-        // plotBackgroundColor: "#EFEDED",
-        // BorderColor: "#EFEDED",
-    },
-    title: {
-        text: ''
-    },
-    credits: {
-        enabled: false
-    },
-    subtitle: {
-        text:
-            ''
-    },
-    xAxis: {
-        type: '',
-        title: {
-            text:''
-        },
-
-    },
-    yAxis: {
-        allowDecimals: false,
-        title: {
-            text: ''
-        }
-    },
-    xAxis: {
-        allowDecimals: false,
-    },
-    tooltip: {
-
-    },
-    plotOptions: {
-        column: {
-            borderRadius: 0,
-            borderRadiusTopLeft: '20',
-        	borderRadiusTopRight: '20',
-            color: '#627C33',
-        },
-
-        series: {
-            label: {
-                connectorAllowed: false,
-                show: false,
-                display: false
-            },
-            showInLegend: false,
-        }
-    },
-
-});
 
 
 
-//END OF
+    //END OF
 
-//grieviance catergory code
-Highcharts.chart('container3', {
-    chart: {
-        plotBackgroundColor: "#EFEDED",
-        plotBorderWidth: 20,
-        height: 205,
-        plotBorderColor: "#EFEDED",
-        plotShadow: false,
-        type: 'pie'
-
-    },
-    title: {
-        text: ''
-    },
-
-    credits: {
-        enabled: false
-    },
-
-    plotOptions: {
-        pie: {
-            type: 'doughnut',
-            allowPointSelect: true,
-            cursor: 'pointer',
-            colors: pieColors,
-            dataLabels: {
-                enabled: false,
-                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                distance: -90,
-
-            }
-        }
-    },
-    series: [{
-        name: 'Percentage',
-        innerSize: '70%',
-        data: [
-            { name: 'Resolved', y: 30},
-            { name: 'Under Review', y: 20},
-            { name: 'New cases', y: 15},
-            { name: 'Resolve', y: 10},
-            { name: 'Under Revie', y: 15},
-            { name: 'New case', y: 10}
-        ]
-    }]
-});
+    
 
 // end of grieve cat code
 
 //grieviance complaint code
-Highcharts.chart('container4', {
-    chart: {
-        plotBackgroundColor: "#EFEDED",
-        plotBorderWidth: 20,
-        height: 205,
-        plotBorderColor: "#EFEDED",
-        plotShadow: false,
-        type: 'pie'
+    
+    //emd of grieviance complaint mode
 
-    },
-    title: {
-        text: ''
-    },
 
-    credits: {
-        enabled: false
-    },
 
-    plotOptions: {
-        pie: {
-            type: 'doughnut',
-            allowPointSelect: true,
-            cursor: 'pointer',
-            colors: pieColors,
-            dataLabels: {
-                enabled: false,
-                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                distance: -90,
+    const notification_show = document.getElementById("main_header_desc1_desc_search_icon_drop");
 
-            }
+    const notification = document.getElementById("main_header_desc1_desc_not_icon");
+
+
+    notification.addEventListener("click", (event) => {
+        if(notification_show.style.display == "none")
+        {
+            notification_show.style.display = "block";
         }
-    },
-    series: [{
-        name: 'Percentage',
-        innerSize: '70%',
-        data: [
-            { name: 'Resolved', y: 30},
-            { name: 'Under Review', y: 20},
-            { name: 'New cases', y: 15},
-            { name: 'Resolve', y: 10},
-            { name: 'Under Revie', y: 15},
-            { name: 'New case', y: 10}
-        ]
-    }]
-});
+        else
+        {
+            notification_show.style.display = "none";
+        }
+     });
 
-//emd of grieviance complaint mode
+
+// container1 change code
+
+    //const container1_chart_a = document.getElementById("sheddy");
+
+    //const container1_chart_a_show = document.getElementById("main_header_desc1_desc_not_icon");
+
+    //container1_chart_a.addEventListener("click", (event) => {
+        // if(container1_chart_a_show.style.display == "none")
+        // {
+        //     container1_chart_a_show.style.display = "block";
+        // }
+        //alert('sdsdsd');
+        
+    //});
+
+   
+
+// end container1 change code

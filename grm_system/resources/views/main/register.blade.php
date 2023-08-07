@@ -83,43 +83,43 @@
 
             <select name="state_select" class="form_name_select"  id="state_select" value="{{ old('state_select') }}">
                 <option selected disabled>State</option>
-                <option value="fct">ABUJA</option>
-                <option value="abia">ABIA</option>
-                <option value="adamawa">ADAMAWA</option>
-                <option value="akwa-ibom">AKWA IBOM</option>
-                <option value="anambra">ANAMBRA</option>
-                <option value="bauchi">BAUCHI</option>
-                <option value="bayelsa">BAYELSA</option>
-                <option value="benue">BENUE</option>
-                <option value="borno">BORNO</option>
-                <option value="cross-river">CROSS RIVER</option>
-                <option value="delta">DELTA</option>
-                <option value="ebonyi">EBONYI</option>
-                <option value="edo">EDO</option>
-                <option value="ekiti ">EKITI </option>
-                <option value="enugu ">ENUGU </option>
-                <option value="gombe ">GOMBE </option>
-                <option value="imo ">IMO </option>
-                <option value="jigawa ">JIGAWA </option>
-                <option value="kaduna ">KADUNA </option>
-                <option value="kano ">KANO </option>
-                <option value="katsina ">KATSINA </option>
-                <option value="kebbi ">KEBBI </option>
-                <option value="kogi ">KOGI </option>
-                <option value="kwara ">KWARA </option>
-                <option value="lagos ">LAGOS </option>
-                <option value="nasarawa ">NASARAWA </option>
-                <option value="niger ">NIGER </option>
-                <option value="ogun ">OGUN </option>
-                <option value="ondo ">ONDO </option>
-                <option value="osun ">OSUN </option>
-                <option value="oyo ">OYO </option>
-                <option value="plateau ">PLATEAU </option>
-                <option value="rivers ">RIVERS </option>
-                <option value="sokoto ">SOKOTO </option>
-                <option value="taraba ">TARABA </option>
-                <option value="yobe ">YOBE </option>
-                <option value="zamfara ">ZAMFARA </option>
+                <option value="fct" {{ old('state_select') == "fct" ? 'selected' : '' }}>ABUJA</option>
+                <option value="abia" {{ old('state_select') == "abia" ? 'selected' : '' }}>ABIA</option>
+                <option value="adamawa" {{ old('state_select') == "adamawa" ? 'selected' : '' }}>ADAMAWA</option>
+                <option value="akwa-ibom" {{ old('state_select') == "akwa-ibom" ? 'selected' : '' }}>AKWA IBOM</option>
+                <option value="anambra" {{ old('state_select') == "anambra" ? 'selected' : '' }}>ANAMBRA</option>
+                <option value="bauchi" {{ old('state_select') == "bauchi" ? 'selected' : '' }}>BAUCHI</option>
+                <option value="bayelsa" {{ old('state_select') == "bayelsa" ? 'selected' : '' }}>BAYELSA</option>
+                <option value="benue" {{ old('state_select') == "benue" ? 'selected' : '' }}>BENUE</option>
+                <option value="borno" {{ old('state_select') == "borno" ? 'selected' : '' }}>BORNO</option>
+                <option value="cross-river" {{ old('state_select') == "cross-river" ? 'selected' : '' }}>CROSS RIVER</option>
+                <option value="delta" {{ old('state_select') == "delta" ? 'selected' : '' }}>DELTA</option>
+                <option value="ebonyi" {{ old('state_select') == "ebonyi" ? 'selected' : '' }}>EBONYI</option>
+                <option value="edo" {{ old('state_select') == "edo" ? 'selected' : '' }}>EDO</option>
+                <option value="ekiti" {{ old('state_select') == "ekiti" ? 'selected' : '' }}>EKITI </option>
+                <option value="enugu" {{ old('state_select') == "enugu" ? 'selected' : '' }}>ENUGU </option>
+                <option value="gombe" {{ old('state_select') == "gombe" ? 'selected' : '' }}>GOMBE </option>
+                <option value="imo" {{ old('state_select') == "imo" ? 'selected' : '' }}>IMO </option>
+                <option value="jigawa" {{ old('state_select') == "jigawa" ? 'selected' : '' }}>JIGAWA </option>
+                <option value="kaduna" {{ old('state_select') == "kaduna" ? 'selected' : '' }}>KADUNA </option>
+                <option value="kano" {{ old('state_select') == "kano" ? 'selected' : '' }}>KANO </option>
+                <option value="katsina" {{ old('state_select') == "katsina" ? 'selected' : '' }}>KATSINA </option>
+                <option value="kebbi" {{ old('state_select') == "kebbi" ? 'selected' : '' }}>KEBBI </option>
+                <option value="kogi" {{ old('state_select') == "kogi" ? 'selected' : '' }}>KOGI </option>
+                <option value="kwara" {{ old('state_select') == "kwara" ? 'selected' : '' }}>KWARA </option>
+                <option value="lagos" {{ old('state_select') == "lagos" ? 'selected' : '' }}>LAGOS </option>
+                <option value="nasarawa" {{ old('state_select') == "nassarawa" ? 'selected' : '' }}>NASARAWA </option>
+                <option value="niger" {{ old('state_select') == "niger" ? 'selected' : '' }}>NIGER </option>
+                <option value="ogun" {{ old('state_select') == "ogun" ? 'selected' : '' }}>OGUN </option>
+                <option value="ondo" {{ old('state_select') == "ondo" ? 'selected' : '' }}>ONDO </option>
+                <option value="osun" {{ old('state_select') == "osun" ? 'selected' : '' }}>OSUN </option>
+                <option value="oyo" {{ old('state_select') == "oyo" ? 'selected' : '' }}>OYO </option>
+                <option value="plateau" {{ old('state_select') == "plateau" ? 'selected' : '' }}>PLATEAU </option>
+                <option value="rivers" {{ old('state_select') == "rivers" ? 'selected' : '' }}>RIVERS </option>
+                <option value="sokoto"{{ old('state_select') == "sokoto" ? 'selected' : '' }}>SOKOTO </option>
+                <option value="taraba" {{ old('state_select') == "taraba" ? 'selected' : '' }}>TARABA </option>
+                <option value="yobe" {{ old('state_select') == "yobe" ? 'selected' : '' }}>YOBE </option>
+                <option value="zamfara" {{ old('state_select') == "zamfara" ? 'selected' : '' }}>ZAMFARA </option>
 
             </select>
             <span class="text-danger age">@error('state_select'){{ $message }} @enderror</span>
@@ -380,8 +380,8 @@
             $('#state_select').on('change', function () {
                 var stateid = this.value;
                 //alert("sdsdsdsd" + stateid);
-                $('#lga_select').html('');
-                $('#form_name_select').html('');
+                //$('#lga_select').html('');
+                //$('#form_name_select').html('');
                 $.ajax({
                     url: '{{ route('getLgas') }}?stateid='+stateid,
                     type: 'get',
@@ -391,7 +391,7 @@
                             $('#lga_select').html('<option selected disabled>LGA</option>');
                             $.each(res, function (key, value) {
                                 $('#lga_select').append('<option value="' + value
-                                .lga + '">' + value.lgan + '</option>');
+                                .lga + '" >' + value.lgan + '</option>');
                             });
                         }
                         else{

@@ -14,7 +14,7 @@
         <img src="{{ URL('img/wb_logo.png') }}" alt="world bank logo" class="header_wblogo">
         <img src="{{ URL('img/nassco_logo.png') }}" alt="world bank logo" class="header_naslogo">
 
-        <label class="header_logo_name">NASSP Greviance Center</label>
+        <label class="header_logo_name">NASSP Grieviance Center</label>
 
         <input type="checkbox" id="check">
         <label for="check">
@@ -91,6 +91,8 @@
                         to aid the Grievance Redress Officers and Managers at all levels
 
                     </div>
+
+                    <div class="swiper-scrollbar"></div>
 
                     <button class="content_slide1_btn">
                         Read More

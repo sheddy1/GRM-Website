@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+use App\Models\user;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +50,18 @@ Route::get('national_gro', 'NationalController@gro')->name('national_gro');
 
 Route::post('nationalRegister', 'NationalController@nationalRegister')->name('nationalRegister');
 
-Route::get('national_list', function () {
+Route::get('national_list', function (Request $request) {
 
     $grieviance = DB::table('grieviances')->get();
 
-    return view('national.list', ['grieviance' => $grieviance]);
+    $id =  $request->session()->get('loggeduser');
+
+    $name = user::where('id', $id)->value('name');
+
+    return view('national.list', [
+        'grieviance' => $grieviance,
+        
+        ]);
 })->name('national_list');
 
 Route::get('test', function () {
@@ -59,3 +69,9 @@ Route::get('test', function () {
 });
 
 Route::get('getCategory', 'NationalController@getCategory')->name('getCategory');
+
+Route::post('Download List', 'NationalController@list_download')->name('list_download');
+
+Route::get('Chart Date', 'NationalController@chart_date')->name('chart_date');
+
+Route::get('Bar Change', 'NationalController@bar_change')->name('bar_change');

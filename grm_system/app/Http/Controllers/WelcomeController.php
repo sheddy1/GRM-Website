@@ -65,6 +65,54 @@ class WelcomeController extends Controller
             {
                 if($email->position ==1)
                 {
+                    session::put('chart_bar', 0);
+                    //chart1 code
+
+                    $date_chart1 = date("Y/m/d");
+
+                    $month_chart1 = date('F', strtotime($date_chart1));
+
+                    //session::put('month', $month_chart1);
+
+                    $resolved_chart = grieviance::where('resolved', '=', 'yes')->where('month', '=', $month_chart1)->count();
+
+                    $review_chart = grieviance::where('resolved', '=', 'no')->where('month', '=', $month_chart1)->count();
+
+                    $new_chart = grieviance::where('attended', '=', 0)->where('month', '=', $month_chart1)->count();
+
+                    session::put('sum_charta', $resolved_chart);
+
+                    session::put('sum_chartb', $review_chart);
+
+                    session::put('sum_chartc', $new_chart);
+
+                    $chart_total = $resolved_chart + $review_chart + $new_chart;
+
+                    if($chart_total == 0){
+                        $chart_total = 1;
+                    }
+                    else{
+                        $chart_total = $chart_total;
+                    }
+
+                    $chart_a1 = ($resolved_chart/$chart_total) * 100;
+
+                    $chart_b1 = ($review_chart/$chart_total) * 100;
+
+                    $chart_c1 = ($new_chart/$chart_total) * 100;
+                    $chart_a = number_format((float)$chart_a1, 2, '.', '');
+
+                    $chart_b = number_format((float)$chart_b1, 2, '.', '');
+
+                    $chart_c = number_format((float)$chart_c1, 2, '.', '');
+
+                    session::put('chart_a', $chart_a);
+
+                    session::put('chart_b', $chart_b);
+
+                    Session::put('chart_c', $chart_c);
+
+                    //end of chart1 code
                     $request->session()->put('loggeduser', $email->id);
                     return redirect('national_homepage');
                 }
@@ -171,7 +219,7 @@ class WelcomeController extends Controller
             'phone'=>'required|numeric|digits:11',
             'email'=>'',
             'description'=>'required',
-            'nsr_no'=>'in:nsr'
+            'nsr_no'=>''
         ]);
 
         //getting the tracking number
@@ -195,6 +243,18 @@ class WelcomeController extends Controller
 
         //adjusting nsr code
         
+        $date = date("Y/m/d");
+
+        $month = date('F', strtotime($date));
+
+        //email
+        $email1 = $request->email;
+        $email2 = "";
+        if($email1 == ""){
+            $email2 = "N/A";
+        }
+        else
+        {$email2=$email1;}
 
         //inserting the data
         $grieviance = new grieviance;
@@ -209,7 +269,7 @@ class WelcomeController extends Controller
         $grieviance->gender = $request->gender;
         $grieviance->age = $request->age;
         $grieviance->phone = $request->phone;
-        $grieviance->email = $request->email;
+        $grieviance->email = $email2;
         $grieviance->desc = $request->description;
         $grieviance->category = "N/A";
         $grieviance->sub_category = "N/A";
@@ -217,6 +277,11 @@ class WelcomeController extends Controller
         $grieviance->resolved = "no";
         $grieviance->rescomment = "N/A";
         $grieviance->track = $str;
+        $grieviance->month = $month;
+        $grieviance->assigned = "N/A";
+        $grieviance->attended = 0;
+        $grieviance->referal = "N/A";
+        $grieviance->escalate = "N/A";
         $save = $grieviance->save();
 
         //sending the tracking number through an email
@@ -247,9 +312,18 @@ class WelcomeController extends Controller
             'cmode'=> "ONLINE",
             'resolved'=> "N/A",
             'rescomment'=> "N/A",
+            'escalate' => "N/A",
+            'referal'=> "N/A"
         ];
 
-        Mail::to($request->email)->send(new grieve($details));
+        if($email1!=""){
+            Mail::to($request->email)->send(new grieve($details));
+            //Mail::to("sgodwin@nassp.gov.ng")->send(new grieve($details));
+        }
+        else{
+            echo "stuff";
+        }
+        
 
         Session::put('reg',1);
 

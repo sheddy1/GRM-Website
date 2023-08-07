@@ -70,7 +70,7 @@
             </span>
 
             <span class="section2_div1_button">
-                <button type ="submit" class="section2_div1_button1">LOGIN</button>
+                <button type ="submit" class="section2_div1_button1" onclick="barchange()">LOGIN</button>
             </span>
         </form>
     </div>
@@ -79,7 +79,13 @@
 <script src="{{ URL('js/swiper-bundle.min.js') }}"></script>
 
 <script type="text/javascript">
+    function barchange(){
+        document.cookie = "bar_change = STATE";
+    }
+
+
     function myfunction(){
+        
         var x = document.getElementById("id_password");
         if (x.type === "password")
         {

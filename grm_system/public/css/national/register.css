@@ -688,8 +688,8 @@ left: 15px;
         height: 30px;
         /* background-color:rgb(49, 165, 126); */
         position: absolute;
-        top: 250px;
-        right: 20px;
+        top: 550px;
+        left: 20px;
     }
 
     .info_cname{
@@ -737,6 +737,24 @@ left: 15px;
         left: 20px;
     }
 
+    .info_escalate{
+        width: 530px;
+        height: 30px;
+        /* background-color:rgb(49, 165, 126); */
+        position: absolute;
+        top: 550px;
+        right: 20px;
+    }
+
+    .info_referal{
+        width: 530px;
+        height: 30px;
+        /* background-color:rgb(49, 165, 126); */
+        position: absolute;
+        top: 610px;
+        right: 20px;
+    }
+
     .info_cmode{
         width: 530px;
         height: 30px;
@@ -769,7 +787,16 @@ left: 15px;
         height: 30px;
         /* background-color:rgb(49, 165, 126); */
         position: absolute;
-        top: 550px;
+        top: 250px;
+        right: 20px;
+    }
+
+    .info_nsr{
+        width: 530px;
+        height: 30px;
+        /* background-color:rgb(49, 165, 126); */
+        position: absolute;
+        top: 610px;
         left: 20px;
     }
 

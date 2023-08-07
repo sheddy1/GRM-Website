@@ -10,6 +10,9 @@
     z-index: 2;
 }
 
+body{
+    overflow-x: hidden;
+}
 
 
 .header_wblogo{
@@ -150,6 +153,11 @@ label #cancel{
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+  }
+
+  .swiper-scrollbar {
+    background: #d6d6d6;
+    display: none;
   }
 
   .content_slide1{

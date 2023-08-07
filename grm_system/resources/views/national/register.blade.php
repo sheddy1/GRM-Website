@@ -74,16 +74,16 @@
 
             <span class="main_header_desc">
                 <span class="main_header_desc1">
-                    <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon">
-                    <label class="main_header_desc1_name">Amba Daniel</label>
-                    <label class="main_header_desc1_desc">GRM Manager</label>
+                    <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon" style="visibility: hidden;">
+                    <label class="main_header_desc1_name">{{ $name }} {{ $lname_first }}.</label>
+                    <label class="main_header_desc1_desc">{{ $title }}</label>
                 </span>
 
                 <img src="{{ URL('img/male.png') }}" alt="MAle Icon" class="main_header_desc1_desc_male_icon">
 
                 <img src="{{ URL('img/notification.png') }}" alt="notification Icon" class="main_header_desc1_desc_not_icon">
 
-                <img src="{{ URL('img/search1.png') }}" alt="search Icon" class="main_header_desc1_desc_search_icon">
+                <img src="{{ URL('img/search1.png') }}" alt="search Icon" class="main_header_desc1_desc_search_icon" style="visibility: hidden;">
             </span>
 
             <label class="header_grieviance">Grieviances</label>
@@ -249,8 +249,8 @@
 
                     <select name="info_category" id="info_category" class="info_state_input">
                         <option selected disabled>CATEGORY</option>
-                        <option value="wrongful_inclusion/exclusion">WRONGFUL INCLUSION/EXCLUSION</option>
-                        <option value="_payments_and_payment_service_delivery">PAYMENTS AND PAYMENT SERVICE DELIVERY</option>
+                        <option value="wrongful_inclusion_exclusion">WRONGFUL INCLUSION/EXCLUSION</option>
+                        <option value="payments_and_payment_service_delivery">PAYMENTS AND PAYMENT SERVICE DELIVERY</option>
                         <option value="nassp_service_delivery_issues">NASSP SERVICE DELIVERY ISSUES</option>
                         <option value="fraud_and_corruption_issues">FRAUD AND CORRUPTION ISSUES</option>
                         <option value="data_errors_and_updates">DATA ERRORS AND UPDATES</option>
@@ -275,10 +275,10 @@
 
                     <select name="info_cmode" id="" class="info_state_input">
                         <option selected disabled>COMPLAINT MODE</option>
-                        <option value="in person">IN PERSON</option>
+                        <option value="in_person">IN PERSON</option>
                         <option value="email">EMAIL</option>
                         <option value="phone">PHONE</option>
-                        <option value="ONLINE">ONLINE</option>
+                        <option value="online">ONLINE</option>
                     </select>
 
                     <span class="text-danger national_error">@error('info_cmode'){{ $message }} @enderror</span>
@@ -287,7 +287,7 @@
                 <span class="info_cemail">
                     <label class="info_zone_desc">COMPLAINT EMAIL</label>
 
-                    <input type="text" class="info_zone_input" name="info_cemail" placeholder="EMAIL ADDRESS" value="{{ old('info_cemail') }}">
+                    <input type="text" class="info_zone_input" name="info_cemail" placeholder="EMAIL ADDRESS(NOT COMPULSORY)" value="{{ old('info_cemail') }}">
 
                     <span class="text-danger national_error">@error('info_cemail'){{ $message }} @enderror</span>
                 </span>
@@ -295,12 +295,37 @@
                 <span class="info_resolved">
                     <label class="info_zone_desc">RESOLVED</label>
 
-                    <select name="info_resolved" id="" class="info_state_input">
+                    <select name="info_resolved" id="info_resolved" id="" class="info_state_input">
+                        <option selected disabled>Has the problem been resolved</option>    
                         <option value="yes">YES</option>
                         <option value="no">NO</option>
                     </select>
 
                     <span class="text-danger national_error">@error('info_resolved'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_escalate" id="info_escalate" style="display: none">
+                    <label class="info_zone_desc">ESCALATE</label>
+
+                    <select name="info_escalate"  class="info_state_input">
+                        <option selected disabled>ESCALATE TO</option>
+                        <option value="national_grm_manager">NATIONAL GRM MANAGER</option>
+                        <option value="state_grm_manager">STATE GRM MANAGER</option>
+                        <option value="local_grm_manager">LOCAL GOVERMENT GRM MANAGER</option>
+                    </select>
+
+                    <span class="text-danger national_error">@error('info_escalate'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_referal" id="info_referal" style="display: none">
+                    <label class="info_zone_desc">REFERAL</label>
+
+                    <select name="info_referal"  class="info_state_input">
+                        <option selected disabled>REFER TO</option>
+                        <option value="gender_officer">Gender officer</option>
+                    </select>
+
+                    <span class="text-danger national_error">@error('info_referal'){{ $message }} @enderror</span>
                 </span>
 
                 <span class="info_age">
@@ -313,7 +338,7 @@
                     <span class="text-danger national_error">@error('info_subcat'){{ $message }} @enderror</span>
                 </span>
 
-                <span class="info_rescomment">
+                <span class="info_rescomment" id="info_rescomment" style="display:none">
                     <label class="info_zone_desc">RESOLVED COMMENT</label>
     
                     <textarea name="info_rescomment" id="" cols="30" rows="10" class="info_rescomment_input" value="{{ old('info_rescomment') }}" placeholder="HOW WAS THE GRIEVIANCE RESOLVED"></textarea>
@@ -327,6 +352,14 @@
                     <textarea name="info_desc" id="" cols="30" rows="10" class="info_rescomment_input" value="{{ old('info_desc') }}" placeholder="Complaint's grieviance in a concise form"></textarea>
 
                     <span class="text-danger national_error1">@error('info_desc'){{ $message }} @enderror</span>
+                </span>
+
+                <span class="info_nsr" id="info_nsr" style="visibility: hidden">
+                    <label class="info_zone_desc">NSR NUMBER</label>
+
+                    <input type="text" class="info_zone_input" name="info_nsr" placeholder="NSR NUMBER" value="{{ old('info_nsr') }}">
+
+                    <span class="text-danger national_error">@error('info_nsr'){{ $message }} @enderror</span>
                 </span>
 
                 <span class="button">
@@ -388,6 +421,48 @@
                         }
                     }
                 });
+            });
+
+            //nsr code
+            $('#info_beneficiary').on('change', function() {
+                //alert("sdsdsd");
+                var beneficiary = this.value;
+                const nsr = document.getElementById('info_nsr');
+
+                if(beneficiary == 'yes')
+                {
+                    nsr.style.visibility ='visible';
+                }
+                else if(beneficiary == 'no'){
+                    nsr.style.visibility ='hidden';
+                }
+            });
+
+            //resolved code
+            $('#info_resolved').on('change', function() {
+                var resolved = this.value;
+                //alert("sdsds" + resolved);
+
+                const resolved_comment = document.getElementById('info_rescomment');
+
+                const escalate = document.getElementById('info_escalate');
+
+                const referal = document.getElementById('info_referal');
+
+                // resolved_comment = document.getElementById("sdf");
+
+                if(resolved == 'yes')
+                {
+                    resolved_comment.style.display = 'block';
+                    escalate.style.display = 'none';
+                    referal.style.display = 'none';
+                }
+                else if(resolved == 'no'){
+                    resolved_comment.style.display = 'none';
+                    escalate.style.display = 'block';
+                    referal.style.display = 'block';
+
+                }
             });
 
             //wards code
@@ -456,7 +531,7 @@
                             });
                         }
                         else{
-                            alert("not working");
+                            //alert("not working");
                         }
                     }
                 });

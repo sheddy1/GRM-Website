@@ -13,4 +13,9 @@ var swiper = new Swiper(".mySwiper", {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    scrollbar: {
+      container :'.swiper-scrollbar',
+      hide: true,
+      draggable: false  
+    },
   });

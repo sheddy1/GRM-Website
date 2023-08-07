@@ -132,10 +132,12 @@
                 <span class="info_header_bottom_line"></span>
                 <label class="info_header_grieviance">All Grieviances</label>
 
-                <button class="info_share">
+                <button class="info_share" id="info_share">
                     <img src="{{ url('img/share.png') }}" alt="filter_image">
-                    Share
+                    Export
                 </button>
+
+                
 
                 <button class="info_filter1">
                     <img src="{{ url('img/filter1.png') }}" alt="filter_image">
@@ -143,8 +145,8 @@
                 </button>
 
                 <button class="info_filter2">
-                    <img src="{{ url('img/filter2.png') }}" alt="filter_image">
-                    Filter
+                    <img src="{{ url('img/edit.png') }}" alt="filter_image">
+                    Edit
                 </button>
 
                 <span class="info_header_search">
@@ -242,9 +244,59 @@
                 
             </table>
         </div>
+
+        
+        
+    </div>
+
+    <!-- share code -->
+    <form method="post" style="display:none " id="info_share_box" action="{{ route('list_download') }}">
+    @csrf
+        <span class="info_share_box_cover"></span>
+        <span class="info_share_box_main">
+            <label for="" class="info_share_box_main_header">
+                Export Grieviances
+            </label>
+
+            <img src="{{ URL('img/close.png') }}" alt="close" class="info_share_box_main_header_close" id="info_share_box_close">
+
+            <label for="" class="info_share_box_main_header1">
+                Select Format 
+            </label>
+
+            <select name="info_share" id="" class="info_share_box_main_text">
+                <option selected disabled>File Format</option>
+                <option value="csv">CSV</option>
+                <option value="excel">EXCEL</option>
+            </select>
+
+            <button class="info_share_box_button">Export</button>
+        </span>
     </div>
 </body>
 
 <script src="{{ URL('js/national/home.js') }}"></script>
+
+<script>
+     const share_button = document.getElementById("info_share");
+
+     const close_button = document.getElementById("info_share_box_close");
+
+     const show_share = document.getElementById("info_share_box");
+
+     share_button.addEventListener("click", (event) => {
+        if(show_share.style.display == "none")
+        {
+            show_share.style.display = "block";
+        }
+     });
+
+     close_button.addEventListener("click", (event) => {
+        if(show_share.style.display == "block")
+        {
+            show_share.style.display = "none";
+        }
+     });
+</script>
 
 </html>
