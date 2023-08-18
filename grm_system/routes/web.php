@@ -50,19 +50,21 @@ Route::get('national_gro', 'NationalController@gro')->name('national_gro');
 
 Route::post('nationalRegister', 'NationalController@nationalRegister')->name('nationalRegister');
 
-Route::get('national_list', function (Request $request) {
+Route::get('Grieviances List', 'NationalController@national_list')->name('national_list');
 
-    $grieviance = DB::table('grieviances')->get();
+//Route::get('national_list', function (Request $request) {
 
-    $id =  $request->session()->get('loggeduser');
+    //$grieviance = DB::table('grieviances')->get();
 
-    $name = user::where('id', $id)->value('name');
+    //$id =  $request->session()->get('loggeduser');
 
-    return view('national.list', [
-        'grieviance' => $grieviance,
+    //$name = user::where('id', $id)->value('name');
+
+   // return view('national.list', [
+        //'grieviance' => $grieviance,
         
-        ]);
-})->name('national_list');
+        //]);
+//})->name('national_list');
 
 Route::get('test', function () {
     return view('main.test');
@@ -75,3 +77,13 @@ Route::post('Download List', 'NationalController@list_download')->name('list_dow
 Route::get('Chart Date', 'NationalController@chart_date')->name('chart_date');
 
 Route::get('Bar Change', 'NationalController@bar_change')->name('bar_change');
+
+Route::post('Filter Grieviances', 'NationalController@filter_grieviance')->name('filter_grieviance');
+
+Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
+
+Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
+
+Route::get('Search Bar', 'NationalController@search_bar')->name('search_bar');
+
+Route::get('Personal', 'NationalController@personal')->name('personal');

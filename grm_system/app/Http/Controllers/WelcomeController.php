@@ -112,13 +112,17 @@ class WelcomeController extends Controller
 
                     Session::put('chart_c', $chart_c);
 
+                    $grieviance_main = DB::table('grieviances')->get();
+
+                    session::put('filter_search', $grieviance_main );
+
                     //end of chart1 code
-                    $request->session()->put('loggeduser', $email->id);
+                    $request->session()->put('loggeduser', $email->user_id);
                     return redirect('national_homepage');
                 }
                 else if($email->position ==2)
                 {
-                    $request->session()->put('loggeduser', $email->id);
+                    $request->session()->put('loggeduser', $email->user_id);
                     return redirect('national_homepage');
                 }
 

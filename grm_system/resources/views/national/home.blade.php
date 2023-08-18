@@ -75,7 +75,7 @@
         <div class="main" id="main">
             <div class="main_header">
                 <span class="main_header_name">
-                    <label class="main_header_name_name">Welcome {{ $name }} {{ $lname }}</label>
+                    <label class="main_header_name_name">Welcome {{ $name }} {{ $lname }} </label>
                     <label class="main_header_name_desc">Here is an update on GRM today</label>
                 </span>
 

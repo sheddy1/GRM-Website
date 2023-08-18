@@ -572,189 +572,97 @@ left: 15px;
 /* main sumary recorded code */
 
 
-.main_summary_recorded_name5{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    color: #000000;
-    position: relative;
-    top: -20px;
-}
 
-.main_summary_recorded_name6{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    color: #000000;
-    position: relative;
-    top: -20px;
-}
-
-.main_summary_recorded_name7{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    color: #000000;
-    position: relative;
-    top: -20px;
-}
-
-.main_summary_recorded_name8{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    color: #000000;
-    position: relative;
-    top: -20px;
-}
-
-.main_summary_recorded_num{
-    position:relative;
-    left: -170px;
-    top: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 35px;
-    text-align: center;
-    color: #000000;
-}
-
-.main_summary_recorded_num1{
-    position:relative;
-    left: -170px;
-    top: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 35px;
-    text-align: center;
-    color: #000000;
-}
-
-.main_summary_recorded_num2{
-    position:relative;
-    left: -200px;
-    top: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 35px;
-    text-align: center;
-    color: #000000;
-}
-
-.main_summary_recorded_num3{
-    position:relative;
-    left: -100px;
-    top: 30px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 35px;
-    text-align: center;
-    color: #000000;
-}
-
-.main_summary_recorded_name1{
-    position: relative;
-    left: 0px;
-    bottom: -20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    color: #8D8D8D;
-}
-
-.main_summary_recorded_name2{
-    position: relative;
-    left: 0px;
-    bottom: -20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    color: #8D8D8D;
-}
-
-.main_summary_recorded_name3{
-    position: relative;
-    left: 0px;
-    bottom: -20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    color: #8D8D8D;
-}
-
-.main_summary_recorded_name4{
-    position: relative;
-    left: 0px;
-    bottom: -20px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    color: #8D8D8D;
-}
-
-.main_summary_recorded_image1{
-    position: relative;
-    bottom: 0px;
-    right: -100px;
-    height: 50px;
-}
-
-.main_summary_recorded_image2{
-    position: relative;
-    bottom: 0px;
-    right: -100px;
-    height: 50px;
-}
-
-.main_summary_recorded_image3{
-    position: relative;
-    bottom: 0px;
-    right: -80px;
-    height: 50px;
-}
-
-.main_summary_recorded_image4{
-    position: relative;
-    bottom: 0px;
-    right: -80px;
-    height: 50px;
-}
 /* end main sumary recorded code */
 
-.main_summary_recorded{
+.main_summary{
+    /* background-color: rgb(111, 194, 235); */
+    width: 1170px;
     height: 100px;
-    background-color: #EFEDED;
-    flex: 1 0 245px;
+    position: relative;
+    top: 100px;
+    left: 50px;
+}
+
+.main_summary_recorded_header{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    /* identical to box height */
+    color: #000000;
+    position: absolute;
+    left: 10px;
+}
+
+.main_summary_recorded_number{
+    position: absolute;
+    left: 10px;
+    top: 35px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+
+.main_summary_recorded_desc{
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 12px;
+
+    color: #8D8D8D;
+
+
+}
+
+.main_summary_recorded_img{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.main_summary_recorded{
+    width: 262.5px;
+    height: 100%;
+    background: #EFEDED;
+    position: absolute;
 }
 
 .main_summary_resolved{
-    height: 100px;
-    background-color: #EFEDED;
-    flex: 1 0 245px;
+    width: 262.5px;
+    height: 100%;
+    background: #EFEDED;
+    position: absolute;
+    left: 302.5px;
 }
 
 .main_summary_review{
-    height: 100px;
-    background-color: #EFEDED;
-    flex: 1 0 245px;
+    width: 262.5px;
+    height: 100%;
+    background: #EFEDED;
+    position: absolute;
+    left: 605px;
 }
 
 .main_summary_new{
-    height: 100px;
-    background-color: #EFEDED;
-    flex: 1 0 245px;
+    width: 262.5px;
+    height: 100%;
+    background: #EFEDED;
+    position: absolute;
+    /* left: 907.5px; */
+    right: 0px;
 }
 
  /* main summary media codes */
@@ -1245,6 +1153,7 @@ left: 15px;
     position: absolute;
     left: 30px;
     top: 14px;
+    cursor: pointer;
 
     font-family: 'Inter';
     font-style: normal;
@@ -1347,7 +1256,7 @@ left: 15px;
  }
 
  .info_filter2{
-    width: 80px;
+    width: 170px;
     height: 30px;
     position: absolute;
     top: 10px;
@@ -1362,7 +1271,7 @@ left: 15px;
     height: 30px;
     position: absolute;
     top: 10px;
-    right: 315px;
+    right: 405px;
     background: #EFEDED;
      border: 1px solid #000000;
      border-radius: 4px;
@@ -1373,18 +1282,148 @@ left: 15px;
  }
 
  .info_header_Searchbox{
-    height: 26px;
+    height: 28px;
+    width: 200px;
     position: absolute;
     top: 0px;
-    right: 0px;
-    background: #EFEDED;
+    right: 10px;
+    background: #efeded;
      border:0px;
      caret-color: green;
      outline: 0px ridge cyan
  }
+
+    /* filter code */
+    
+    .info_filter_cover{
+        width: 100%;
+        height: 100%;
+        background-color: #8D8D8D;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .info_filter_main{
+        width: 700px;
+        height: 350px;
+        background-color: #627C33;
+        opacity: 0.8    ;
+        position: absolute;
+        top: 150px;
+        left: 300px;
+        z-index: 2;
+    }
+
+    .filter_zone{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 20px;
+        top: 50px;
+        pointer-events: none;
+    }
+
+    .filter_zone_title{
+        font-size: 15px;
+        font-family: roboto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: white;
+        font-weight: 700;
+    }
+
+    .filter_zone_select{
+        width: 100%;
+        height: 25px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        font-size: 13px;
+        font-family: roboto;
+    }
+
+    .filter_state{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 246.7px;
+        top: 50px;
+    }
+
+    .filter_lga{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 473.4px;
+        top: 50px;
+    }
+
+    .filter_ward{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 20px;
+        top: 120px;
+    }
+
+    .filter_category{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 246.7px;
+        top: 120px;
+    }
+
+    .filter_mode{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 473.4px;
+        top: 120px;
+    }
+
+    .filter_resolved{
+        /* background-color: antiquewhite; */
+        width: 206.7px;
+        height: 50px;
+        position: absolute;
+        left: 20px;
+        top: 190px;
+    }
+
+    .filter_search{
+        position: absolute;
+        bottom: 20px;
+        left: 300px;
+        width: 100px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* end of filter code */
 /* end of main_info code */
 
 .info_table{
+    height: 330px;
+    width: 1180px;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    overflow-y: scroll;
+    display: grid;
+}
+
+#info_table{
     height: 330px;
     width: 1180px;
     /* background-color: aqua; */

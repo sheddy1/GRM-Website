@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Session;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +69,7 @@
             <span class="main_header_desc">
                 <span class="main_header_desc1">
                     <img src="{{ URL('img/dropdown.png') }}" alt="dropdown image" class="main_header_desc1_icon">
-                    <label class="main_header_desc1_name">Amba Daniel</label>
+                    <label class="main_header_desc1_name">{{ $name }} {{ $lname_first }}.</label>
                     <label class="main_header_desc1_desc">GRM Manager</label>
                 </span>
 
@@ -74,7 +77,7 @@
 
                 <img src="{{ URL('img/notification.png') }}" alt="notification Icon" class="main_header_desc1_desc_not_icon">
 
-                <img src="{{ URL('img/search1.png') }}" alt="search Icon" class="main_header_desc1_desc_search_icon">
+                <img src="{{ URL('img/search1.png') }}" alt="search Icon" class="main_header_desc1_desc_search_icon" style="display:none">
             </span>
 
             <label class="header_grieviance">Grieviances</label>
@@ -86,51 +89,75 @@
         </div>
 
         <div class="main_summary">
-            <span class="main_summary_recorded main_summary1">
-                <label class="main_summary_recorded_name5">Total Grievances Recorded</label>
+                <span class="main_summary_recorded">
+                    <label class="main_summary_recorded_header">
+                        Total Grieviances Recorded
+                    </label>
 
-                <label class="main_summary_recorded_num">86</label>
+                    <label class="main_summary_recorded_number">
+                        {{ $total_grieviance }}
+                    </label>
 
-                <label class="main_summary_recorded_name1">Total Grievances</label>
+                    <label class="main_summary_recorded_desc">
+                        Total Grieviances
+                    </label>
 
-                <img src="{{ URL('img/record.png') }}" alt="Record Image" class="main_summary_recorded_image1">
-            </span>
+                    <img src="{{ URL('img/record.png') }}" alt="recorded icon" class="main_summary_recorded_img">
+                </span>
 
-            <span class="main_summary_resolved main_summary1">
-                <label class="main_summary_recorded_name6">Total Grievances Resolved</label>
+                <span class="main_summary_resolved">
+                    <label class="main_summary_recorded_header">
+                        Total Grieviances Resolved
+                    </label>
 
-                <label class="main_summary_recorded_num1">60</label>
+                    <label class="main_summary_recorded_number">
+                        {{ $resolved }}
+                    </label>
 
-                <label class="main_summary_recorded_name2">Resolved Cases</label>
+                    <label class="main_summary_recorded_desc">
+                        Resolved Cases
+                    </label>
 
-                <img src="{{ URL('img/resolved1.png') }}" alt="Record Image" class="main_summary_recorded_image2">
-            </span>
+                    <img src="{{ URL('img/resolved.png') }}" alt="recorded icon" class="main_summary_recorded_img">
+                </span>
 
-            <span class="main_summary_review main_summary1">
-                <label class="main_summary_recorded_name7">Total Grievances Under Review</label>
+                <span class="main_summary_review">
+                    <label class="main_summary_recorded_header">
+                        Total Grieviances Under Review
+                    </label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                    <label class="main_summary_recorded_number">
+                        {{ $review }}
+                    </label>
 
-                <label class="main_summary_recorded_name3">Review Grievances</label>
+                    <label class="main_summary_recorded_desc">
+                        Review Grieviances
+                    </label>
 
-                <img src="{{ URL('img/review1.png') }}" alt="Record Image" class="main_summary_recorded_image3">
-            </span>
+                    <img src="{{ URL('img/review.png') }}" alt="recorded icon" class="main_summary_recorded_img">
+                </span>
 
-            <span class="main_summary_new main_summary1">
-                <label class="main_summary_recorded_name8">Total Grievances Under Review</label>
+                <span class="main_summary_new">
+                    <label class="main_summary_recorded_header">
+                        New Grieviances
+                    </label>
 
-                <label class="main_summary_recorded_num2">26</label>
+                    <label class="main_summary_recorded_number">
+                        {{ $new }}
+                    </label>
 
-                <label class="main_summary_recorded_name4">Review Grievances</label>
+                    <label class="main_summary_recorded_desc">
+                        New Cases
+                    </label>
 
-                <img src="{{ URL('img/new.png') }}" alt="Record Image" class="main_summary_recorded_image4">
-            </span>
-        </div>
+                    <img src="{{ URL('img/new.png') }}" alt="recorded icon" class="main_summary_recorded_img">
+                </span>
+            </div>
 
         <div class="info">
             <span class="info_header">
                 <span class="info_header_bottom_line"></span>
-                <label class="info_header_grieviance">All Grieviances</label>
+                <label class="info_header_grieviance" id="info_header_grieviance">All Grieviances</label>
 
                 <button class="info_share" id="info_share">
                     <img src="{{ url('img/share.png') }}" alt="filter_image">
@@ -139,23 +166,23 @@
 
                 
 
-                <button class="info_filter1">
+                <button class="info_filter1" id="info_filter1">
                     <img src="{{ url('img/filter1.png') }}" alt="filter_image">
                     Filter
                 </button>
 
-                <button class="info_filter2">
+                <button class="info_filter2" id="info_filter2">
                     <img src="{{ url('img/edit.png') }}" alt="filter_image">
-                    Edit
+                    Assigned To Me
                 </button>
 
                 <span class="info_header_search">
                     <img src="{{ url('img/search2.png') }}" class="info_share_img" alt="search_image">
-                    <input type="text" class="info_header_Searchbox" placeholder="Search...">
+                    <input type="text" class="info_header_Searchbox" id="info_header_Searchbox" placeholder="Search...">
                 </span>
             </span>
 
-            <table class="info_table">
+            <table class="info_table" id="info_table">
 
 
                     <tr class="thead">
@@ -217,10 +244,13 @@
 
                     </tr> 
 
-                    
-                    @foreach ($grieviance as $key => $data)
+                    @php
+                        $grieviance_table = session::get('filter_search');
+                    @endphp
 
-                    <tr class="tbody">
+                    @foreach ($grieviance_table as $key => $data)
+
+                    <tr class="tbody" id="tbody">
                         <td class="info_table_header_text"> 
                             <input type="checkbox">
                         </td>
@@ -244,59 +274,276 @@
                 
             </table>
         </div>
-
         
+        <!-- //code for export -->
+        <form method="post" style="display:none" id="info_share_box" action="{{ route('list_download') }}">
+            @csrf
+            <span class="info_share_box_cover"></span>
+            <span class="info_share_box_main">
+                <label for="" class="info_share_box_main_header">
+                    Export Grieviances
+                </label>
+
+                <img src="{{ URL('img/close.png') }}" alt="close" class="info_share_box_main_header_close" id="info_share_box_close">
+
+                <label for="" class="info_share_box_main_header1">
+                    Select Format 
+                </label>
+
+                <select name="info_share" id="" class="info_share_box_main_text">
+                    <option selected disabled>File Format</option>
+                    <option value="csv">CSV</option>
+                    <option value="excel">EXCEL</option>
+                </select>
+
+                <button class="info_share_box_button">Export</button>
+            </span>
+        </form>
+        <!-- //end of code for export -->
+
+        <!-- //code for filter -->
+        <form method="post" style="display:none" id="info_filter" action="{{ route('filter_grieviance') }}">
+            @csrf
+            <span class="info_filter_cover"></span>
+            <span class="info_filter_main">
+                <label for="" class="info_share_box_main_header">
+                    Filter Grieviances
+                </label>   
+                
+                <img src="{{ URL('img/close.png') }}" alt="close" class="info_share_box_main_header_close" id="info_filter_close">
+
+                <span class="filter_zone">
+                    <label class="filter_zone_title">ZONE</label>
+
+
+                    <input type="text" value="" name="filter_zone_select" id="filter_zone" class="filter_zone_select" placeholder="ZONE">
+                </span>
+
+                <span class="filter_state">
+                     <label class="filter_zone_title">STATE</label>
+
+                    <select name="filter_state_select" class="filter_zone_select"  id="filter_state">
+                        <option selected disabled>STATE</option>
+                        <option value="fct" {{ old('state_select') == "fct" ? 'selected' : '' }}>ABUJA</option>
+                        <option value="abia" {{ old('state_select') == "abia" ? 'selected' : '' }}>ABIA</option>
+                        <option value="adamawa" {{ old('state_select') == "adamawa" ? 'selected' : '' }}>ADAMAWA</option>
+                        <option value="akwa-ibom" {{ old('state_select') == "akwa-ibom" ? 'selected' : '' }}>AKWA IBOM</option>
+                        <option value="anambra" {{ old('state_select') == "anambra" ? 'selected' : '' }}>ANAMBRA</option>
+                        <option value="bauchi" {{ old('state_select') == "bauchi" ? 'selected' : '' }}>BAUCHI</option>
+                        <option value="bayelsa" {{ old('state_select') == "bayelsa" ? 'selected' : '' }}>BAYELSA</option>
+                        <option value="benue" {{ old('state_select') == "benue" ? 'selected' : '' }}>BENUE</option>
+                        <option value="borno" {{ old('state_select') == "borno" ? 'selected' : '' }}>BORNO</option>
+                        <option value="cross-river" {{ old('state_select') == "cross-river" ? 'selected' : '' }}>CROSS RIVER</option>
+                        <option value="delta" {{ old('state_select') == "delta" ? 'selected' : '' }}>DELTA</option>
+                        <option value="ebonyi" {{ old('state_select') == "ebonyi" ? 'selected' : '' }}>EBONYI</option>
+                        <option value="edo" {{ old('state_select') == "edo" ? 'selected' : '' }}>EDO</option>
+                        <option value="ekiti" {{ old('state_select') == "ekiti" ? 'selected' : '' }}>EKITI </option>
+                        <option value="enugu" {{ old('state_select') == "enugu" ? 'selected' : '' }}>ENUGU </option>
+                        <option value="gombe" {{ old('state_select') == "gombe" ? 'selected' : '' }}>GOMBE </option>
+                        <option value="imo" {{ old('state_select') == "imo" ? 'selected' : '' }}>IMO </option>
+                        <option value="jigawa" {{ old('state_select') == "jigawa" ? 'selected' : '' }}>JIGAWA </option>
+                        <option value="kaduna" {{ old('state_select') == "kaduna" ? 'selected' : '' }}>KADUNA </option>
+                        <option value="kano" {{ old('state_select') == "kano" ? 'selected' : '' }}>KANO </option>
+                        <option value="katsina" {{ old('state_select') == "katsina" ? 'selected' : '' }}>KATSINA </option>
+                        <option value="kebbi" {{ old('state_select') == "kebbi" ? 'selected' : '' }}>KEBBI </option>
+                        <option value="kogi" {{ old('state_select') == "kogi" ? 'selected' : '' }}>KOGI </option>
+                        <option value="kwara" {{ old('state_select') == "kwara" ? 'selected' : '' }}>KWARA </option>
+                        <option value="lagos" {{ old('state_select') == "lagos" ? 'selected' : '' }}>LAGOS </option>
+                        <option value="nasarawa" {{ old('state_select') == "nassarawa" ? 'selected' : '' }}>NASARAWA </option>
+                        <option value="niger" {{ old('state_select') == "niger" ? 'selected' : '' }}>NIGER </option>
+                        <option value="ogun" {{ old('state_select') == "ogun" ? 'selected' : '' }}>OGUN </option>
+                        <option value="ondo" {{ old('state_select') == "ondo" ? 'selected' : '' }}>ONDO </option>
+                        <option value="osun" {{ old('state_select') == "osun" ? 'selected' : '' }}>OSUN </option>
+                        <option value="oyo" {{ old('state_select') == "oyo" ? 'selected' : '' }}>OYO </option>
+                        <option value="plateau" {{ old('state_select') == "plateau" ? 'selected' : '' }}>PLATEAU </option>
+                        <option value="rivers" {{ old('state_select') == "rivers" ? 'selected' : '' }}>RIVERS </option>
+                        <option value="sokoto"{{ old('state_select') == "sokoto" ? 'selected' : '' }}>SOKOTO </option>
+                        <option value="taraba" {{ old('state_select') == "taraba" ? 'selected' : '' }}>TARABA </option>
+                        <option value="yobe" {{ old('state_select') == "yobe" ? 'selected' : '' }}>YOBE </option>
+                        <option value="zamfara" {{ old('state_select') == "zamfara" ? 'selected' : '' }}>ZAMFARA </option>
+
+                    </select>
+                </span>
+
+                <span class="filter_lga">
+                    <label class="filter_zone_title">LGA</label>
+
+                    <select name="filter_lga_select" id="filter_lga" class="filter_zone_select" >
+                        <option selected disabled>LGA</option>
+                    </select>
+                </span>
+
+                <span class="filter_ward">
+                    <label class="filter_zone_title">WARD</label>
+
+                    <select name="filter_ward_select" id="filter_ward"  class="filter_zone_select" value="{{ old('filter_ward_select') }}">
+                        <option selected disabled>WARD</option>
+                    </select>
+                </span>
+
+                <span class="filter_category">
+                    <label class="filter_zone_title">GRIEVIANCE CATEGORY</label>
+
+
+                    <select name="filter_category_select" class="filter_zone_select">
+                        <option selected disabled>CATEGORY</option>
+                        <option value="wrongful_inclusion_exclusion">WRONGFUL INCLUSION/EXCLUSION</option>
+                        <option value="payments_and_payment_service_delivery">PAYMENTS AND PAYMENT SERVICE DELIVERY</option>
+                        <option value="nassp_service_delivery_issues">NASSP SERVICE DELIVERY ISSUES</option>
+                        <option value="fraud_and_corruption_issues">FRAUD AND CORRUPTION ISSUES</option>
+                        <option value="data_errors_and_updates">DATA ERRORS AND UPDATES</option>
+                        <option value="inquiries_and_information_requests">INQUIRIES AND INFORMATION REQUESTS</option>
+                        <option value="other">OTHER</option>
+                        <option value="abuse_and_social_issues">ABUSE AND SOCIAL ISSUES</option>
+                    </select>
+                </span>
+
+                <span class="filter_mode">
+                    <label class="filter_zone_title">COMPLAINT MODE</label>
+
+                    <select name="filter_mode_select" class="filter_zone_select" value="{{ old('filter_ward_select') }}">
+                        <option selected disabled>COMPLAINT MODE</option>
+                        <option value="in_person">IN PERSON</option>
+                        <option value="email">EMAIL</option>
+                        <option value="phone">PHONE</option>
+                        <option value="online">ONLINE</option>
+                    </select>
+                </span>
+
+                <span class="filter_resolved">
+                    <label class="filter_zone_title">RESOLVED GRIEVIANCES</label>
+
+                    <select name="filter_resolved_select" class="filter_zone_select" value="{{ old('filter_zone_select') }}">
+                        <option selected disabled>Has the problem been resolved</option>    
+                        <option value="yes">RESOLVED</option>
+                        <option value="no">UNRESOLVED</option>
+                    </select>  
+                </span>
+
+                <button class="filter_search" type="submit">
+                    SEARCH
+                </button>
+            </span>
+        </form>
+        <!-- //end of code for filter -->
         
     </div>
-
-    <!-- share code -->
-    <form method="post" style="display:none " id="info_share_box" action="{{ route('list_download') }}">
-    @csrf
-        <span class="info_share_box_cover"></span>
-        <span class="info_share_box_main">
-            <label for="" class="info_share_box_main_header">
-                Export Grieviances
-            </label>
-
-            <img src="{{ URL('img/close.png') }}" alt="close" class="info_share_box_main_header_close" id="info_share_box_close">
-
-            <label for="" class="info_share_box_main_header1">
-                Select Format 
-            </label>
-
-            <select name="info_share" id="" class="info_share_box_main_text">
-                <option selected disabled>File Format</option>
-                <option value="csv">CSV</option>
-                <option value="excel">EXCEL</option>
-            </select>
-
-            <button class="info_share_box_button">Export</button>
-        </span>
-    </div>
+    
 </body>
 
-<script src="{{ URL('js/national/home.js') }}"></script>
+
+
+<script src="{{ URL('js/national/list.js') }}"></script>
 
 <script>
-     const share_button = document.getElementById("info_share");
+    $(document).ready(function () {
+        $('#filter_state').on('change', function (){
+            //alert('sdsdsd');
+            var stateid = this.value;
+            $('#filter_lga').html('');
+            $.ajax({
+                url: '{{ route('getLgas') }}?stateid='+stateid,
+                type: 'get',
+                success: function (res) {
+                        if(res)
+                        {
+                            $('#filter_lga').html('<option selected disabled>LGA</option>');
+                            $.each(res, function (key, value) {
+                                $('#filter_lga').append('<option value="' + value
+                                .lga + '">' + value.lgan + '</option>');
+                            });
+                        }
+                        else{
+                            alert("not working");
+                        }
+                    }
+            });
+            //changing zones
+                $.ajax({
+                    url: '{{ route('getzones') }}?stateid='+stateid,
+                    type: 'get',
+                    success: function(res1){
+                        if(res1){
 
-     const close_button = document.getElementById("info_share_box_close");
+                            $.each(res1, function(key,value){
+                                $('#filter_zone').val(value.zone1);
 
-     const show_share = document.getElementById("info_share_box");
+                            });
+                            //alert('xdsdsdsd00');
+                        }
+                    }
+                });
+        });
 
-     share_button.addEventListener("click", (event) => {
-        if(show_share.style.display == "none")
-        {
-            show_share.style.display = "block";
-        }
-     });
+        $('#filter_lga').on('change', function() {
+            //alert('lga');
+            var lga = this.value;
+            $('#filter_ward').html('');
+            $.ajax({
+                    url: '{{ route('getwards') }}?lga='+lga,
+                    type: 'get',
+                    success: function (res) {
+                    if(res){
+                    $('#filter_ward').html('<option selected disabled>WARD</option>');
+                    $.each(res, function (key, value){
+                        $('#filter_ward').append('<option value="' + value.ward + '">' + value.wardn +'</option>');
+                    });
+                    }
+                    else{
+                        alert("not working");
+                    }
+                }
 
-     close_button.addEventListener("click", (event) => {
-        if(show_share.style.display == "block")
-        {
-            show_share.style.display = "none";
-        }
-     });
+            });
+        });
+
+        $('#info_header_grieviance').on('click', function() {
+            //alert("sdsdsd");
+            window.location.href = "{{ route('all_grieviances') }}";
+        });
+
+        $('#info_header_Searchbox').keyup(function() {
+            var search_input = this.value;
+
+            document.cookie = "search_input = "  + search_input;
+
+            //alert(search_input);
+
+            if(search_input != "")
+            {
+                //alert("sasas");
+                $.ajax({
+                    url: "{{ route('search_bar') }}",
+                    type: 'get',
+                    //data: {search_input:search_input},
+                    success: function (res) {
+                        if(res)
+                        {
+                            //alert('sdsd');
+                            //window.location.reload('#info_table');
+                            $('#info_table').load(' #info_table');
+                        }
+                    }
+                });
+            }
+            else{
+                //alert("empty");
+                $.ajax({
+                    url: "{{ route('all_grieviances') }}"
+                });
+            }
+        });
+
+        $('#info_filter2').on('click', function() {
+            //alert("sdsdsd");
+            window.location.href = "{{ route('personal') }}";
+        });
+    });
+
+
+        
+
+    
 </script>
 
 </html>

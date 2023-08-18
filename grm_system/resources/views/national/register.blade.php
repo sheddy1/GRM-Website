@@ -367,7 +367,7 @@
                         SUBMIT
                     </button>
 
-                    <button class="button_clear" type="none">
+                    <button class="button_clear" type="none" onclick="clear()">
                         CLEAR
                     </button>
                 </span>
@@ -382,6 +382,26 @@
 </body>
 
 <script type="text/javascript">
+
+    function clear(){
+        document.getElementById('info_zone').reset();
+        document.getElementById('info_state').reset();
+        document.getElementById('info_lga').reset();
+        document.getElementById('info_ward').reset();
+        document.getElementById('info_community').reset();
+        document.getElementById('info_beneficiary').reset();
+        document.getElementById('info_cname').reset();
+        document.getElementById('info_cphone').reset();
+        document.getElementById('info_gender').reset();
+        document.getElementById('info_category').reset();
+        document.getElementById('info_subcat').reset();
+        document.getElementById('info_cmode').reset();
+        document.getElementById('info_cemail').reset();
+        document.getElementById('info_resolved').reset();
+        document.getElementById('info_escalate').reset();
+        document.getElementById('info_zone').reset();
+        document.getElementById('info_zone').reset();
+    }
 
         $(document).ready(function () {
             $('#info_state').on('change', function () {

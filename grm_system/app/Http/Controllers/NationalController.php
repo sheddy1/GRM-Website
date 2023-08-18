@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Session;
 
 use Cookie;
 
+
+
 //use Maatwebsite\Excel\Facades\Excel;
 
 use App\Exports\listExport;
@@ -34,11 +36,11 @@ class NationalController extends Controller
 
         $id =  $request->session()->get('loggeduser');
 
-        $name = user::where('id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('name');
 
-        $lname = user::where('id', $id)->value('lname');
+        $lname = user::where('user_id', $id)->value('lname');
 
-        $title = user::where('id', $id)->value('title');
+        $title = user::where('user_id', $id)->value('title');
 
         $lname_first = $lname[0];
 
@@ -251,11 +253,11 @@ class NationalController extends Controller
     function register(Request $request){
         $id =  $request->session()->get('loggeduser');
 
-        $name = user::where('id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('name');
 
-        $lname = user::where('id', $id)->value('lname');
+        $lname = user::where('user_id', $id)->value('lname');
 
-        $title = user::where('id', $id)->value('title');
+        $title = user::where('user_id', $id)->value('title');
 
         $lname_first = $lname[0];
         return view('national.register', [
@@ -266,8 +268,39 @@ class NationalController extends Controller
         ]);
     }
 
-    function list(){
-        return view('national.list');
+    function national_list(Request $request){
+        $id =  $request->session()->get('loggeduser');
+
+        $grieviance = DB::table('grieviances')->get();
+
+        $name = user::where('user_id', $id)->value('name');
+
+        $lname = user::where('user_id', $id)->value('lname');
+
+        $title = user::where('user_id', $id)->value('title');
+
+        $lname_first = $lname[0];
+
+        $total_grieviance = DB::table('grieviances')->count();
+
+        $resolved = grieviance::where('resolved', '=', 'yes')->count();
+
+        $review = grieviance::where('resolved', '=', 'no')->count();
+
+        $new = grieviance::where('attended', '=', 0)->count();
+
+        return view('national.list', [
+            'name'=>$name, 
+            'lname'=>$lname,
+            'lname_first'=>$lname_first,
+            'title'=>$title,
+            'grieviance' => $grieviance,
+            'total_grieviance' => $total_grieviance,
+            'resolved' => $resolved,
+            'resolved' => $resolved,
+            'review' => $review,
+            'new' => $new,
+        ]);
     }
 
     function reports(){
@@ -511,21 +544,177 @@ class NationalController extends Controller
 
     function bar_change()
     { 
-        session::put('chart_bar', 1); 
+        session::put('chart_bar', 1);  
 
-        //$a = session::get('sum_charta');
+    }
 
-        //$b = session::get('sum_chartb');
+    function filter_grieviance(Request $request)
+    { 
+        $zone = $request->filter_zone_select;
 
-        //$c = session::get('sum_chartc');
+        $state = $request->filter_state_select;
 
-        //echo $a;
-        //echo "<br>";
-        //echo $b;
-        //echo "<br>";
-        //echo$c;
+        $lga = $request->filter_lga_select;
+
+        $ward = $request->filter_ward_select;
+
+        $category = $request->filter_category_select;
+
+        //echo $category;
+
+        $mode = $request->filter_mode_select;
+
+        $resolved = $request->filter_resolved_select;
+
+        //echo $state;
+
+        //validating zone
+        $zone1 = "";
+        if($zone == "")
+        {
+            $zone = null;
+            $zone1 = null;
+        }
 
         
+        else{
+            //$zone = null;
+            $zone1 = "zone";
+        }
+
+        //validating state
+        $state1 = "";
+        if($state == "")
+        {
+            $state = null;
+            $state1 = null;
+        }
+
+        
+        else{
+            $state1 = "state";
+        }
+
+        //validating lga
+        $lga1 = "";
+        if($lga == "")
+        {
+            $lga = null;
+            $lga1 = null;
+        }
+
+        
+        else{
+            $lga1 = "lga";
+        }
+
+        //validating ward
+        $ward1 = "";
+        if($ward == "")
+        {
+            $ward = null;
+            $ward1 = null;
+        }
+
+        
+        else{
+            $ward1 = "ward";
+        }
+
+        //validating category
+        $category1 = "";
+        if($category == "")
+        {
+            $category = null;
+            $category1 = null;
+        }
+
+        
+        else{
+            $category1 = "category";
+        }
+
+        //validating mode
+        $mode1 = "";
+        if($mode == "")
+        {
+            $mode = null;
+            $mode1 = null;
+        }
+
+        
+        else{
+            $mode1 = "cmode";
+        }
+
+        //validating resolved
+        $resolved1 = "";
+        if($resolved == "")
+        {
+            $resolved = null;
+            $resolved1 = null;
+        }
+
+        
+        else{
+            $resolved1 = "resolved";
+        }
+
+        $filter_search = grieviance::where($resolved1, '=', $resolved)
+        ->where($zone1, '=', $zone)
+        ->where($state1, '=', $state)
+        ->where($lga1, '=', $lga)
+        ->where($ward1, '=', $ward)
+        ->where($category1, '=', $category)
+        ->where($mode1, '=', $mode)
+        ->get();
+
+        //echo $filter_search;
+
+        session::put('filter_search', $filter_search);
+
+        return back();
+
+    }
+
+    function all_grieviances()
+    {
+        //echo "sdsdsd";
+        $grieviance_main = grieviance::get();
+        //echo $cat1;
+        session::put('filter_search', $grieviance_main );
+        return back();
+
+    }
+
+    function personal()
+    {
+        $id = session::get('loggeduser');
+        $title = user::where('user_id', '=', $id)->value('titlen');
+        //echo $title;
+        $grieviance_main = grieviance::
+        where('assigned', '=', $id)
+        ->orWhere('assigned', '=', $title)
+        ->where('resolved', '=', 'no')
+        ->get();
+        //echo $grieviance_main;
+        session::put('filter_search', $grieviance_main );
+        return back();
+
+    }
+
+    function search_bar(Request $request)
+    {
+        $search_input= $_COOKIE['search_input'];
+        echo $search_input;
+        $search_input= grieviance::
+            where('track', 'LIKE', '%'.$search_input.'%')
+            ->get();
+
+        echo $search_input;
+
+        session::put('filter_search', $search_input );
+        //return back();
     }
 
 }
