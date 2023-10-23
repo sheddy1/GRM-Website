@@ -11,6 +11,8 @@ class listExport implements FromCollection,withHeadings
     public function headings(): array{
         return[
             'Grm Refrence Number',
+            'NSR Number',
+            'State',
             'Zone',
             'LGA',
             'Ward',
@@ -26,7 +28,10 @@ class listExport implements FromCollection,withHeadings
             'Sub Category',
             'Complaint Mode',
             'Resolved',
-            'Resolved Comment'
+            'Resolved Comment',
+            'Assigned To',
+            'Refered To',
+            'Time and date of Registration'
         ]; 
     }
     /**

@@ -1,5 +1,6 @@
 @php
     use Illuminate\Support\Facades\Session;
+    use App\Models\user;
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -182,65 +183,75 @@
                 </span>
             </span>
 
-            <table class="info_table" id="info_table">
+            <table class="info_table" id="info_table"> 
 
 
                     <tr class="thead">
                         
-                        <th >
-                            <input type="checkbox">
+                        <th class="info_table_header_text_edit">
+                            
                         </th>
                         <th class="info_table_header_text">
                             GRM RefNo
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
+                            {{--  <img src="{{ url('img/attach1.png') }}" alt="filter_image">  --}}
                         </th>
                         <th class="info_table_header_text">
                             Zone
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             State
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             LGA 
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Ward 
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Community
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>  
                         <th class="info_table_header_text">
                             Name
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Phone
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Category
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Sub Category 
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Complain Mode
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
                             Resolved
-                            <img src="{{ url('img/attach1.png') }}" alt="filter_image">
                         </th>
                         <th class="info_table_header_text">
-                            <img src="{{ url('img/left.png') }}" alt="filter_image" class="info_table_left">
+                            Resolved Comment
                         </th>
+                        <th class="info_table_header_text">
+                            Assigned To
+                        </th>
+                        <th class="info_table_header_text">
+                            Refered To
+                        </th>
+                        <th class="info_table_header_text">
+                            NSR No
+                        </th>
+                        <th class="info_table_header_text">
+                            Gender
+                        </th>
+                        <th class="info_table_header_text">
+                            Email
+                        </th>
+                        <th class="info_table_header_text">
+                            Description
+                        </th>
+                        {{--  <th class="info_table_header_text">
+                            <img src="{{ url('img/left.png') }}" alt="filter_image" class="info_table_left">
+                        </th>  --}}
 
                     </tr> 
 
@@ -251,8 +262,13 @@
                     @foreach ($grieviance_table as $key => $data)
 
                     <tr class="tbody" id="tbody">
-                        <td class="info_table_header_text"> 
-                            <input type="checkbox">
+                        <td class="info_table_header_text_edit" id="info_table_header_text_edit" value="{{ $data->track }}">
+                            <form action="{{ route('edit') }}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{ $data->track }}" name="id" id="id">
+                                <button type="submit" class="info_text_edit" id="info_text_edit" value="sdjsdsd">Edit</button>
+                            </form>
+                             
                         </td>
                         <td class="info_table_header_text1">{{ $data->track }}</td>
                         <td class="info_table_header_text1">{{ $data->zone }}</td> 
@@ -265,17 +281,35 @@
                         <td class="info_table_header_text1">{{ $data->category }}</td> 
                         <td class="info_table_header_text1">{{ $data->sub_category }}</td> 
                         <td class="info_table_header_text1">{{ $data->cmode }}</td> 
-                        <td class="info_table_header_text1">{{ $data->resolved }}</td> 
+                        <td class="info_table_header_text1">{{ $data->resolved }}</td>
+                        <td class="info_table_header_text1">{{ $data->rescomment }}</td> 
+                        @php
+                            $name = user::where('user_id', '=', $data->assigned)->value('name1');
+                        @endphp
+                        <td class="info_table_header_text1">{{ $name}}</td> 
+                        <td class="info_table_header_text1">{{ $data->referal}}</td> 
+                        <td class="info_table_header_text1">{{ $data->nsr_no}}</td> 
+                        <td class="info_table_header_text1">{{ $data->gender }}</td> 
+                        <td class="info_table_header_text1">{{ $data->email }}</td> 
+                        <td class="info_table_header_text1">{{ $data->desc }}</td> 
                         <td class="info_table_header_text1"></td> 
                     </tr>
 
+                    {{--  <script>
+                        $(document).ready(function () {
+                            $('#info_table_header_text_edit').on('click', function() {
+                            var track = this.value;
+                            alert("sdsdsd" + track);
+                            });
+                        });  --}}
+                    </script>
                     @endforeach
 
                 
             </table>
         </div>
         
-        <!-- //code for export -->
+        <!-- code for export -->
         <form method="post" style="display:none" id="info_share_box" action="{{ route('list_download') }}">
             @csrf
             <span class="info_share_box_cover"></span>
@@ -299,9 +333,9 @@
                 <button class="info_share_box_button">Export</button>
             </span>
         </form>
-        <!-- //end of code for export -->
+        <!-- end of code for export -->
 
-        <!-- //code for filter -->
+        <!-- code for filter -->
         <form method="post" style="display:none" id="info_filter" action="{{ route('filter_grieviance') }}">
             @csrf
             <span class="info_filter_cover"></span>
@@ -425,7 +459,100 @@
                 </button>
             </span>
         </form>
-        <!-- //end of code for filter -->
+        <!-- end of code for filter -->
+
+        <!-- code for edit -->
+
+        @php
+            $show_edit = session::get('edit_show_id');
+
+            $edit_id = session::get('edit_id');
+        @endphp
+
+        <form method="post" style="display:none;" id="info_edit" action="{{ route('edit_form') }}">
+            @csrf
+            <span class="info_filter_cover"></span>
+            <span class="info_filter_main">
+                <label for="" class="info_share_box_main_header">
+                    Filter Grieviances
+                </label>   
+                
+                <img src="{{ URL('img/close.png') }}" alt="close" class="info_share_box_main_header_close" id="info_edit_close">
+
+                <span class="filter_zone">
+                    <label class="filter_zone_title">ZONE</label>
+
+
+                    <input type="text" value="" name="filter_zone_select" id="filter_zone" class="filter_zone_select" placeholder="{{ $edit_id }}">
+                </span>
+
+                <span class="filter_state">
+                     <label class="filter_zone_title">STATE</label>
+
+                </span>
+
+                <span class="filter_lga">
+                    <label class="filter_zone_title">LGA</label>
+
+                    <select name="filter_lga_select" id="filter_lga" class="filter_zone_select" >
+                        <option selected disabled>LGA</option>
+                    </select>
+                </span>
+
+                <span class="filter_ward">
+                    <label class="filter_zone_title">WARD</label>
+
+                    <select name="filter_ward_select" id="filter_ward"  class="filter_zone_select" value="{{ old('filter_ward_select') }}">
+                        <option selected disabled>WARD</option>
+                    </select>
+                </span>
+
+                <span class="filter_category">
+                    <label class="filter_zone_title">GRIEVIANCE CATEGORY</label>
+
+
+                    <select name="filter_category_select" class="filter_zone_select">
+                        <option selected disabled>CATEGORY</option>
+                        <option value="wrongful_inclusion_exclusion">WRONGFUL INCLUSION/EXCLUSION</option>
+                        <option value="payments_and_payment_service_delivery">PAYMENTS AND PAYMENT SERVICE DELIVERY</option>
+                        <option value="nassp_service_delivery_issues">NASSP SERVICE DELIVERY ISSUES</option>
+                        <option value="fraud_and_corruption_issues">FRAUD AND CORRUPTION ISSUES</option>
+                        <option value="data_errors_and_updates">DATA ERRORS AND UPDATES</option>
+                        <option value="inquiries_and_information_requests">INQUIRIES AND INFORMATION REQUESTS</option>
+                        <option value="other">OTHER</option>
+                        <option value="abuse_and_social_issues">ABUSE AND SOCIAL ISSUES</option>
+                    </select>
+                </span>
+
+                <span class="filter_mode">
+                    <label class="filter_zone_title">COMPLAINT MODE</label>
+
+                    <select name="filter_mode_select" class="filter_zone_select" value="{{ old('filter_ward_select') }}">
+                        <option selected disabled>COMPLAINT MODE</option>
+                        <option value="in_person">IN PERSON</option>
+                        <option value="email">EMAIL</option>
+                        <option value="phone">PHONE</option>
+                        <option value="online">ONLINE</option>
+                    </select>
+                </span>
+
+                <span class="filter_resolved">
+                    <label class="filter_zone_title">RESOLVED GRIEVIANCES</label>
+
+                    <select name="filter_resolved_select" class="filter_zone_select" value="{{ old('filter_zone_select') }}">
+                        <option selected disabled>Has the problem been resolved</option>    
+                        <option value="yes">RESOLVED</option>
+                        <option value="no">UNRESOLVED</option>
+                    </select>  
+                </span>
+
+                <button class="filter_search" type="submit">
+                    SEARCH
+                </button>
+            </span>
+        </form>
+
+        <!-- end of code for edit -->
         
     </div>
     
@@ -538,6 +665,43 @@
             //alert("sdsdsd");
             window.location.href = "{{ route('personal') }}";
         });
+
+        //edit code
+        $('.info_text_edit').click( function() {
+            //var track = this.value;
+            //var val = document.getElementById("id").value;
+            //alert("sdsdsd");
+            //sessionStorage.setItem('edit_show_id', 'show');
+           //@php
+                //session::put('edit_show_id', 'show'); 
+           // @endphp
+           grieve_mode0 = document.getElementById("info_edit");
+            grieve_mode0.style.display = "show";
+            
+        });
+
+        $('#info_edit_close').click( function() { 
+            //alert("sdsdsd");
+            //sessionStorage.setItem('edit_show_id', 'none');
+            //@php
+                //session::put('edit_show_id', 'none'); 
+            //@endphp
+
+            window.location.href = "{{ route('edit_form') }}";
+
+            grieve_mode0 = document.getElementById("info_edit");
+            grieve_mode0.style.visibility = "hidden";
+        });
+
+
+        //const close_edit_button = document.getElementById("info_edit_close");
+
+        //close_edit_button.addEventListener("click", (event) => {
+        //alert("God is great");
+        //sessionStorage.setItem('edit_show_id', 'none');
+        //var a = sessionStorage.getItem("edit_show_id");
+        //alert("sheddy " + a);
+        //});
     });
 
 

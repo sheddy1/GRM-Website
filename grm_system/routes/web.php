@@ -87,3 +87,7 @@ Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_g
 Route::get('Search Bar', 'NationalController@search_bar')->name('search_bar');
 
 Route::get('Personal', 'NationalController@personal')->name('personal');
+
+Route::post('Edit', 'NationalController@edit')->name('edit');
+
+Route::get('Edit Form', 'NationalController@edit_form')->name('edit_form');

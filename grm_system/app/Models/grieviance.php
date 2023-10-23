@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Session;
+use App\Models\grieviance;
+use App\Models\user;
 
 class grieviance extends Model
 {
@@ -14,8 +15,10 @@ class grieviance extends Model
     protected $fillable = ['title'];
 
     public static function get_grieviance()
-    {
-        $records = DB::table('grieviances')->select('track','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment')->get();
+    { 
+        //$download = session::get('download_list');
+        $records = session::get('download_list');
         return $records;
     }
 }
+ 

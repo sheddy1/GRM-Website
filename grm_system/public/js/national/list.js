@@ -49,3 +49,34 @@
           $(".ul_whole1").toggleClass("ul_whole2");
         });
       });
+
+      //list edit code
+
+    //   const edit_button = document.getElementById("info_text_edit");
+
+    //  const show_edit = document.getElementById("info_edit");
+
+      //const close_edit_button = document.getElementById("info_edit_close");
+
+    //  edit_button.addEventListener("click", (event) => {
+    //     if(show_edit.style.display == "none")
+    //     {
+    //         show_edit.style.display = "block";
+    //     }
+    //  });
+
+    //  close_edit_button.addEventListener("click", (event) => {
+    //     if(show_edit.style.display == "block")
+    //     {
+    //         show_edit.style.display = "none";
+    //     }
+    //  });
+
+    // close_edit_button.addEventListener("click", (event) => {
+    //     //alert("God is great");
+    //     sessionStorage.setItem('edit_show_id', 'none');
+    //     var a = sessionStorage.getItem("edit_show_id");
+    //     alert("sheddy " + a);
+    //  });
+
+      //end of list edit code

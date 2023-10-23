@@ -1484,14 +1484,24 @@ th {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 9px;
+    font-size: 12px;
     /* identical to box height */
-    text-align: center;
-
+    text-align: left;
     color: #000000;
-
-
 }
+
+.info_table_header_text_edit{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    /* identical to box height */
+    text-align: left;
+    color: #000000;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 .info_table_left{
     cursor: pointer;

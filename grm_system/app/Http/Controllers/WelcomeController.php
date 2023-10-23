@@ -116,6 +116,13 @@ class WelcomeController extends Controller
 
                     session::put('filter_search', $grieviance_main );
 
+                    $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+                    ->get();
+
+                    session::put('edit_show_id', "none");
+
+                    session::put('download_list', $download_list );
+
                     //end of chart1 code
                     $request->session()->put('loggeduser', $email->user_id);
                     return redirect('national_homepage');

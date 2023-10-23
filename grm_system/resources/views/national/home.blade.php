@@ -51,7 +51,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('national_reports') }}">
+                    <a href="{{ route('national_gro') }}">
                         <img src="{{ URL('img/gro_icon.png') }}" alt="Dashboard Icon" class="dashboard_icon">
                         <span class="nav_item">GRO Reports</span>
                     </a>

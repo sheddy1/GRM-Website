@@ -673,6 +673,18 @@ class NationalController extends Controller
 
         session::put('filter_search', $filter_search);
 
+        $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+        ->where($resolved1, '=', $resolved)
+        ->where($zone1, '=', $zone)
+        ->where($state1, '=', $state)
+        ->where($lga1, '=', $lga)
+        ->where($ward1, '=', $ward)
+        ->where($category1, '=', $category)
+        ->where($mode1, '=', $mode)
+        ->get();
+
+        session::put('download_list', $download_list );
+
         return back();
 
     }
@@ -683,6 +695,11 @@ class NationalController extends Controller
         $grieviance_main = grieviance::get();
         //echo $cat1;
         session::put('filter_search', $grieviance_main );
+
+        $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+        ->get();
+
+        session::put('download_list', $download_list );
         return back();
 
     }
@@ -699,6 +716,13 @@ class NationalController extends Controller
         ->get();
         //echo $grieviance_main;
         session::put('filter_search', $grieviance_main );
+        $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+        ->where('assigned', '=', $id)
+        ->orWhere('assigned', '=', $title)
+        ->where('resolved', '=', 'no')
+        ->get();
+
+        session::put('download_list', $download_list );
         return back();
 
     }
@@ -711,10 +735,33 @@ class NationalController extends Controller
             where('track', 'LIKE', '%'.$search_input.'%')
             ->get();
 
-        echo $search_input;
+        //echo $search_input;
+        $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+        ->where('track', 'LIKE', '%'.$search_input.'%')
+        ->get();
+
+        session::put('download_list', $download_list );
 
         session::put('filter_search', $search_input );
         //return back();
+    }
+
+    function edit(Request $request)
+    {
+        $edit_id = $request->id;
+
+        session::put('edit_id', $edit_id);
+
+        //session::put('edit_show_id', "show");
+
+        return back();
+
+    }
+
+    function edit_form(Request $request)
+    {
+        session::put('edit_show_id', 'none'); 
+        return back();
     }
 
 }
