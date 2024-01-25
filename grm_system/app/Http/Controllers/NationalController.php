@@ -27,6 +27,7 @@ use Cookie;
 //use Maatwebsite\Excel\Facades\Excel;
 
 use App\Exports\listExport;
+use App\Exports\categoryExport;
 use Excel;
 
 class NationalController extends Controller
@@ -303,12 +304,79 @@ class NationalController extends Controller
         ]);
     }
 
-    function reports(){
-        return view('national.reports');
+    function national_reports(Request $request){
+        $id =  $request->session()->get('loggeduser');
+
+        $grieviance = DB::table('grieviances')->get();
+
+        $name = user::where('user_id', $id)->value('name');
+
+        $lname = user::where('user_id', $id)->value('lname');
+
+        $title = user::where('user_id', $id)->value('title');
+
+        //category summary code
+
+        $cat_state = session::get('cat_state');
+
+        //echo $cat_state;
+
+        //echo "zdzasa";
+
+        $cat1 = grieviance::where('category', '=', 'wrongful_inclusion_exclusion')->where('state', '=', $cat_state)->count();
+        $cat2 = grieviance::where('category', '=', 'payments_and_payment_service_delivery')->where('state', '=', $cat_state)->count();
+        $cat3 = grieviance::where('category', '=', 'nassp_service_delivery_issues')->where('state', '=', $cat_state)->count();
+        $cat4 = grieviance::where('category', '=', 'fraud_and_corruption_issues')->where('state', '=', $cat_state)->count();
+        $cat5 = grieviance::where('category', '=', 'data_errors_and_updates')->where('state', '=', $cat_state)->count();
+        $cat6 = grieviance::where('category', '=', 'inquiries_and_information_requests')->where('state', '=', $cat_state)->count();
+        $cat7 = grieviance::where('category', '=', 'other')->where('state', '=', $cat_state)->count();
+        $cat8 = grieviance::where('category', '=', 'abuse_and_social_issues')->where('state', '=', $cat_state)->count();
+
+        $lname_first = $lname[0];
+
+        $date = date("Y/m/d");
+
+        $month = date('F', strtotime($date));
+
+        //echo $cat3;
+
+        return view('national.reports', [
+            'name'=>$name, 
+            'lname'=>$lname,
+            'lname_first'=>$lname_first,
+            'title'=>$title,
+            'cat1'=>$cat1,
+            'cat2'=>$cat2,
+            'cat3'=>$cat3,
+            'cat4'=>$cat4,
+            'cat5'=>$cat5,
+            'cat6'=>$cat6,
+            'cat7'=>$cat7,
+            'cat8'=>$cat8,
+            'month' => $month
+        ]);
     }
 
-    function gro(){
-        return view('national.gro');
+    function gro(Request $request){
+        $id =  $request->session()->get('loggeduser');
+
+        $grieviance = DB::table('grieviances')->get();
+
+        $name = user::where('user_id', $id)->value('name');
+
+        $lname = user::where('user_id', $id)->value('lname');
+
+        $title = user::where('user_id', $id)->value('title');
+
+        $lname_first = $lname[0];
+
+        return view('national.gro', [
+            'name'=>$name, 
+            'lname'=>$lname,
+            'lname_first'=>$lname_first,
+            'title'=>$title
+        ]);
+        
     }
 
     public function getCategory(Request $request)
@@ -707,7 +775,7 @@ class NationalController extends Controller
     function personal()
     {
         $id = session::get('loggeduser');
-        $title = user::where('user_id', '=', $id)->value('titlen');
+        $title = user::where('user_id', '=', $id)->value('title');
         //echo $title;
         $grieviance_main = grieviance::
         where('assigned', '=', $id)
@@ -764,4 +832,53 @@ class NationalController extends Controller
         return back();
     }
 
+    function chart_states()
+    {
+       $chart_states= $_COOKIE['chart_states']; 
+
+       if($chart_states == "wards")
+       {
+        session::put('home_chart_states', 1);
+       }
+       else if($chart_states == "states")
+       {
+        session::put('home_chart_states', 2);
+       }
+
+       return back();
+    }
+
+    function cat_state(){
+        $cat_state = $_COOKIE['cat_state']; 
+        session::put('cat_state', $cat_state);
+        //return back();
+    }
+
+    function category_list(){
+        $state = session::get('cat_state');
+
+        $category_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+        ->where('state', $state)
+        ->get();
+
+        session::put('category_list', $category_list );
+
+        return Excel::download(new categoryExport, 'Grieviance Category.xlsx');
+    }
+
+    function gro_add(Request $request){
+        $request->validate([
+            'fname'=>'required',
+            'mname'=>'required',
+            'lname'=>'required',
+            'email'=>'required|email',
+            'state'=>'required',
+            'lga'=>'',
+            'designation'=>'required',
+            'password'=>'required|min:8|max:12',
+            'cpassword'=>'required|min:8|max:12'
+        ]);
+        
+        return back();
+    }
 }

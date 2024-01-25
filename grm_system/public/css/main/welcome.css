@@ -90,7 +90,7 @@ ul li a:before{
 
 ul li a:hover:before{
     transform-origin: left;
-    transform: scaleX(1);
+    transform: scaleX(1); 
 
 }
 

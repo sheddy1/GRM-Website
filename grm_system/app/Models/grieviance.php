@@ -20,5 +20,12 @@ class grieviance extends Model
         $records = session::get('download_list');
         return $records;
     }
+
+    public static function get_category()
+    { 
+        //$download = session::get('download_list');
+        $records = session::get('category_list');
+        return $records;
+    }
 }
  

@@ -26,6 +26,7 @@
     
         {{--  <script>alert({{ session::get('chart_a') }})</script>  --}}
         <input type="checkbox" id="check_nav" style="display: none" checked>
+        
         <nav>
 
             <label class="dashboard_nassp" for="check_nav">
@@ -236,8 +237,6 @@
                         </span>
                     </span>
 
-                    
-
                     {{--  <div id="container" class="main_chart1_oval_chart" ></div>  --}}
 
 
@@ -245,7 +244,13 @@
 
                 <span class="main_chart1_bar" id="main_chart1_bar">
                     <span class="main_chart1_bar_header">
-                        <label class="main_chart1_bar_header_lab">All Wards</label>
+
+                    <select name="main_chart1_bar_header_lab" id="main_chart1_bar_header_lab" class="main_chart1_bar_header_lab">
+                        <option value="wards">All Wards</option>
+                        <option value="states">All States</option>
+                    </select>
+                    
+                        <!-- <label class="main_chart1_bar_header_lab">All Wards</label> -->
 
                         @php
                             $bar_change5 = $_COOKIE['bar_change'];
@@ -294,10 +299,15 @@
                         </select>
                     </span>
 
-                    <span class="main_chart1_bar_chart" id="main_chart1_bar_chart">
-                        <span id="container1"> </span>
+                    <div class="main_chart1_bar_chart" id="main_chart1_bar_chart">
+                        @php
+                            $chstates = session::get('home_chart_states');
+                        @endphp
 
-                        <table id="datatable" style="display: none">
+                        @if($chstates == 1)
+                            <div id="container1"> </div>
+
+                            <table id="datatable" style="display: none">
                             <thead>
                             <tr >
                                 <th>asasas</th>
@@ -331,8 +341,208 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
-                    </span>
+                            </table>
+                        
+                        @elseif ($chstates == 2)
+                            <div id="container2">sadasa</div>
+
+                            <table id="datatable2" style="display: none">
+                                <thead>
+                                <tr >
+                                    <th>asasas</th>
+                                    <th>No of Grieviance</th>
+                                </tr>
+                                </thead>
+                                <tbody id="container1_tbody">
+                                    <tr>
+                                        <th>Abia</th>
+                                        <td>{{ $abia }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Adamawa</th>
+                                        <td>{{ $adamawa }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Akwa Ibom</th>
+                                        <td>{{$akwa_ibom}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Anambra</th>
+                                        <td>{{$anambra}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Bauchi</th>
+                                        <td>{{$bauchi}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Bayelsa</th>
+                                        <td>{{$bayelsa}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Benue</th>
+                                        <td>{{$benue}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Borno</th>
+                                        <td>{{$borno}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Cross River</th>
+                                        <td>{{$cross_river}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Delta</th>
+                                        <td>{{$delta}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Ebonyi</th>
+                                        <td>{{$ebonyi}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Edo</th>
+                                        <td>{{$edo}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Ekiti</th>
+                                        <td>{{$ekiti}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Enugu</th>
+                                        <td>{{$enugu}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Gombe</th>
+                                        <td>{{$gombe}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Imo</th>
+                                        <td>{{$imo}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Jigawa</th>
+                                        <td>{{$jigawa}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Kaduna</th>
+                                        <td>{{$kaduna}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Kano</th>
+                                        <td>{{$kano}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Katsina</th>
+                                        <td>{{$katsina}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Kebbi</th>
+                                        <td>{{$kebbi}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Kogi</th>
+                                        <td>{{$kogi}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Kwara</th>
+                                        <td>{{$kwara}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Lagos</th>
+                                        <td>{{$lagos}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Nassarawa</th>
+                                        <td>{{$nasarawa}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Niger</th>
+                                        <td>{{$niger}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Ogun</th>
+                                        <td>{{$ogun}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Ondo</th>
+                                        <td>{{$ondo}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Osun</th>
+                                        <td>{{$osun}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Oyo</th>
+                                        <td>{{$oyo}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Plateau</th>
+                                        <td>{{$plateau}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>rivers</th>
+                                        <td>{{$rivers}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Sokoto</th>
+                                        <td>{{$sokoto}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Taraba</th>
+                                        <td>{{$taraba}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Yobe</th>
+                                        <td>{{$yobe}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Zamfara</th>
+                                        <td>{{$zamfara}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>FCT</th>
+                                        <td>{{$fct}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        @endif
+                        
+                    </div>
                 </span>
             </div>
 
@@ -712,204 +922,99 @@
     <script src="{{ URL('js/national/home.js') }}"></script>
 
     <script>
-    $(document).ready(function () {
-            $('#main_chart1_oval_header_drop').on('change', function () {
-                var chart_date = this.value;
-                //alert("sdsdsdsd" + chart_date);
-                document.cookie = "name = "  + chart_date;
-                $.ajax({
-                    url: "{{ route('chart_date') }}",   
-                });
-                //window.location.reload('container1');
-                $("#container").load(location.href + "#container");
-            });
-
-            //code for change in bar chart
-            $('#main_chart1_bar_header_lab_drop').on('change', function () {
-                
-                var bar_change = this.value;
-                //alert(bar_change);
-                document.cookie = "bar_change = "  + bar_change;
-
-                $.ajax({
-                    url: "{{ route('bar_change') }}"   
+        $(document).ready(function () {
+                $('#main_chart1_oval_header_drop').on('change', function () {
+                    var chart_date = this.value;
+                    //alert("sdsdsdsd" + chart_date);
+                    document.cookie = "name = "  + chart_date;
+                    $.ajax({
+                        url: "{{ route('chart_date') }}",   
+                    });
+                    //window.location.reload('container1');
+                    $("#container").load(location.href + "#container");
                 });
 
-                window.location.reload('#container1');
-                //$("#container1").load(location.href + "#container1");
-                //$("#datatable").load(location.href + "#datatable");
-            });
-            //end of code for change in bar chart
+                $('#main_chart1_bar_header_lab').on('change', function () {
+                    var chart_date = this.value;
+                    alert("sdsdsdsd" + chart_date);
 
-    });
+                    document.cookie = "chart_states = "  + chart_date;
+                    $.ajax({
+                        url: "{{ route('chart_states') }}",
+                    });
+                    //window.location.reload('main_chart1_bar_chart');
+                    $( "#main_chart1_bar_chart" ).load(window.location.href + " #main_chart1_bar_chart" );
+                });
 
-    //grieviance summary code
-            Highcharts.chart('container', {
-                chart: {
-                    plotBackgroundColor: "#EFEDED",
-                    plotBorderWidth: 20,
-                    height: 205,
-                    plotBorderColor: "#EFEDED",
-                    plotShadow: false,
-                    type: 'pie'
+                //code for change in bar chart
+                $('#main_chart1_bar_header_lab_drop').on('change', function () {
+                    
+                    var bar_change = this.value;
+                    //alert(bar_change);
+                    document.cookie = "bar_change = "  + bar_change;
 
-                },
-                title: {
-                    text: ''
-                },
+                    $.ajax({
+                        url: "{{ route('bar_change') }}"   
+                    });
 
-                credits: {
-                    enabled: false
-                },
+                    window.location.reload('#container1');
+                    //$("#container1").load(location.href + "#container1");
+                    //$("#datatable").load(location.href + "#datatable");
+                });
+                //end of code for change in bar chart
 
-                plotOptions: {
-                    pie: {
-                        type: 'doughnut',
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        colors: pieColors,
-                        dataLabels: {
-                            enabled: false,
-                            format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                            distance: -90,
+        });
 
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Percentage',
-                    innerSize: '70%',
-                    data: [
-                        { name: 'Resolved', y: {{ session::get('chart_a') }}, id: 'sheddy1'},
-                        { name: 'Under Review', y: {{ session::get('chart_b') }}, id: 'sheddy2'},
-                        { name: 'New cases', y: {{ session::get('chart_c') }}, id: 'sheddy3'},
-                    ],
-                    point: {
-                        events: {
-                            click: function() {
-                                //var a = this.y;
-                                //alert(a)
-                                grieve_summary1 = document.getElementById("main_chart1_oval_chart_text1");
-                                grieve_summary2 = document.getElementById("main_chart1_oval_chart_text2");
-                                grieve_summary3 = document.getElementById("main_chart1_oval_chart_text3");
-                                grieve_summary4 = document.getElementById("main_chart1_oval_chart_text4");
+        //grieviance summary code
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: "#EFEDED",
+                        plotBorderWidth: 20,
+                        height: 205,
+                        plotBorderColor: "#EFEDED",
+                        plotShadow: false,
+                        type: 'pie'
 
-                                //var sum_id = this.id;
+                    },
+                    title: {
+                        text: ''
+                    },
 
-                                //var $self = $(this);
-                                var sum_id =  this.id;
+                    credits: {
+                        enabled: false
+                    },
 
-                                //alert(sum_id);
+                    plotOptions: {
+                        pie: {
+                            type: 'doughnut',
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            colors: pieColors,
+                            dataLabels: {
+                                enabled: false,
+                                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                distance: -90,
 
-                                if(sum_id == "sheddy1"){
-                                    if(grieve_summary1.style.display == "none")
-                                    {
-                                        grieve_summary1.style.display = "block";
-                                        grieve_summary2.style.display = "none";
-                                        grieve_summary3.style.display = "none";
-                                        grieve_summary4.style.display = "none";
-                                    }
-                                    else{
-                                        grieve_summary1.style.display = "none";
-                                        grieve_summary2.style.display = "none";
-                                        grieve_summary3.style.display = "none";
-                                        grieve_summary4.style.display = "block";
-                                    }
-                                }
-                                else if(sum_id == "sheddy2")
-                                {
-                                    if(grieve_summary2.style.display == "none")
-                                    {
-                                        grieve_summary2.style.display = "block";
-                                        grieve_summary1.style.display = "none";
-                                        grieve_summary3.style.display = "none";
-                                        grieve_summary4.style.display = "none";
-                                    }
-                                    else{
-                                        grieve_summary2.style.display = "none";
-                                        grieve_summary1.style.display = "none";
-                                        grieve_summary3.style.display = "none";
-                                        grieve_summary4.style.display = "block";
-                                    }
-                                }
-                                else if(sum_id == "sheddy3")
-                                {
-                                    if(grieve_summary3.style.display == "none")
-                                    {
-                                        grieve_summary3.style.display = "block";
-                                        grieve_summary1.style.display = "none";
-                                        grieve_summary2.style.display = "none";
-                                        grieve_summary4.style.display = "none";
-                                    }
-                                    else{
-                                        grieve_summary3.style.display = "none";
-                                        grieve_summary1.style.display = "none";
-                                        grieve_summary2.style.display = "none";
-                                        grieve_summary4.style.display = "block";
-                                    }
-                                }
-
-
-                                
                             }
                         }
                     },
-                    
-                }]
-            });
-
-            //grieviance catergory code
-            Highcharts.chart('container4', {
-                chart: {
-                    plotBackgroundColor: "#EFEDED",
-                    plotBorderWidth: 20,
-                    height: 205,
-                    plotBorderColor: "#EFEDED",
-                    plotShadow: false,
-                    type: 'pie'
-
-                },
-                title: {
-                    text: ''
-                },
-
-                credits: {
-                    enabled: false
-                },
-
-                plotOptions: {
-                    pie: {
-                        type: 'doughnut',
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        colors: pieColors,
-                        dataLabels: {
-                            enabled: false,
-                            format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                            distance: -90,
-
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Percentage',
-                    innerSize: '70%',
-                    data: [
-                        { name: 'In person', y: {{ $mode1_per }}, id: 'cat1'},
-                        { name: 'Email', y: {{ $mode2_per }}, id: 'cat2'},
-                        { name: 'Phone', y: {{ $mode3_per }}, id: 'cat3'},
-                        { name: 'Online', y: {{ $mode4_per }}, id: 'cat4'},
-                    ],
-                    point: {
+                    series: [{
+                        name: 'Percentage',
+                        innerSize: '70%',
+                        data: [
+                            { name: 'Resolved', y: {{ session::get('chart_a') }}, id: 'sheddy1'},
+                            { name: 'Under Review', y: {{ session::get('chart_b') }}, id: 'sheddy2'},
+                            { name: 'New cases', y: {{ session::get('chart_c') }}, id: 'sheddy3'},
+                        ],
+                        point: {
                             events: {
                                 click: function() {
                                     //var a = this.y;
                                     //alert(a)
-                                    grieve_mode0 = document.getElementById("main_chart2_grieve_mode0");
-                                    grieve_mode1 = document.getElementById("main_chart2_grieve_mode1");
-                                    grieve_mode2 = document.getElementById("main_chart2_grieve_mode2");
-                                    grieve_mode3 = document.getElementById("main_chart2_grieve_mode3");
-                                    grieve_mode4 = document.getElementById("main_chart2_grieve_mode4");
+                                    grieve_summary1 = document.getElementById("main_chart1_oval_chart_text1");
+                                    grieve_summary2 = document.getElementById("main_chart1_oval_chart_text2");
+                                    grieve_summary3 = document.getElementById("main_chart1_oval_chart_text3");
+                                    grieve_summary4 = document.getElementById("main_chart1_oval_chart_text4");
 
                                     //var sum_id = this.id;
 
@@ -918,427 +1023,544 @@
 
                                     //alert(sum_id);
 
-                                    if(sum_id == "cat1"){
-                                        if(grieve_mode1.style.display == "none")
+                                    if(sum_id == "sheddy1"){
+                                        if(grieve_summary1.style.display == "none")
                                         {
-                                            grieve_mode0.style.display = "none";
-                                            grieve_mode1.style.display = "block";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary1.style.display = "block";
+                                            grieve_summary2.style.display = "none";
+                                            grieve_summary3.style.display = "none";
+                                            grieve_summary4.style.display = "none";
                                         }
                                         else{
-                                            grieve_mode0.style.display = "block";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary1.style.display = "none";
+                                            grieve_summary2.style.display = "none";
+                                            grieve_summary3.style.display = "none";
+                                            grieve_summary4.style.display = "block";
                                         }
                                     }
-                                    else if(sum_id == "cat2")
+                                    else if(sum_id == "sheddy2")
                                     {
-                                        if(grieve_mode2.style.display == "none")
+                                        if(grieve_summary2.style.display == "none")
                                         {
-                                            grieve_mode0.style.display = "none";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "block";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary2.style.display = "block";
+                                            grieve_summary1.style.display = "none";
+                                            grieve_summary3.style.display = "none";
+                                            grieve_summary4.style.display = "none";
                                         }
                                         else{
-                                            grieve_mode0.style.display = "block";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary2.style.display = "none";
+                                            grieve_summary1.style.display = "none";
+                                            grieve_summary3.style.display = "none";
+                                            grieve_summary4.style.display = "block";
                                         }
                                     }
-                                    else if(sum_id == "cat3")
+                                    else if(sum_id == "sheddy3")
                                     {
-                                        if(grieve_mode3.style.display == "none")
+                                        if(grieve_summary3.style.display == "none")
                                         {
-                                            grieve_mode0.style.display = "none";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "block";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary3.style.display = "block";
+                                            grieve_summary1.style.display = "none";
+                                            grieve_summary2.style.display = "none";
+                                            grieve_summary4.style.display = "none";
                                         }
                                         else{
-                                            grieve_mode0.style.display = "block";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat4")
-                                    {
-                                        if(grieve_mode4.style.display == "none")
-                                        {
-                                            grieve_mode0.style.display = "none";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "block";
-                                        }
-                                        else{
-                                            grieve_mode0.style.display = "block";
-                                            grieve_mode1.style.display = "none";
-                                            grieve_mode2.style.display = "none";
-                                            grieve_mode3.style.display = "none";
-                                            grieve_mode4.style.display = "none";
+                                            grieve_summary3.style.display = "none";
+                                            grieve_summary1.style.display = "none";
+                                            grieve_summary2.style.display = "none";
+                                            grieve_summary4.style.display = "block";
                                         }
                                     }
 
-                                }
-                            }
-                        },
-                }]
-            });
-            // end of grieve cat code
 
-            //grieviance catergory code
-            Highcharts.chart('container3', {
-                chart: {
-                    plotBackgroundColor: "#EFEDED",
-                    plotBorderWidth: 20,
-                    height: 205,
-                    plotBorderColor: "#EFEDED",
-                    plotShadow: false,
-                    type: 'pie'
-
-                },
-                title: {
-                    text: ''
-                },
-
-                credits: {
-                    enabled: false
-                },
-
-                plotOptions: {
-                    pie: {
-                        type: 'doughnut',
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        colors: pieColors,
-                        dataLabels: {
-                            enabled: false,
-                            format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                            distance: -90,
-
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Percentage',
-                    innerSize: '70%',
-                    data: [
-                        { name: 'Wrongful inclusion/exclusion', y: {{ $cat1_per }}, id: 'cat1'},
-                        { name: 'PAYMENTS AND PAYMENT SERVICE DELIVERY', y: {{ $cat2_per }}, id: 'cat2'},
-                        { name: 'NASSP SERVICE DELIVERY ISSUES', y: {{ $cat3_per }}, id: 'cat3'},
-                        { name: 'FRAUD AND CORRUPTION ISSUES', y: {{ $cat4_per }}, id: 'cat4'},
-                        { name: 'DATA ERRORS AND UPDATES', y: {{ $cat5_per }}, id: 'cat5'},
-                        { name: 'INQUIRIES AND INFORMATION REQUESTS', y: {{ $cat6_per }}, id: 'cat6'},
-                        { name: 'OTHER', y: {{ $cat7_per }}, id: 'cat7'},
-                        { name: 'ABUSE AND SOCIAL ISSUES', y: {{ $cat8_per }}, id: 'cat8'},
-                    ],
-                    point: {
-                            events: {
-                                click: function() {
-                                    //var a = this.y;
-                                    //alert(a)
-                                    grieve_cat0 = document.getElementById("main_chart2_grieve0");
-                                    grieve_cat1 = document.getElementById("main_chart2_grieve1");
-                                    grieve_cat2 = document.getElementById("main_chart2_grieve2");
-                                    grieve_cat3 = document.getElementById("main_chart2_grieve3");
-                                    grieve_cat4 = document.getElementById("main_chart2_grieve4");
-                                    grieve_cat5 = document.getElementById("main_chart2_grieve5");
-                                    grieve_cat6 = document.getElementById("main_chart2_grieve6");
-                                    grieve_cat7 = document.getElementById("main_chart2_grieve7");
-                                    grieve_cat8 = document.getElementById("main_chart2_grieve8");
-
-                                    //var sum_id = this.id;
-
-                                    //var $self = $(this);
-                                    var sum_id =  this.id;
-
-                                    //alert(sum_id);
-
-                                    if(sum_id == "cat1"){
-                                        if(grieve_cat1.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "block";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat2")
-                                    {
-                                        if(grieve_cat2.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "block";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat3")
-                                    {
-                                        if(grieve_cat3.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "block";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat4")
-                                    {
-                                        if(grieve_cat4.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "block";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat5")
-                                    {
-                                        if(grieve_cat5.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "block";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat6")
-                                    {
-                                        if(grieve_cat6.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "block";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat7")
-                                    {
-                                        if(grieve_cat7.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "block";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
-                                    else if(sum_id == "cat8")
-                                    {
-                                        if(grieve_cat8.style.display == "none")
-                                        {
-                                            grieve_cat0.style.display = "none";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "block";
-                                        }
-                                        else{
-                                            grieve_cat0.style.display = "block";
-                                            grieve_cat1.style.display = "none";
-                                            grieve_cat2.style.display = "none";
-                                            grieve_cat3.style.display = "none";
-                                            grieve_cat4.style.display = "none";
-                                            grieve_cat5.style.display = "none";
-                                            grieve_cat6.style.display = "none";
-                                            grieve_cat7.style.display = "none";
-                                            grieve_cat8.style.display = "none";
-                                        }
-                                    }
                                     
                                 }
                             }
                         },
-                }]
-            });
-            // end of grieve cat code
+                        
+                    }]
+                });
 
-            Highcharts.chart('container1', {
-                data: {
-                    table: 'datatable'
-                },
-                chart: {
-                    type: 'column',
-                    color: '#627C33',
-                    // plotBackgroundColor: "#EFEDED",
-                    // BorderColor: "#EFEDED",
-                },
-                title: {
-                    text: ''
-                },
-                credits: {
-                    enabled: false
-                },
-                subtitle: {
-                    text:
-                        ''
-                },
-                xAxis: {
-                    type: '',
-                    title: {
-                        text:''
-                    }
+                //grieviance catergory code
+                Highcharts.chart('container4', {
+                    chart: {
+                        plotBackgroundColor: "#EFEDED",
+                        plotBorderWidth: 20,
+                        height: 205,
+                        plotBorderColor: "#EFEDED",
+                        plotShadow: false,
+                        type: 'pie'
 
-                },
-                yAxis: {
-                    allowDecimals: false,
+                    },
                     title: {
                         text: ''
-                    }
-                },
-                xAxis: {
-                    allowDecimals: false,
-                },
-                tooltip: {
-
-                },
-                plotOptions: {
-                    column: {
-                        borderRadius: 0,
-                        borderRadiusTopLeft: '20',
-                        borderRadiusTopRight: '20',
-                        color: '#627C33',
                     },
 
-                    series: {
-                        
-                        label: {
-                            connectorAllowed: false,
-                            show: false,
-                            display: false
-                        },
-                        showInLegend: false,
+                    credits: {
+                        enabled: false
+                    },
+
+                    plotOptions: {
+                        pie: {
+                            type: 'doughnut',
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            colors: pieColors,
+                            dataLabels: {
+                                enabled: false,
+                                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                distance: -90,
+
+                            }
                         }
                     },
+                    series: [{
+                        name: 'Percentage',
+                        innerSize: '70%',
+                        data: [
+                            { name: 'In person', y: {{ $mode1_per }}, id: 'cat1'},
+                            { name: 'Email', y: {{ $mode2_per }}, id: 'cat2'},
+                            { name: 'Phone', y: {{ $mode3_per }}, id: 'cat3'},
+                            { name: 'Online', y: {{ $mode4_per }}, id: 'cat4'},
+                        ],
+                        point: {
+                                events: {
+                                    click: function() {
+                                        //var a = this.y;
+                                        //alert(a)
+                                        grieve_mode0 = document.getElementById("main_chart2_grieve_mode0");
+                                        grieve_mode1 = document.getElementById("main_chart2_grieve_mode1");
+                                        grieve_mode2 = document.getElementById("main_chart2_grieve_mode2");
+                                        grieve_mode3 = document.getElementById("main_chart2_grieve_mode3");
+                                        grieve_mode4 = document.getElementById("main_chart2_grieve_mode4");
 
-            });
+                                        //var sum_id = this.id;
+
+                                        //var $self = $(this);
+                                        var sum_id =  this.id;
+
+                                        //alert(sum_id);
+
+                                        if(sum_id == "cat1"){
+                                            if(grieve_mode1.style.display == "none")
+                                            {
+                                                grieve_mode0.style.display = "none";
+                                                grieve_mode1.style.display = "block";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_mode0.style.display = "block";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat2")
+                                        {
+                                            if(grieve_mode2.style.display == "none")
+                                            {
+                                                grieve_mode0.style.display = "none";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "block";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_mode0.style.display = "block";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat3")
+                                        {
+                                            if(grieve_mode3.style.display == "none")
+                                            {
+                                                grieve_mode0.style.display = "none";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "block";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_mode0.style.display = "block";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat4")
+                                        {
+                                            if(grieve_mode4.style.display == "none")
+                                            {
+                                                grieve_mode0.style.display = "none";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "block";
+                                            }
+                                            else{
+                                                grieve_mode0.style.display = "block";
+                                                grieve_mode1.style.display = "none";
+                                                grieve_mode2.style.display = "none";
+                                                grieve_mode3.style.display = "none";
+                                                grieve_mode4.style.display = "none";
+                                            }
+                                        }
+
+                                    }
+                                }
+                            },
+                    }]
+                });
+                // end of grieve cat code
+
+                //grieviance catergory code
+                Highcharts.chart('container3', {
+                    chart: {
+                        plotBackgroundColor: "#EFEDED",
+                        plotBorderWidth: 20,
+                        height: 205,
+                        plotBorderColor: "#EFEDED",
+                        plotShadow: false,
+                        type: 'pie'
+
+                    },
+                    title: {
+                        text: ''
+                    },
+
+                    credits: {
+                        enabled: false
+                    },
+
+                    plotOptions: {
+                        pie: {
+                            type: 'doughnut',
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            colors: pieColors,
+                            dataLabels: {
+                                enabled: false,
+                                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                distance: -90,
+
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Percentage',
+                        innerSize: '70%',
+                        data: [
+                            { name: 'Wrongful inclusion/exclusion', y: {{ $cat1_per }}, id: 'cat1'},
+                            { name: 'PAYMENTS AND PAYMENT SERVICE DELIVERY', y: {{ $cat2_per }}, id: 'cat2'},
+                            { name: 'NASSP SERVICE DELIVERY ISSUES', y: {{ $cat3_per }}, id: 'cat3'},
+                            { name: 'FRAUD AND CORRUPTION ISSUES', y: {{ $cat4_per }}, id: 'cat4'},
+                            { name: 'DATA ERRORS AND UPDATES', y: {{ $cat5_per }}, id: 'cat5'},
+                            { name: 'INQUIRIES AND INFORMATION REQUESTS', y: {{ $cat6_per }}, id: 'cat6'},
+                            { name: 'OTHER', y: {{ $cat7_per }}, id: 'cat7'},
+                            { name: 'ABUSE AND SOCIAL ISSUES', y: {{ $cat8_per }}, id: 'cat8'},
+                        ],
+                        point: {
+                                events: {
+                                    click: function() {
+                                        //var a = this.y;
+                                        //alert(a)
+                                        grieve_cat0 = document.getElementById("main_chart2_grieve0");
+                                        grieve_cat1 = document.getElementById("main_chart2_grieve1");
+                                        grieve_cat2 = document.getElementById("main_chart2_grieve2");
+                                        grieve_cat3 = document.getElementById("main_chart2_grieve3");
+                                        grieve_cat4 = document.getElementById("main_chart2_grieve4");
+                                        grieve_cat5 = document.getElementById("main_chart2_grieve5");
+                                        grieve_cat6 = document.getElementById("main_chart2_grieve6");
+                                        grieve_cat7 = document.getElementById("main_chart2_grieve7");
+                                        grieve_cat8 = document.getElementById("main_chart2_grieve8");
+
+                                        //var sum_id = this.id;
+
+                                        //var $self = $(this);
+                                        var sum_id =  this.id;
+
+                                        //alert(sum_id);
+
+                                        if(sum_id == "cat1"){
+                                            if(grieve_cat1.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "block";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat2")
+                                        {
+                                            if(grieve_cat2.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "block";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat3")
+                                        {
+                                            if(grieve_cat3.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "block";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat4")
+                                        {
+                                            if(grieve_cat4.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "block";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat5")
+                                        {
+                                            if(grieve_cat5.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "block";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat6")
+                                        {
+                                            if(grieve_cat6.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "block";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat7")
+                                        {
+                                            if(grieve_cat7.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "block";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        else if(sum_id == "cat8")
+                                        {
+                                            if(grieve_cat8.style.display == "none")
+                                            {
+                                                grieve_cat0.style.display = "none";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "block";
+                                            }
+                                            else{
+                                                grieve_cat0.style.display = "block";
+                                                grieve_cat1.style.display = "none";
+                                                grieve_cat2.style.display = "none";
+                                                grieve_cat3.style.display = "none";
+                                                grieve_cat4.style.display = "none";
+                                                grieve_cat5.style.display = "none";
+                                                grieve_cat6.style.display = "none";
+                                                grieve_cat7.style.display = "none";
+                                                grieve_cat8.style.display = "none";
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                            },
+                    }]
+                });
+                // end of grieve cat code
+
+                Highcharts.chart('container1', {
+                    data: {
+                        table: 'datatable'
+                    },
+                    chart: {
+                        type: 'column',
+                        color: '#627C33',
+                        // plotBackgroundColor: "#EFEDED",
+                        // BorderColor: "#EFEDED",
+                    },
+                    title: {
+                        text: ''
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    subtitle: {
+                        text:
+                            ''
+                    },
+                    xAxis: {
+                        type: '',
+                        title: {
+                            text:''
+                        }
+
+                    },
+                    yAxis: {
+                        allowDecimals: false,
+                        title: {
+                            text: ''
+                        }
+                    },
+                    xAxis: {
+                        allowDecimals: false,
+                    },
+                    tooltip: {
+
+                    },
+                    plotOptions: {
+                        column: {
+                            borderRadius: 0,
+                            borderRadiusTopLeft: '20',
+                            borderRadiusTopRight: '20',
+                            color: '#627C33',
+                        },
+
+                        series: {
+                            
+                            label: {
+                                connectorAllowed: false,
+                                show: false,
+                                display: false
+                            },
+                            showInLegend: false,
+                            }
+                        },
+
+                });
 
     </script>
 

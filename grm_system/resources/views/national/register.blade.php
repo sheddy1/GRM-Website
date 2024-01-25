@@ -131,7 +131,7 @@
 
                     <select name="info_state" id="info_state" class="info_state_input">
                         <option selected disabled>State</option>
-                        <option value="fct">ABUJA</option>
+                        <option value="fct">FCT</option>
                         <option value="abia">ABIA</option>
                         <option value="adamawa">ADAMAWA</option>
                         <option value="akwa-ibom">AKWA IBOM</option>

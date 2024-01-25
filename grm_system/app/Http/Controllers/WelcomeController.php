@@ -70,7 +70,9 @@ class WelcomeController extends Controller
 
                     $date_chart1 = date("Y/m/d");
 
-                    $month_chart1 = date('F', strtotime($date_chart1));
+                    //$month_chart1 = date('F', strtotime($date_chart1));
+
+                    $month_chart1 = "may";
 
                     //session::put('month', $month_chart1);
 
@@ -119,9 +121,23 @@ class WelcomeController extends Controller
                     $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
                     ->get();
 
+                    session::put('cat_state', "fct");
+
+                    $cat_state = session::get('cat_state');
+
+                    $category_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
+                    ->where('state', $cat_state)
+                    ->get();
+
+                    session::put('category_list', $category_list );
+
                     session::put('edit_show_id', "none");
 
+                    session::put('home_chart_states', 2);
+
                     session::put('download_list', $download_list );
+
+                    session::put('cat_state', "fct");
 
                     //end of chart1 code
                     $request->session()->put('loggeduser', $email->user_id);

@@ -52,6 +52,12 @@ Route::post('nationalRegister', 'NationalController@nationalRegister')->name('na
 
 Route::get('Grieviances List', 'NationalController@national_list')->name('national_list');
 
+Route::get('Chart States', 'NationalController@chart_states')->name('chart_states');
+
+Route::get('Category States', 'NationalController@cat_state')->name('cat_state');
+
+Route::get('Category List', 'NationalController@category_list')->name('category_list');
+
 //Route::get('national_list', function (Request $request) {
 
     //$grieviance = DB::table('grieviances')->get();
@@ -82,7 +88,7 @@ Route::post('Filter Grieviances', 'NationalController@filter_grieviance')->name(
 
 Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
 
-Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
+Route::get('All Grieviances', 'NationalController@all_Fgrieviances')->name('all_grieviances');
 
 Route::get('Search Bar', 'NationalController@search_bar')->name('search_bar');
 
@@ -91,3 +97,5 @@ Route::get('Personal', 'NationalController@personal')->name('personal');
 Route::post('Edit', 'NationalController@edit')->name('edit');
 
 Route::get('Edit Form', 'NationalController@edit_form')->name('edit_form');
+
+Route::post('GRO Add', 'NationalController@gro_add')->name('gro_add');
