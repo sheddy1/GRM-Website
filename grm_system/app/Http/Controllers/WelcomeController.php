@@ -12,13 +12,23 @@ use App\Models\grieviance;
 
 use App\Mail\grieve;
 
+use App\Mail\check_grieviance;
+
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Cookie;
+
 use Illuminate\Support\Facades\Mail;
 
 use DB;
+
+use Twilio\Rest\Client;
+
+use App\Clients;
+
+
 
 
 class WelcomeController extends Controller
@@ -63,7 +73,7 @@ class WelcomeController extends Controller
         else{
             if(Hash::check($request->password, $email->password))
             {
-                if($email->position ==1)
+                if($email->title == "National GRM")
                 {
                     session::put('chart_bar', 0);
                     //chart1 code
@@ -114,9 +124,17 @@ class WelcomeController extends Controller
 
                     Session::put('chart_c', $chart_c);
 
+                    //grieviance table
+
                     $grieviance_main = DB::table('grieviances')->get();
 
                     session::put('filter_search', $grieviance_main );
+
+                    //gro table
+
+                    $gro_table = DB::table('users')->get();
+
+                    session::put('gro_table', $gro_table );
 
                     $download_list = grieviance::select('track','nsr_no','state','zone','lga','ward','community','beneficiary','name','gender','age','phone','email','desc','category','sub_category','cmode','resolved','rescomment','assigned','referal','created_at')
                     ->get();
@@ -139,11 +157,15 @@ class WelcomeController extends Controller
 
                     session::put('cat_state', "fct");
 
+                    session::put('gro_add_form', "hidden");
+
+                    //Cookie::make('gro_add_form', 'hidden');
+
                     //end of chart1 code
                     $request->session()->put('loggeduser', $email->user_id);
                     return redirect('national_homepage');
                 }
-                else if($email->position ==2)
+                else if($email->title == "State GRM")
                 {
                     $request->session()->put('loggeduser', $email->user_id);
                     return redirect('national_homepage');
@@ -384,9 +406,112 @@ class WelcomeController extends Controller
 
         Mail::to("shadrachgodwin@gmail.com")->send(new grieve($details));
 
-        return view('main.RegisterSuccesful');
+        return view('mail.RegisterSuccesful');
     }
 
-    
+    function check_grieve (Request $request)
+    {
+        $code = grieviance::
+         where('track', '=', $request->info_share)
+        ->first();
+        if($code == null){
+            //echo "No such code found";
+            return back()->with('fail', 'This code does not exist in the grieviance database');
+        }
+        else
+        {
+            //echo "it is available";
+
+            //send sms code
+            //echo $request->info_share;
+
+            //getting reciever phone number
+            $recieve_no1 = grieviance::
+            where('track', '=', $request->info_share)
+            ->value('phone');
+
+            //getting name
+            $name = grieviance::
+            where('track', '=', $request->info_share)
+            ->value('name');
+
+            //getting state
+            $state = grieviance::
+            where('track', '=', $request->info_share)
+            ->value('state');
+
+            //getting lga
+            $lga = grieviance::
+            where('track', '=', $request->info_share)
+            ->value('lga');
+
+            //getting uniques id of grieviance handler
+            $unique_id = grieviance::
+            where('track', '=', $request->info_share)
+            ->value('assigned');
+
+            //getting email of grm officer
+            $email_officer = User::
+            where('user_id', '=', $unique_id)
+            ->value('email');
+
+            //getting phone number of grm officer
+            $phone_officer1 = User::
+            where('user_id', '=', $unique_id)
+            ->value('phone');
+
+            $phone_officer = 0 . $recieve_no1;
+
+            //echo  $phone_officer;
+
+            $recieve_no = "+" . 234 . $recieve_no1;
+
+            $message = "Hello ".$name."<br> Your Grieviance (".$request->info_share.") has been acknowledged and 
+            is currently being handled by The Lga GRM Officer of
+            ".$state. " state " .$lga." local goverment. We offer our sincere 
+            apologies for any inconvenience this may have caused you. Kindly contact 07098283942 or 
+            send an email to adaniel@nassp.gov.ng if you have any questions thank you.
+            ";
+
+            $message1 = "Hello " . $name;
+
+            $message2 = "Your Grieviance (".$request->info_share.") has been acknowledged and 
+            is currently being handled by The Lga GRM Officer of
+            ".$state. " state " .$lga." local goverment. We offer our sincere 
+            apologies for any inconvenience this may have caused you. Kindly contact 07098283942 or 
+            send an email to adaniel@nassp.gov.ng if you have any questions thank you.
+            ";
+
+            //echo $message;
+
+            //sendinf the message
+            $sid    = getenv("TWILIO_SID");; 
+            $token  = getenv("TWILIO_TOKEN");;
+            $phone  = getenv("TWILIO_PHONE");
+            //$twilio = new Client($sid, $token);
+            //$message = $twilio->messages
+            //->create($recieve_no, // to
+            //array(
+            //"from" => $phone,
+            //"body" => $message
+            //)
+            //);
+            //print($message->sid);
+
+            //sending email code
+
+            $details = [
+            'title' => 'Check Grieviance',
+            'body' => $message1,
+            'body1' => $message2
+            ];
+
+            Mail::to("shadrachgodwin@gmail.com")->send(new check_grieviance($details));
+
+            //return view('mail.check_grieve');
+            return back()->with('success', 'Details have been sent to the registered email and phone number');
+        }
+        
+    }
 
 }

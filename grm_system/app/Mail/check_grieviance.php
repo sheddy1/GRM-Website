@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class grieve extends Mailable
+class check_grieviance extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
@@ -31,7 +31,7 @@ class grieve extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Registered Grieviance',
+            subject: 'Grieviance Check',
         );
     }
 
@@ -43,7 +43,7 @@ class grieve extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.RegisterSuccesful',
+            view: 'mail.check_grieve',
         );
     }
 
@@ -56,8 +56,4 @@ class grieve extends Mailable
     {
         return [];
     }
-
-    // public function build(){
-    //     return $this->subject('grm mail')->view('main.RegisterSuccesful.blade');
-    // }
 }

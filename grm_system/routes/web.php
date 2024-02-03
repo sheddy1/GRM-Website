@@ -80,6 +80,8 @@ Route::get('getCategory', 'NationalController@getCategory')->name('getCategory')
 
 Route::post('Download List', 'NationalController@list_download')->name('list_download');
 
+Route::post('Check Grieviance', 'WelcomeController@check_grieve')->name('check_grieve');
+
 Route::get('Chart Date', 'NationalController@chart_date')->name('chart_date');
 
 Route::get('Bar Change', 'NationalController@bar_change')->name('bar_change');
@@ -88,9 +90,13 @@ Route::post('Filter Grieviances', 'NationalController@filter_grieviance')->name(
 
 Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
 
+Route::get('All GRO', 'NationalController@all_gro')->name('all_gro');
+
 Route::get('All Grieviances', 'NationalController@all_Fgrieviances')->name('all_grieviances');
 
 Route::get('Search Bar', 'NationalController@search_bar')->name('search_bar');
+
+Route::get('GRO Search', 'NationalController@gro_search')->name('gro_search');
 
 Route::get('Personal', 'NationalController@personal')->name('personal');
 
@@ -99,3 +105,9 @@ Route::post('Edit', 'NationalController@edit')->name('edit');
 Route::get('Edit Form', 'NationalController@edit_form')->name('edit_form');
 
 Route::post('GRO Add', 'NationalController@gro_add')->name('gro_add');
+
+Route::post('GRO Filter', 'NationalController@gro_filter')->name('gro_filter');
+
+Route::get('Open Add', 'NationalController@gro_open_Add')->name('gro_open_Add');
+
+Route::get('Close Add', 'NationalController@gro_open_close')->name('gro_open_close');

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Session;
 
 use Cookie;
 
-
+use Twilio\Rest\Client;
 
 //use Maatwebsite\Excel\Facades\Excel;
 
@@ -37,7 +37,7 @@ class NationalController extends Controller
 
         $id =  $request->session()->get('loggeduser');
 
-        $name = user::where('user_id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('fname');
 
         $lname = user::where('user_id', $id)->value('lname');
 
@@ -254,7 +254,7 @@ class NationalController extends Controller
     function register(Request $request){
         $id =  $request->session()->get('loggeduser');
 
-        $name = user::where('user_id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('fname');
 
         $lname = user::where('user_id', $id)->value('lname');
 
@@ -274,7 +274,7 @@ class NationalController extends Controller
 
         $grieviance = DB::table('grieviances')->get();
 
-        $name = user::where('user_id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('fname');
 
         $lname = user::where('user_id', $id)->value('lname');
 
@@ -309,7 +309,7 @@ class NationalController extends Controller
 
         $grieviance = DB::table('grieviances')->get();
 
-        $name = user::where('user_id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('fname');
 
         $lname = user::where('user_id', $id)->value('lname');
 
@@ -362,7 +362,7 @@ class NationalController extends Controller
 
         $grieviance = DB::table('grieviances')->get();
 
-        $name = user::where('user_id', $id)->value('name');
+        $name = user::where('user_id', $id)->value('fname');
 
         $lname = user::where('user_id', $id)->value('lname');
 
@@ -869,7 +869,7 @@ class NationalController extends Controller
     function gro_add(Request $request){
         $request->validate([
             'fname'=>'required',
-            'mname'=>'required',
+            'mname'=>'',
             'lname'=>'required',
             'email'=>'required|email',
             'state'=>'required',
@@ -878,7 +878,195 @@ class NationalController extends Controller
             'password'=>'required|min:8|max:12',
             'cpassword'=>'required|min:8|max:12'
         ]);
+
+        //getting unique id
+        $desired_length = 10;
+        $unique = uniqid();
+
+        $str = substr($unique, 0, $desired_length);
+
+        $full_name = $request->fname ." ". $request->mname ." ". $request->lname;
+
+        echo $full_name; 
+
+        echo $str;
+
+        //checking lga
+        $lga1 = $request->lga;
+        $lga2 = "";
+        if($lga1 == "")
+        {
+            $lga2 = "N/A";
+        }
+
         
+        else{
+            $lga2 = $lga1;
+        }
+
+        //checking mname
+        $mname1 = $request->mname;
+        $mname2 = "";
+        if($mname1 == "")
+        {
+            $mname2 = "N/A";
+        }
+
+        
+        else{
+            $mname2 = $mname1;
+        }
+
+        if($request->password == $request->cpassword)
+        {
+            $user1 = User::where('user_id', '=', $str)->first();
+            if ($user1 === null) {
+                $email1 = User::where('email', '=', $request->email)->first();
+                if ($email1 === null) {
+                    //echo "user doesn't exist";
+                    $user = new User;
+                    $user->user_id = $str;
+                    $user->fname = $request->fname;
+                    $user->mname = $mname2;
+                    $user->lname = $request->lname;
+                    $user->email = $request->email;
+                    $user->state = $request->state;
+                    $user->lga = $lga2;
+                    $user->name1 = $full_name;
+                    $user->title = $request->designation;
+                    $user->password = Hash::make($request->password);
+
+                    $save = $user->save();
+
+                    if($save){
+                        session::put('Gro_add_save', "Your details have been saved");
+                        return back();
+                    }
+                    else{
+                        session::put('Gro_add_save', "Your details could not be saved");
+                         return back();
+                    }
+                }
+                else
+                {
+                    //echo "user already exist";
+                    session::put('Gro_add_save', "This user already exists");
+                    return back();
+                }
+
+                //echo "user doesn't exist";
+            }
+            else{
+                //echo "user already exist";
+                session::put('Gro_add_save', "User ID is the same");
+                return back();
+            }
+
+        }
+
+        
+        //return back();
+    }
+
+    function gro_open_Add(){
+        Session::forget('gro_add_form');
+        session::put('gro_add_form', "visible");
+
+        echo session::get('gro_add_form');
+
+        //return back();
+
+        return redirect()->back();
+    }
+
+    function gro_open_close(){
+        Session::forget('gro_add_form');
+        session::put('gro_add_form', "hidden");
+
+        echo session::get('gro_add_form');
+
+        //return back();
+        return redirect()->back();
+    }
+
+    function gro_filter(Request $request)
+    {
+        $designation = $request->designation1;
+
+        $state = $request->state1;
+
+        $lga = $request->lga1;
+
+        //validating designation
+        $designation1 = "";
+        if($designation == "")
+        {
+            $designation = null;
+            $designation1 = null;
+        }
+
+        
+        else{
+            $designation1 = 'title';
+        }
+
+        $state1 = "";
+        if($state == "")
+        {
+            $state = null;
+            $state1 = null;
+        }
+
+        
+        else{
+            $state1 = 'state';
+        }
+
+        $lga1 = "";
+        if($lga == "")
+        {
+            $lga = null;
+            $lga1 = null;
+        }
+
+        
+        else{
+            $lga1 = 'lga';
+        }
+
+        echo $designation;
+        //echo $state;
+        //echo $lga;
+
+        echo "sheddy";
+
+        $filter_gro = User::where($designation1, '=', $designation)
+        ->where($state1, '=', $state)
+        ->where($lga1, '=', $lga)
+        ->get();
+
+        echo $filter_gro;
+
+
+    }
+
+    function gro_search(Request $request)
+    {
+        $search_input= $_COOKIE['search_input'];
+        //echo $search_input;
+        $search_input= User::
+            where('name1', 'LIKE', '%'.$search_input.'%')
+            ->get();
+        //echo $search_input;
+        session::put('gro_table', $search_input );
+        return back();
+    }
+
+    function all_gro()
+    {
+        $gro_all = User::get();
+        //echo $cat1;
+        session::put('gro_table', $gro_all );
         return back();
     }
 }

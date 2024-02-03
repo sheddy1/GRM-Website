@@ -122,14 +122,123 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        display: grid;
-        place-items: center;
+        /* display: grid;
+        place-items: center; */
 
         color: white;
         font-family: roboto;
         font-weight: 699;
         font-size: clamp(9px, 1px + 1.5vw,24px);
     }
+
+    .form_header_lab{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .check_grieve{
+        width: 100%;
+        height: 535px;
+        position: fixed;
+        left: 0px;
+        top: 80px;
+        /* background: #e0e0e0; */
+        z-index: 1;
+    }
+
+    .check_grieve_bg{
+        width: 100%;
+        height: 100%;
+        background: #e0e0e0;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0.5;
+    }
+
+    /* check grieve code */
+
+    .info_share_box_main{
+        width: 300px;
+        height: 200px;
+        background-color: #627C33;
+        opacity: 0.8    ;
+        position: absolute;
+        top: 170px;
+        left: 550px;
+        z-index: 2;
+        /* box-shadow: 5px 10px #f8f5f5; */
+    }
+    
+    .info_share_box_main_header{
+        font-family: inter;
+        font-size: 20px;
+        color: #D9D9D9;
+        text-decoration: underline;
+        font-weight: 600;
+        position: absolute;
+        left: 20px;
+    }
+    
+    .info_share_box_main_header_close{
+        position: absolute;
+        right: 10px;
+        top: 3px;
+        cursor: pointer;
+    }
+    
+    .info_share_box_button{
+        position: absolute;
+        bottom: 40px;
+        left: 95px;
+        height: 30px;
+        width: 90px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .info_share_box_main_header1{
+        font-family: inter;
+        font-size: 20px;
+        color: #D9D9D9;
+        font-weight: 600;
+        position: absolute;
+        top: 40px;
+        left: 60px;
+    }
+    
+    .info_share_box_main_text{
+        position: absolute;
+        top: 80px;
+        left: 40px;
+        height: 25px;
+        width: 220px;
+        text-align: center;
+        font-size: inter;
+        font-weight: 600;
+    }
+    
+
+    /* end of check grieve code */
+
+    .form_header_button{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        height: 30px;
+        width: 150px;
+        background-color: white;
+        cursor: pointer;
+        color: #627C33;
+        font-size: 17px;
+        font-weight: 800;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgb(241, 227, 227);
+    }
+
+
 
     /* header2 code */
     .form_header2{
