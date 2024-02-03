@@ -374,7 +374,7 @@ class WelcomeController extends Controller
         }
         
 
-        Session::put('reg',1);
+        Session::put('reg',1); 
 
         if($save){
             return back()->with('success', 'Your Grieviance has been registered');
@@ -488,14 +488,14 @@ class WelcomeController extends Controller
             $sid    = getenv("TWILIO_SID");; 
             $token  = getenv("TWILIO_TOKEN");;
             $phone  = getenv("TWILIO_PHONE");
-            //$twilio = new Client($sid, $token);
-            //$message = $twilio->messages
-            //->create($recieve_no, // to
-            //array(
-            //"from" => $phone,
-            //"body" => $message
-            //)
-            //);
+            $twilio = new Client($sid, $token);
+            $message = $twilio->messages
+            ->create($recieve_no, // to
+            array(
+            "from" => $phone,
+            "body" => $message
+            )
+            );
             //print($message->sid);
 
             //sending email code
@@ -510,6 +510,7 @@ class WelcomeController extends Controller
 
             //return view('mail.check_grieve');
             return back()->with('success', 'Details have been sent to the registered email and phone number');
+            //<script>alert("you have been registered")</script>
         }
         
     }

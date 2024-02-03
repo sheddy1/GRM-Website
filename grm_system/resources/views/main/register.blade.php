@@ -51,12 +51,8 @@
     <div class="header2"></div>
 
     //check grieviqance form
-    <span class="check_grieve">
-        
-    </span>
-
-    <form method="post" style="display:" class="check_grieve"
-            id="check_grieve" action="{{ route('check_grieve') }}">
+    <form method="post" style="visibility:hidden" class="check_grieve"
+    id="check_grieve" action="{{ route('check_grieve') }}">
             @csrf
             <span class="check_grieve_bg"></span>
             <span class="info_share_box_main">
@@ -74,7 +70,7 @@
 
                 <button class="info_share_box_button">Check</button>
             </span>
-        </form>
+    </form>
 
     <form class="form" id="form" method= "POST" action="{{ route('homeRegister') }}">
         {{--
@@ -94,7 +90,7 @@
         @csrf
         <div class="form_header">
           <label class="form_header_lab">GRIEVIANCE REGISTRATION FORM</label> 
-          <span class="form_header_button">Check Grieviance</span> 
+          <span class="form_header_button" id="form_header_button">Check Grieviance</span> 
         </div>
 
         <div class="form_header2">

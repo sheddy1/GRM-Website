@@ -1,24 +1,15 @@
-// $(document).ready(function () {
-//     $('#state_select').on('change', function () {
-//         var stateid = this.value;
-//         //alert("sdsdsdsd" + stateid);
-//         $('#lga_select').html('');
-//         $.ajax({
-//             url: '{{ route('getLgas') }}?stateid='+stateid,
-//             type: 'get',
-//             success: function (res) {
-//                 if(res)
-//                 {
-//                     $('#lga_select').html('<option value="">Select LGA</option>');
-//                     $.each(res, function (key, value) {
-//                         $('#lga_select').append('<option value="' + value
-//                         .lga + '">' + value.lgan + '</option>');
-//                     });
-//                 }
-//                 else{
-//                     alert("not working");
-//                 }
-//             }
-//         })
-//     });
-// });
+ //open add code
+ const grieve_show = document.getElementById("form_header_button");
+
+ const grieve_hide = document.getElementById("info_share_box_close");
+
+ const grieve_box = document.getElementById("check_grieve");
+
+ grieve_show.addEventListener("click", (event) => {
+     grieve_box.style.visibility = "visible";
+ });
+
+ grieve_hide.addEventListener("click", (event) => {
+    grieve_box.style.visibility = "hidden";
+     //window.location.reload();
+ });
