@@ -56,7 +56,7 @@
                         Add
                 </button>
 
-                <button class="main_gro_header_filter">
+                <button class="main_gro_header_filter"  id="main_gro_header_filter">
                     <img src="{{ URL('img/filter2.png') }}" alt="add" class="main_gro_header_add_image">
                         Filter
                 </button>
@@ -71,7 +71,6 @@
                 @endphp
                     @foreach ($gro_table as $key => $data)
                     <tr class="main_gro_table_tr">
-                        
                         <td >
                             <tb class="main_gro_table_img"><img src="{{ URL('img/male.png') }}" alt=""></tb>
                             <tb>
@@ -88,7 +87,7 @@
                             </tb>
                         </td>
 
-                        
+
                         <td>
                             <tb class="main_gro_table_img"><img src="{{ URL('img/male.png') }}" alt=""></tb>
                             <tb >
@@ -111,7 +110,7 @@
 
             <!-- add pop up -->
             <div class="main_gro_add" class="main_gro_add" id="main_gro_add"
-             style="visibility: {{ Session::get('gro_add_form');}}">
+             style="visibility: hidden">
                 <span class="main_gro_add_bg"></span>
 
                 <span class="main_gro_add_main">
@@ -298,7 +297,7 @@
 
             <!-- filter pop up -->
             <div class="main_gro_add" class="main_gro_filter" id="main_gro_filter"
-            style="display:none">
+            style="visibility: hidden">
                 <span class="main_gro_add_bg"></span>
 
                 <span class="main_gro_add_main">
@@ -481,30 +480,25 @@
             }
         });
 
-        //open add code
-        const add_show = document.getElementById("main_gro_header_add");
-
-        const add_hide = document.getElementById("main_gro_add_main_header_img");
-
-        const add_box = document.getElementById("main_gro_add");
-
-        add_show.addEventListener("click", (event) => {
-            //add_box.style.visibility = "visible";
-            $.ajax({
-                url: "{{ route('gro_open_Add') }}",   
-            });
-            //window.location.reload();
-        });
-
-        add_hide.addEventListener("click", (event) => {
-            alert("Jesus is lord");
-            $.ajax({
-                url: "{{ route('gro_open_close') }}",   
-            });
-            //window.location.reload();
-        });
+        
         
     });
+
+    //open add code
+        const filter_show = document.getElementById("main_gro_header_filter");
+
+        const filter_hide = document.getElementById("main_gro_filter_main_header_img");
+
+        const filter_box = document.getElementById("main_gro_filter");
+
+        filter_show.addEventListener("click", (event) => {
+            //alert("Nassco");
+            filter_box.style.visibility = "visible";
+        });
+
+        filter_hide.addEventListener("click", (event) => {
+            filter_box.style.visibility = "hidden";
+        });
 </script>
 
 </html>

@@ -350,7 +350,17 @@
                     <label class="filter_zone_title">ZONE</label>
 
 
-                    <input type="text" value="" name="filter_zone_select" id="filter_zone" class="filter_zone_select" placeholder="ZONE">
+                    {{--  <input type="text" value="" name="filter_zone_select" id="filter_zone" class="filter_zone_select" placeholder="ZONE">  --}}
+
+                    <select name="filter_zone_select" id="filter_zone_select" class="filter_zone_select" >
+                        <option selected disabled>SELECT ZONES</option>
+                        <option value="NORTH-CENTRAL">NORTH-CENTRAL</option>
+                        <option value="NORTH-WEST">NORTH-WEST</option>
+                        <option value="NORTH-EAST">NORTH-EAST</option>
+                        <option value="SOUTH-SOUTH">SOUTH-SOUTH</option>
+                        <option value="SOUTH-EAST">SOUTH-EAST</option>
+                        <option value="SOUTH-WEST">SOUTH-WEST</option>
+                    </select>
                 </span>
 
                 <span class="filter_state">
@@ -427,8 +437,8 @@
                         <option value="fraud_and_corruption_issues">FRAUD AND CORRUPTION ISSUES</option>
                         <option value="data_errors_and_updates">DATA ERRORS AND UPDATES</option>
                         <option value="inquiries_and_information_requests">INQUIRIES AND INFORMATION REQUESTS</option>
+                        <option value="abuse_and_social_issues">GENDER AND ORTHER SOCIAL ISSUES</option>
                         <option value="other">OTHER</option>
-                        <option value="abuse_and_social_issues">ABUSE AND SOCIAL ISSUES</option>
                     </select>
                 </span>
 
@@ -441,16 +451,20 @@
                         <option value="email">EMAIL</option>
                         <option value="phone">PHONE</option>
                         <option value="online">ONLINE</option>
+                        <option value="online">SMS</option>
+                        <option value="online">SOCIAL MEDIA</option>
                     </select>
                 </span>
 
                 <span class="filter_resolved">
-                    <label class="filter_zone_title">RESOLVED GRIEVIANCES</label>
+                    <label class="filter_zone_title">Grieviance Status</label>
 
                     <select name="filter_resolved_select" class="filter_zone_select" value="{{ old('filter_zone_select') }}">
-                        <option selected disabled>Has the problem been resolved</option>    
+                        <option selected disabled>Has the problem been resolved</option> 
+                        <option value="no">ALL</option>   
                         <option value="yes">RESOLVED</option>
-                        <option value="no">UNRESOLVED</option>
+                        <option value="no">NEW</option>
+                        <option value="no">PENDING</option>
                     </select>  
                 </span>
 

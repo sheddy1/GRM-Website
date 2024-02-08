@@ -151,15 +151,19 @@ class WelcomeController extends Controller
 
                     session::put('edit_show_id', "none");
 
-                    session::put('home_chart_states', 2);
+                    session::put('home_chart_states', 1);
 
-                    session::put('download_list', $download_list );
+                    session::put('download_list', $download_list);
 
                     session::put('cat_state', "fct");
 
                     session::put('gro_add_form', "hidden");
 
-                    //Cookie::make('gro_add_form', 'hidden');
+                    session::put('main_not_close', "show");
+
+                    //Cookie::make('main_not_close', 'show');
+
+
 
                     //end of chart1 code
                     $request->session()->put('loggeduser', $email->user_id);
@@ -305,6 +309,62 @@ class WelcomeController extends Controller
         else
         {$email2=$email1;}
 
+        //echo $request->phone;
+
+        $trimmed_phone = ltrim($request->phone, "0");
+
+        //echo $trimmed_phone;
+
+        $recieve_no = "+" . 234 . $trimmed_phone;
+
+        echo $recieve_no;
+
+        $message =
+        "
+        We have recieved your grieviance and we would like to
+        appologize, for any inconvinience this has cause you,
+        please hold on while we sought out your grieviance. 
+        a tracking number for this grieviance has been included 
+        in this mail, which you can use to track this grieviance 
+        whenever you wish to thank you.  
+        Your Tracking number is: ".$str.",
+        Zone : ".$request->zone.",
+        State : ".$request->state.",
+        LGA : ".$request->lga.",
+        Ward : ".$request->ward.",
+        Community :".$request->community.",
+        Are you a beneficiary : ".$request->beneficiary.",
+        NSR Number: ".$comm2."
+        Name : ".$request->name.",
+        Gender : ".$request->gender.",
+        Age : ".$request->age.",
+        Phone : ".$request->phone.",
+        Email : ".$email2.",
+        Grieviance Description : ".$request->description.",
+        Grieviance Category : N/A
+        Grieviance Sub Category : N/A
+        Grieviance Complaint Mode : ONLINE
+        Has this grieviance been resolved : N/A
+        Comment on the Resolved grieviance : N/A
+        PLease feel free to register your grieviances with nassco at any time
+
+        ";
+
+        //echo $message;
+
+            $sid    = getenv("TWILIO_SID");; 
+            $token  = getenv("TWILIO_TOKEN");;
+            $phone  = getenv("TWILIO_PHONE");
+            $twilio = new Client($sid, $token);
+            $message = $twilio->messages
+            ->create($recieve_no, // to
+            array(
+            "from" => $phone,
+            "body" => $message
+            )
+            );
+            //print($message->sid); 
+
         //inserting the data
         $grieviance = new grieviance;
         $grieviance->zone = $request->zone;
@@ -375,6 +435,9 @@ class WelcomeController extends Controller
         
 
         Session::put('reg',1); 
+
+        //send m=phone message
+
 
         if($save){
             return back()->with('success', 'Your Grieviance has been registered');

@@ -612,7 +612,8 @@ class NationalController extends Controller
 
     function bar_change()
     { 
-        session::put('chart_bar', 1);  
+        session::put('chart_bar', 2); 
+        return back(); 
 
     }
 
@@ -1052,7 +1053,8 @@ class NationalController extends Controller
 
     function gro_search(Request $request)
     {
-        $search_input= $_COOKIE['search_input'];
+        $search_input= $_
+        ['search_input'];
         //echo $search_input;
         $search_input= User::
             where('name1', 'LIKE', '%'.$search_input.'%')
@@ -1067,6 +1069,12 @@ class NationalController extends Controller
         $gro_all = User::get();
         //echo $cat1;
         session::put('gro_table', $gro_all );
+        return back();
+    }
+
+    function main_not_show()
+    {
+        session::put('main_not_close', 'none');
         return back();
     }
 }

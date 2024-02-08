@@ -134,8 +134,10 @@
     .form_header_lab{
         position: absolute;
         top: 10px;
-        left: 10px;
+        left: 40px;
     }
+
+    
 
     .check_grieve{
         width: 100%;
@@ -275,6 +277,8 @@
         display:flex;
         place-items: center;
         text-align: left;
+        position: absolute;
+        left: 40px;
 
         font-family: 'Roboto';
         font-style: normal;
@@ -721,6 +725,7 @@
         font-weight: 700;
         font-size: 15px;
         color: #FFFFFF;
+        cursor: pointer;
     }
 
     .form_btn2{
@@ -737,6 +742,9 @@
         font-weight: 700;
         font-size: 15px;
         color: #FFFFFF;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
     }
 
     @media(max-width: 1130px){

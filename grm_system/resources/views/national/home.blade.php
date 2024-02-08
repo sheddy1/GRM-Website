@@ -74,6 +74,23 @@
         </nav>
 
         <div class="main" id="main">
+            <form method="GET"  class="main_notification" action="{{ route("main_not_show") }}"
+            style="display: {{ session::get('main_not_close') }}">
+                @csrf
+                <span class="main_notification_cover"></span>
+                <span class="main_notification_box">
+                    <button type="submit" class="main_notification_box_btn1">
+                        <img src="{{ URL('img/close.png') }}" alt="close" class="main_notification_box_close" id="main_notification_box_close">
+                    </button>
+                    
+                    <label class="main_notification_box_lab1">You Have</label>
+                    <label class="main_notification_box_lab2">49</label>
+                    <label class="main_notification_box_lab3">New Grieviances</label>
+
+                    <span class="main_notification_box_btn" onclick="location.href = '{{ route('national_list') }}'">View Grieviances</span>
+                </span>
+            </form>
+
             <div class="main_header">
                 <span class="main_header_name">
                     <label class="main_header_name_name">Welcome {{ $name }} {{ $lname }} </label>
@@ -141,7 +158,7 @@
 
                 <span class="main_summary_review">
                     <label class="main_summary_recorded_header">
-                        Total Grieviances Under Review
+                        Pending Grieviances
                     </label>
 
                     <label class="main_summary_recorded_number">
@@ -205,7 +222,7 @@
                         <span class="main_chart1_oval_desc2">
                             <label class="main_chart1_oval_desc1_lab">
                                 <img src="{{ URL('img/circle2.png') }}" alt="" class="circle1">
-                                Under Review
+                                Pending
                             </label>
                         </span>
 
@@ -256,7 +273,10 @@
                             $bar_change5 = $_COOKIE['bar_change'];
                         @endphp
 
-                        <select class="main_chart1_bar_header_lab_drop" id="main_chart1_bar_header_lab_drop" name="main_chart1_bar_header_lab_drop">
+
+
+                        <select class="main_chart1_bar_header_lab_drop"
+                         id="main_chart1_bar_header_lab_drop" name="main_chart1_bar_header_lab_drop">
                             <option selected disabled>{{ $bar_change5 }}</option>
                             <option value="fct" {{ old('main_chart1_bar_header_lab_drop') == "fct" ? 'selected' : '' }}>ABUJA</option>
                             <option value="abia" {{ old('main_chart1_bar_header_lab_drop') == "abia" ? 'selected' : '' }}>ABIA</option>
@@ -936,32 +956,42 @@
 
                 $('#main_chart1_bar_header_lab').on('change', function () {
                     var chart_date = this.value;
-                    alert("sdsdsdsd" + chart_date);
+                    //alert("sdsdsdsd" + chart_date);
 
                     document.cookie = "chart_states = "  + chart_date;
-                    $.ajax({
-                        url: "{{ route('chart_states') }}",
-                    });
-                    //window.location.reload('main_chart1_bar_chart');
-                    $( "#main_chart1_bar_chart" ).load(window.location.href + " #main_chart1_bar_chart" );
+                    window.location.href = "{{ route('chart_states') }}";
+                    //$.ajax({
+                        //url: "{{ route('chart_states') }}",
+                    //});
+                    //window.location.reload();
+                   // window.location.reload(true);
+                    //$( "#main_chart1_bar_chart" ).load(window.location.href + " #main_chart1_bar_chart" );
                 });
 
                 //code for change in bar chart
                 $('#main_chart1_bar_header_lab_drop').on('change', function () {
                     
                     var bar_change = this.value;
-                    //alert(bar_change);
+                    alert(bar_change);
                     document.cookie = "bar_change = "  + bar_change;
 
                     $.ajax({
                         url: "{{ route('bar_change') }}"   
                     });
 
-                    window.location.reload('#container1');
+                    //window.location.reload('#container1');
                     //$("#container1").load(location.href + "#container1");
                     //$("#datatable").load(location.href + "#datatable");
                 });
                 //end of code for change in bar chart
+
+                //$('#main_notification_box_close').on('click', function () {
+                    //alert("NAssco");
+
+                    //$.ajax({
+                        //url: "{{ route('chart_date') }}",   
+                    //});
+                //});
 
         });
 
@@ -1003,7 +1033,7 @@
                         innerSize: '70%',
                         data: [
                             { name: 'Resolved', y: {{ session::get('chart_a') }}, id: 'sheddy1'},
-                            { name: 'Under Review', y: {{ session::get('chart_b') }}, id: 'sheddy2'},
+                            { name: 'Pending', y: {{ session::get('chart_b') }}, id: 'sheddy2'},
                             { name: 'New cases', y: {{ session::get('chart_c') }}, id: 'sheddy3'},
                         ],
                         point: {

@@ -92,7 +92,7 @@ Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_g
 
 Route::get('All GRO', 'NationalController@all_gro')->name('all_gro');
 
-Route::get('All Grieviances', 'NationalController@all_Fgrieviances')->name('all_grieviances');
+Route::get('All Grieviances', 'NationalController@all_grieviances')->name('all_grieviances');
 
 Route::get('Search Bar', 'NationalController@search_bar')->name('search_bar');
 
@@ -111,3 +111,5 @@ Route::post('GRO Filter', 'NationalController@gro_filter')->name('gro_filter');
 Route::get('Open Add', 'NationalController@gro_open_Add')->name('gro_open_Add');
 
 Route::get('Close Add', 'NationalController@gro_open_close')->name('gro_open_close');
+
+Route::get('main not show', 'NationalController@main_not_show')->name('main_not_show');

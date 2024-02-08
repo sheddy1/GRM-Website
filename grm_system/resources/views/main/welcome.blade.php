@@ -37,6 +37,20 @@
         </ul>
     </div>
 
+    <span class="call_center">
+        <span class="call_center1">
+            
+        </span>
+
+        <img src="{{ URL('img/phone-call.png') }}" alt=" Call center" 
+            class="call_center_img">
+
+            <label class="call_center_lab1">Call Center</label>
+
+            <label class="call_center_lab2">969</label>
+        
+    </span>
+
     {{--  code for scrolling images  --}}
     <div class="scroller mySwiper" id="scroller">
             <div class="swiper-wrapper scroller_wrapper">

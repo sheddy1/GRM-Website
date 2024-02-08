@@ -205,7 +205,7 @@
                 </span>
 
                 <span class="info_beneficiary">
-                    <label class="info_zone_desc">IS BENEFICIARY</label>
+                    <label class="info_zone_desc">IS BENEFICIARY?</label>
 
                     <select name="info_beneficiary" id="info_beneficiary" class="info_state_input" value="{{ old('info_beneficiary') }}">
                         <option selected disabled>ARE YOU A BENEFICIARY?</option>

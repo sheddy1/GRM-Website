@@ -294,9 +294,9 @@
                 SUBMIT
             </button>
 
-            <button class="form_btn2">
+            <span class="form_btn2" id="form_btn2">
                 CLEAR
-            </button>
+            </span>
         </div>
 
         </span>

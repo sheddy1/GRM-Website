@@ -225,7 +225,20 @@
                     {{--  <div id="container" class="main_chart1_oval_chart" ></div>  --}}
             </div>
 
-            <div class="info_complain"></div>
+            <div class="info_complain">
+                <span class="main_chart1_oval_header">
+                    <label class="main_chart1_oval_header_desc">Grieviance Summary</label>
+
+                    <button class="info_complain_export_btn">
+                        Export <img src="{{ URL('img/vector.png') }}" alt="export_image">
+                    </button>
+
+                    <span class="main_chart1_oval_chart" >
+                        <span id="container3"></span>
+
+                    </span>
+                </span>
+            </div>
         </div>
     </div>
 </body>
@@ -265,7 +278,7 @@
             return colors;
         }());
 
-            Highcharts.chart('container2', {
+        Highcharts.chart('container2', {
             chart: {
                 plotBackgroundColor: "#EFEDED",
                 plotBorderWidth: 20,
@@ -378,7 +391,55 @@
                 
             }],
         });
+
+        Highcharts.chart('container3', {
+            chart: {
+                plotBackgroundColor: "#EFEDED",
+                plotBorderWidth: 20,
+                height: 240,
+                plotBorderColor: "#EFEDED",
+                plotShadow: false,
+                type: 'pie'
+
+            },
+            title: {
+                text: ''
+            },
+
+            credits: {
+                enabled: false
+            },
+
+            plotOptions: {
+                pie: {
+                    type: 'doughnut',
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    colors: pieColors,
+                    dataLabels: {
+                        enabled: false,
+                        format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                        distance: -90,
+
+                    }
+                }
+            },
+            series: [{
+                name: 'Percentage',
+                innerSize: '0',
+                data: [
+                    { name: 'Online', y: 20, id: 'sheddy1'},
+                    { name: 'Phone', y: 40, id: 'sheddy2'},
+                    { name: 'Sms', y: 40, id: 'sheddy3'},
+                    { name: 'Social Media', y: 40, id: 'sheddy4'},
+                    { name: 'Email', y: 40, id: 'sheddy5'},
+                    { name: 'In Person', y: 40, id: 'sheddy6'},
+                ],               
+            }],
+        });
     });
+
+        
 
     
     

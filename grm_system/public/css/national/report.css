@@ -700,6 +700,23 @@ left: 15px;
     top: 0px;
 }
 
+.info_complain_export_btn{
+    height: 20px;
+    width: 100px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #000000;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    border: none;
+    outline: 1px solid black;
+    border-radius: 4px;
+}
+
 .main_chart1_oval_header_desc{
     font-family: 'Inter';
     font-style: normal;
@@ -792,6 +809,15 @@ left: 15px;
     background-color: none;
 }
 
+#container3{
+    width: 100%;
+    /* height: 250px; */
+    position: absolute;
+    top: -20px;
+    border: none;
+    background-color: none;
+}
+
  /* end main chart bar start */
 
  /* oval desc code */
@@ -848,4 +874,6 @@ left: 15px;
     position: absolute;
     left: 210px;
 }
+
+
 /* end of oval desc code */
