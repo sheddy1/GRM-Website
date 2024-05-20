@@ -113,3 +113,6 @@ Route::get('Open Add', 'NationalController@gro_open_Add')->name('gro_open_Add');
 Route::get('Close Add', 'NationalController@gro_open_close')->name('gro_open_close');
 
 Route::get('main not show', 'NationalController@main_not_show')->name('main_not_show');
+
+
+Route::get('test', 'NationalController@test')->name('test');

@@ -1077,4 +1077,27 @@ class NationalController extends Controller
         session::put('main_not_close', 'none');
         return back();
     }
+
+    function test()
+    {
+        $gro_table1 = User::get()->value('name');
+
+        echo "<br>";
+
+        echo $gro_table1;
+
+        $gro_table = $gro_table = session::get('gro_table')->count();
+
+        $total = $gro_table / 2;
+
+        $total1 = $gro_table % 2;
+
+        $total2 = (int)$total;
+
+        $total3 = $total1 + $total2;
+
+        echo $total3;
+    }
+
+        
 }

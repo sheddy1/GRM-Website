@@ -24,8 +24,8 @@ const clear = document.getElementById("form_btn2");
 
 clear.addEventListener("click", (event) => {
     alert("Nassco");
-    clear();
-
+    // clear();
+    document.getElementById('form').reset();
 });
 
  

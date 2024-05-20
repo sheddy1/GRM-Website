@@ -1,4 +1,17 @@
+#container_map {
+    height: 280px;
+    width: 100%;
+    background-color: #dcf7ab;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+}
 
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
 
 /* nav code starts */
 nav{

@@ -68,6 +68,18 @@
                 <table class="main_gro_table">
                 @php
                     $gro_table = session::get('gro_table');
+
+                    $gro_table = $gro_table = session::get('gro_table')->count();
+
+                    $total = $gro_table / 2;
+
+                    $total1 = $gro_table % 2;
+
+                    $total2 = (int)$total;
+
+                    $total3 = $total1 + $total2;
+
+                    echo $total3;
                 @endphp
                     @foreach ($gro_table as $key => $data)
                     <tr class="main_gro_table_tr">
@@ -79,7 +91,10 @@
                                     {{ $data->email }}<br>
                                     {{ $data->title }} {{ $data->state}}<br>
                                     {{ $data->name1 }}<br>
-                                    <label class="main_gro_table_details_edit" >
+
+                                    {{ $id1 = $data->id }}
+
+                                    class="main_gro_table_details_edit" >
                                         <img src="{{ URL('img/edit.png') }}" alt="">
                                         Edit
                                     </label>
