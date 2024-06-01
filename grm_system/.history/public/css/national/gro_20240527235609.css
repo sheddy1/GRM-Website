@@ -1,0 +1,493 @@
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: #EFEDED;
+    position: absolute;
+}
+
+.header_line{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 45px;
+}
+
+.header_grieviance{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+
+    color: #000000;
+
+
+}
+
+.main_header_desc{
+    width: 230px;
+    height: 45px;
+    /* background-color: rgb(255, 194, 115); */
+    position: absolute;
+    top: 0px;
+    right: 70px;
+}
+
+.main_header_desc1{
+    height: 100%;
+    width: 110px;
+    position: absolute;
+    right: 0px;
+    top:-2px;
+    /* background-color: rgb(91, 228, 182); */
+}
+
+.main_header_desc1_icon{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+.main_header_desc1_name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(9px, 1px + 2vw,15px);
+    line-height: 18px;
+    color: #000000;
+    position: absolute;
+    right: 20px;
+    top: 7px;
+}
+
+.main_header_desc1_desc{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(9px, 1px + 2vw,12px);
+    line-height: 15px;
+    color: #000000;
+    position: absolute;
+    right: 20px;
+
+    bottom: 5px;
+}
+
+.main_header_desc1_desc_male_icon{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 8px;
+    left: 80px;
+}
+
+.main_header_desc1_desc_not_icon{
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    visibility: hidden;
+}
+
+.bell_circle{
+    width: 12px;
+    height: 12px;
+    background-color: #627C33;
+    position: absolute;
+    right: 163px;
+    top: 4px;
+    border-radius: 50px;
+    font-size: 10px;
+    display: grid;
+    place-items: center;
+    color:#DFDFDF;
+    visibility: hidden;
+}
+
+
+
+.main_notification_box{
+    width: 170px;
+    height: 150px;
+    background-color: #dff5b8;
+    position: absolute;
+    top: 50px;
+    right: 90px;
+    z-index: 2;
+    opacity: 0.9;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.main_notification_box_table{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.main_notification_box_table_tr{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.main_header_desc1_desc_search_icon{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.header_location{
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+
+    color: #8D8D8D;
+
+
+}
+
+/* form info code */
+
+
+/* end of form info code */
+/* end of header code*/
+
+/* main_gro code */
+
+.main{
+    background-color: rgb(249, 255, 252);
+    width: 95%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    /* border: 2px solid black; */
+}
+
+.main_gro{
+    width: 1170px;
+    height: 520px;
+    /* outline: 1px solid black; */
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+
+}
+
+
+.main_gro_header{
+    height: 60px;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    /* outline: 1px solid black; */
+    position: absolute;
+    background-color: #ece9e9;
+    z-index: 1;
+}
+
+.main_gro_header1{
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+.main_gro_header_add{
+    width: 90px;
+    height: 30px;
+    outline: 1px solid black;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.main_gro_header_filter{
+    width: 90px;
+    height: 30px;
+    outline: 1px solid black;
+    position: absolute;
+    top: 15px;
+    right: 120px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.main_header_search{
+    width: 200px;
+    height: 30px;
+    outline: 1px solid black;
+    position: absolute;
+    top: 15px;
+    right: 230px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    background: none;
+}
+
+.main_gro_header_add_image{
+    width: 15px;
+    height: 15px;
+}
+
+/*table*/
+
+.main_gro_table1{
+    width: 100%;
+    height: 460px;
+    /* outline: 1px solid black; */
+    position: absolute;
+    bottom: 0px;
+    /* border: 1px solid black; */
+    overflow: auto;
+    z-index: 1;
+}
+
+.main_gro_table{
+    width: 100%;
+    height: 100%;
+    /* border:1px solid black; */
+}
+
+/* .main_gro_table_tr{
+    width: 542px;
+    height: 100%;
+} */
+
+.main_gro_table_column{
+    /* outline: 1px solid black; */
+    width: 200px;
+    height: 40px;
+    position: absolute;
+}
+
+.main_gro_table_line{
+    height: 30px;
+    width: 2px;
+    background-color: #000;
+    margin-top: -20px;
+}
+
+.main_gro_table_tr{
+    /* border:1px solid black; */
+}
+
+.main_gro_table_details{
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+    left: -10px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.main_gro_table_img{
+    width: 50px;
+    /* background-color: red; */
+}
+
+.main_gro_table_details_edit{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.main_gro_add{
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    z-index: 2;
+    position: absolute;
+    display: grid;
+    place-items: center;
+}
+
+.main_gro_add_bg{
+    width: 100%;
+    height: 100%;
+    background-color: #DFDFDF;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.main_gro_add_main{
+    width: 800px;
+    height: 350px;
+    background-color: #627C33;
+    opacity: 0.8;
+}
+
+.main_gro_add_main_header{
+    width: 800px;
+    height: 30px;
+    position:absolute;
+    /* background-color: #bee07d; */
+
+}
+
+.main_gro_add_main_header_lab{
+    color: #f3ebeb;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: underline;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.main_gro_add_main_header_img{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.main_gro_filter_main_header_img{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.main_gro_add_form{
+    height: 320px;
+    width: 800px;
+    background: #74884e;
+    position: absolute;
+    margin-top: 30px;
+}
+
+.main_gro_add_form_line1{
+    width: 100%;
+    height: 60px;
+    /* background-color: #8D8D8D; */
+    position: absolute;
+    top: 10px;
+}
+
+.main_gro_add_form_line2{
+    width: 100%;
+    height: 60px;
+    /* background-color: #8D8D8D; */
+    position: absolute;
+    top: 90px;
+}
+
+.main_gro_add_form_line3{
+    width: 100%;
+    height: 60px;
+    /* background-color: #8D8D8D; */
+    position: absolute;
+    top: 170px;
+}
+/*end of table*/
+/* end main_gro code */
+
+.main_gro_add_form_line1_box1{
+    width: 246.7px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    /* background-color: #2a3a0d; */
+}
+
+.main_gro_add_form_line1_box2{
+    width: 246.7px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 276.7px;
+    /* background-color: #2a3a0d; */
+}
+
+.main_gro_add_form_line1_box3{
+    width: 246.7px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 543.4px;
+    /* background-color: #2a3a0d; */
+}
+
+.main_gro_add_form_line1_box1_head{
+    color: rgb(243, 233, 233);
+    position: absolute;
+    top: 0px;
+    font-size: 18px;
+    font-family: inter;
+    font-weight: bold;
+}
+
+.main_gro_add_form_line1_box1_input{
+    position: absolute;
+    bottom: 0px;
+    width: 237px;
+    height: 25px;
+    outline: none;
+}
+
+.main_gro_add_form_button{
+    position: absolute;
+    bottom: 20px;
+    left: 330px;
+    width: 150px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #627C33;
+    background-color: #EFEDED;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.main_gro_add_form_line1_box1_head_asterik{
+    color: rgb(170, 30, 30);
+}
+
+.main_gro_error{
+    color: rgb(170, 30, 30);
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+
+}
+
+
